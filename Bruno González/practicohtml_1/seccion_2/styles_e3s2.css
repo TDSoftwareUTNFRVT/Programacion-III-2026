@@ -1,0 +1,46 @@
+* {box-sizing: border-box; margin: 0; padding: 0;}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+}
+
+.card {
+    flex: 1 1 220px;
+    min-height: 160px;
+    border-radius: 8px;
+}
+
+.c1 {
+    background: #6c63ff;
+}
+
+.c2 {
+    background: #22c55e;
+}
+
+.c3 {
+    background: #06b6d4;
+}
+
+.c4 {
+    background: #a78bfa;
+}
+
+.c5 {
+    background: #ff6584;
+}
+
+.c6 {
+    background: #f59e0b;
+}
+
+.c7 {
+    background: #ec4899;
+}
+
+.c8 {
+    background: #fb923c;
+}

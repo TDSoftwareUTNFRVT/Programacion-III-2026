@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .h-50{ height: 50px;}
+        .w-160{ width: 160px;}
+
+
+        .hover-bckgrnd-green:hover{background-color: #003d08;}
+        .bckgrnd-white{background-color: #ffffff;}
+
+        .border {border-width: 3px; border-style: solid}
+        .border-col-dgreen{border-color: #003d08;}
+        .hover-border-col-green:hover{border-color: #007000;}
+
+        .border-radius-18{border-radius: 18px;}
+
+        .hover-font-col-white:hover{color: #ffffff;}
+        .font-col-black{color: #000000;}
+        .font-btn { font-family: "Varela Round", sans-serif; }
+        .font-size-18 {font-size: 18px;}
+        .hover-font-size-21:hover { font-size: 21px; }
+
+        .cursor-pointer { cursor: pointer; }    
+        
+        .btn-txt::after { content: "Click"; }
+        .hover-btn-txt:hover::after { content: "Hover"; }
+
+
+        .transition { transition: all 0.3s ease; }
+        .hover-transition:hover { width:170px; height: 60px;}
+
+        
+        
+    </style>
+</head>
+<body>
+
+    <div>
+        <button onclick = "sumar(numero)" class="h-50 w-160 
+            hover-bckgrnd-green bckgrnd-white
+            border border-col-dgreen hover-border-col-green border-radius-18
+            hover-font-col-white font-col-black font-btn
+            btn-txt hover-btn-txt
+            hover-font-size-21 font-size-18
+            cursor-pointer transition hover-transition">
+        </button>
+    </div>
+    <script>
+        let nombre = 'cesar';
+        const apellido= 'barrionuevo';
+
+            function saludar(){
+                alert('Hola ');
+                console.log('holis');
+            }
+        
+        let numero = 0;
+            function sumar(numero){
+                alert(numero+1);
+                numero = numero + 1;
+            }
+    
+    </script>
+</body>
+</html>

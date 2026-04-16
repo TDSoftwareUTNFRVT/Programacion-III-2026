@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* BASE — mobile */
+        .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 24px;
+        background: #161b27;
+        }
+
+        .links-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .links-group { justify-content: flex-end; }
+        }
+
+        .logo  { width: 48px; height: 32px; background: #6c63ff; border-radius: 4px; }
+        .link  { width: 70px; height: 10px; background: #ff6584; border-radius: 4px; }
+
+
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .app { display: flex; flex-direction: column; min-height: 100vh; }
+
+        .app-header {
+        height: 60px;
+        background: #6c63ff;
+        flex-shrink: 0;
+        }
+
+        .app-body {
+        display: flex;
+        flex-direction: column;   /* mobile: apilado */
+        flex: 1;
+        min-height: calc(100vh - 60px);
+        }
+
+        .app-sidebar {
+        display: none;            /* mobile: oculto */
+        background: #1c2235;
+        }
+
+        .app-main {
+        flex: 1;
+        background: #161b27;
+        min-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+        .app-body {
+            flex-direction: row;
+            }
+        .app-sidebar {
+            display: block; flex: 0 0 250px;
+            }
+        }
+
+
+
+        .auto-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 20px;
+        }
+
+        .card {
+        flex: 1 1 220px;
+        min-height: 160px;
+        border-radius: 8px;
+        }
+
+        .c1{background:#6c63ff} .c2{background:#ff6584}
+        .c3{background:#22c55e} .c4{background:#f59e0b}
+        .c5{background:#06b6d4} .c6{background:#ec4899}
+        .c7{background:#a78bfa} .c8{background:#fb923c}
+
+
+
+        /* Contenedores */
+        .slot-narrow { container-type: inline-size; width: 180px; }
+        .slot-wide   { container-type: inline-size; flex: 1; }
+
+        /* Componente card — estilos base (angosto) */
+        .feat-card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+        overflow: hidden;
+        }
+        .feat-thumb { height: 100px; background: #6c63ff; }
+        .feat-body  { flex: 1; min-height: 60px; background: #232a3e; }
+
+        @container (min-width: 380px){
+        .feat-card {flex-direction: row;}
+        .feat-thumb {width: 140px; height: auto; flex-shrink: 0;}   
+        }
+
+
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ── Estructura base ─────────────────────────────────────────── */
+        .dashboard     { display: flex; flex-direction: column; min-height: 100vh; }
+        .dash-header   { height: 64px; background: #6c63ff; flex-shrink: 0;
+                        display: flex; align-items: center;
+                        justify-content: space-between; padding: 0 24px; }
+        .dash-body     { display: flex; flex: 1; }
+        .dash-sidebar  { display: none; flex: 0 0 220px; background: #1c2235;
+                        padding: 12px; gap: 6px; flex-direction: column; }
+        .dash-main     { flex: 1; display: flex; flex-direction: column;
+                        gap: 16px; padding: 20px; background: #161b27; }
+        .dash-footer   { height: 48px; background: #0a0d14; flex-shrink: 0; }
+
+        /* ── Header internos ─────────────────────────────────────────── */
+        .logo-block    { width: 48px; height: 28px; background: rgba(255,255,255,.3);
+                        border-radius: 4px; }
+        .controls      { display: flex; gap: 8px; }
+        .ctrl          { width: 28px; height: 28px; background: rgba(255,255,255,.2);
+                        border-radius: 50%; }
+
+        /* ── Sidebar items ───────────────────────────────────────────── */
+        .sb-item       { height: 40px; border-radius: 6px; background: #232a3e; }
+        .sb-item.active{ background: #6c63ff; }
+
+        /* ── Métricas ────────────────────────────────────────────────── */
+        .metrics       { display: flex; gap: 12px; flex-wrap: wrap; }
+        .metric        { flex: 1 1 160px; height: 80px; border-radius: 8px; }
+        .m1{background:#6c63ff} .m2{background:#ff6584} .m3{background:#22c55e}
+
+        /* ── Panels ──────────────────────────────────────────────────── */
+        .panels        { display: flex; gap: 12px; flex: 1; flex-wrap: wrap; }
+        .panel-main    { flex: 2 1 300px; min-height: 240px; background: #1c2235;
+                        border-radius: 8px; }
+        .panel-side    { flex: 1 1 200px; min-height: 240px; background: #232a3e;
+                        border-radius: 8px; }
+
+        @media (min-width: 768px){
+        .dash-sidebar { display: flex; }
+        .dash-body { flex-direction: row; }
+        }
+
+
+
+
+
+        .separator {
+        width: 100%;
+        height: 100px;
+        background: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="navbar">
+        <div class="logo"></div>
+        <div class="links-group">
+            <div class="link"></div>
+            <div class="link"></div>
+            <div class="link"></div>
+        </div>
+    </section>
+
+    <div class="separator"> separator </div>
+
+    <section class="app">
+        <div class="app-header"></div>
+        <div class="app-body">
+            <div class="app-sidebar"></div>
+            <div class="app-main"></div>
+        </div>
+    </section>
+
+    <div class="separator"> separator </div>
+
+    <section class="auto-grid">
+        <div class="card c1"></div>
+        <div class="card c2"></div>
+        <div class="card c3"></div>
+        <div class="card c4"></div>
+        <div class="card c5"></div>
+        <div class="card c6"></div>
+        <div class="card c7"></div>
+        <div class="card c8"></div>
+    </section>
+
+    <div class="separator"> separator </div>
+
+
+    <div style="display: flex; gap: 20px;">
+            <!-- Contenedor angosto -->
+        <section class="slot-narrow">
+            <div class="feat-card">
+                <div class="feat-thumb"></div>
+                <div class="feat-body"></div>
+            </div>
+        </section>
+
+        <!-- Contenedor ancho -->
+        <section class="slot-wide">
+            <div class="feat-card">
+                <div class="feat-thumb"></div>
+                <div class="feat-body"></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="separator"> separator </div>
+
+    <section class="dashboard"></section>
+        <section class="dash-header">
+            <div class="logo-block"></div>
+            <div class="controls">
+                <div class="ctrl"></div>
+                <div class="ctrl"></div>
+                <div class="ctrl"></div>
+            </div>
+
+        </section>
+
+        <section class="dash-body">
+            <div class="dash-sidebar">
+                <div class="sb-item active"></div>
+                <div class="sb-item"></div>
+                <div class="sb-item"></div>
+                <div class="sb-item"></div>
+            </div>
+            <div class="dash-main">
+                <div class="metrics">
+                    <div class="metric m1"></div>
+                    <div class="metric m2"></div>
+                    <div class="metric m3"></div>
+                </div>
+                <div class="panels">
+                    <div class="panel-main"></div>
+                    <div class="panel-side"></div>
+                </div>
+        </section>
+
+        <section class="dash-footer">
+        </section>
+</body>
+</html>

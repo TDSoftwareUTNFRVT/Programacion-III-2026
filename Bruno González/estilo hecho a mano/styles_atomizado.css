@@ -1,0 +1,90 @@
+:root {
+    --color-letra: greenyellow;
+    --color-fondo: linear-gradient(to left, rgb(122, 240, 148), rgb(0, 130, 27));
+    --color-fondo-2: radial-gradient(circle, #44EB5D, #5FC26E);
+    --color-fondo-3: #6AD979;
+    --color-borde: #096615;
+    --font: "font de prueba";
+    --sombra: 5px 5px 2px 2px #59D119
+
+}
+
+body {
+    background: var(--color-fondo-3);
+}
+
+.font {
+    font-family: var(--font);
+    color: var(--color-letra);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.transicion {
+    transition: transform 1.5s ease, width 0.5s ease-in-out;
+}
+
+.bordes-redondeados {
+    border-radius: 20px;
+}
+
+.bordes-estilizados-1 {
+    border-radius: 50px 100px 50px 100px;
+}
+
+.borde-inferior {
+    border-bottom: 5px solid var(--color-borde);
+}
+
+.borde-superior {
+    border-top: 5px solid var(--color-borde);
+}
+
+.boton {
+    width: 400px;
+    height: 100px;
+    margin: 25px;
+    border: none;
+    font-size: 50px;
+}
+
+.c1 {
+    background: var(--color-fondo);
+}
+
+.c2 {
+    background: var(--color-fondo-2);
+}
+
+.boton:hover {
+    width: 450px;
+}
+
+.menu-bar {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+}
+
+.menu-bar:hover {
+    width: 600px;
+}
+
+.grilla {
+    width: 400px;
+    height: 500px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: justify;
+}
+
+.izquierda {
+    width: 500px;
+    float: left;
+    margin: 25px;
+}
+
+.form {
+    width: 100px;
+}

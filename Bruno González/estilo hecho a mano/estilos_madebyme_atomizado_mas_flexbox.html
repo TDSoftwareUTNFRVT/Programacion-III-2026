@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página con flexbox y estilo propio</title>
+    <link rel="stylesheet" href="styles_atomizado_mas_flexbox.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script>
+        console.log("Hola mundo")
+        function Saludar(){
+            const nom = "Bruno";
+            console.log("Hola, desde",nom);
+            return;
+        }
+        Saludar()
+    </script>
+</head>
+<body>
+    <div class="contenedor-general">
+        <div class="header sombreado-2 c3">
+            <h1 class="titulo font">"Verde, no queda mucho donde verte"</h1>
+            <h2 class="subtitulo font">Peligros de la contaminación ambiental</h2>
+        </div>
+        <div class="contenedor-cosas">
+            <div class="contenedor-imagen bordes-redondeados sombreado c1">
+                <img src="contaminacion_1.jpg" class="imagen">
+                <img src="contaminacion_2.jpg" class="imagen">
+                <img src="contaminacion_3.jpg" class="imagen">
+            </div>
+            <div class="contenedor-texto bordes-redondeados sombreado c4">
+                <p class="parrafo font">
+        Queridos presentes, hoy quiero hablarles de un enemigo silencioso que afecta nuestra salud, nuestro entorno y nuestro futuro: la contaminación. Aunque muchas veces pasa desapercibida, sus consecuencias son profundas y nos alcanzan a todos, sin importar edad, lugar o condición.
+        La contaminación del aire, del agua y del suelo no es solo un problema ambiental, es un problema humano. Respirar aire contaminado aumenta el riesgo de enfermedades respiratorias y cardiovasculares. Beber agua contaminada puede provocar graves problemas de salud. Y los suelos contaminados afectan la producción de alimentos, poniendo en riesgo nuestra seguridad alimentaria.
+        Además, la contaminación destruye ecosistemas enteros. Los ríos pierden su vida, los mares se llenan de plásticos, y los animales sufren las consecuencias de nuestros desechos. Cada bolsa, cada humo, cada residuo que generamos deja una huella que se acumula y que compromete la biodiversidad del planeta.
+        No podemos olvidar tampoco el impacto social y económico: comunidades enteras se ven obligadas a migrar porque sus tierras ya no son fértiles, porque sus aguas ya no son seguras, porque sus cielos ya no son respirables. La contaminación no distingue fronteras, y lo que hoy parece un problema lejano, mañana puede estar en nuestra propia casa.
+        La contaminación es mala porque nos roba lo más valioso: la salud, la naturaleza y el futuro. Pero también es un problema que podemos enfrentar. Cada acción cuenta: reducir, reciclar, reutilizar, exigir políticas responsables y comprometernos con un estilo de vida más sostenible.
+        No olvidemos que el planeta no es una herencia de nuestros padres, sino un préstamo de nuestros hijos. Y ellos merecen recibir un mundo limpio, sano y lleno de vida.
+                </p>
+            </div>
+        </div>
+        <form class="formulario bordes-redondeados sombreado c1">
+            <input class="boton borde-inferior bordes-estilizados-1 transicion font c1" type="button" value="Conocer más">
+            <input class="boton borde-inferior bordes-estilizados-1 transicion font c1" type="button" value="Otros">
+            <input class="boton borde-inferior bordes-estilizados-1 transicion font c1" type="button" value="Donar">
+            <input class="boton borde-inferior bordes-estilizados-1 transicion font c1" type="button" value="Acerca de">
+        </form>
+    </div>
+</body>
+</html>

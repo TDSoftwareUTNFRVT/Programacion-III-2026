@@ -1,0 +1,62 @@
+body {
+    background-color: #6AD979;
+}
+
+.boton {
+    color: greenyellow;
+    background: linear-gradient(to left, rgb(122, 240, 148), rgb(0, 130, 27));
+    border: none;
+    border-bottom: 2px solid #096615;
+    border-radius: 50px 100px 50px 100px;
+    font-size: 50px;
+    font-family: "font de prueba";
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: 400px;
+    height: 100px;
+    transition: transform 1.5s ease, width 0.5s ease-in-out;
+    margin: 25px;
+}
+
+.boton:hover {
+    width: 450px;
+}
+
+.menu_bar {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #44EB5D, #5FC26E);
+    font-size: 50px;
+    font-family: "font de prueba";
+    font-weight: 700;
+    letter-spacing: 2px;
+    transition: transform 1.5s ease, width 0.5s ease-in-out;
+    border-radius: 20px;
+}
+
+.menu_bar:hover {
+    width: 600px;
+}
+
+.grilla {
+    color: greenyellow;
+    background: radial-gradient(circle, #44EB5D, #5FC26E);
+    border: none;
+    border-top: 5px solid #096615;
+    border-bottom: 5px solid #096615;
+    border-radius: 25px;
+    font-size: 20px;
+    font-family: "font de prueba";
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: 400px;
+    height: 500px;
+    text-align: justify;
+    box-shadow: 5px 5px 2px 2px #59D119;
+}
+
+.izquierda {
+    width: 500px;
+    float: left;
+    margin: 25px;
+}

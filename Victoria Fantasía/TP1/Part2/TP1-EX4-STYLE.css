@@ -1,0 +1,51 @@
+.purple-bg {
+    background: #6c63ff;
+}
+
+.black-bg {
+    background-color: #2b2b2b;
+}
+
+body {
+    display: flex;
+}
+
+.feat-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.feat-thumb {
+    height: 100px;
+}
+
+.feat-body {
+    flex: 1;
+    min-height: 60px;
+}
+
+.slot-narrow {
+    container-type: inline-size;
+    width: 180px;
+}
+
+.slot-wide {
+    container-type: inline-size;
+    flex: 1;
+}
+
+@container (min-width: 380px) {
+    .feat-card {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .feat-thumb {
+        width: 140px;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+}

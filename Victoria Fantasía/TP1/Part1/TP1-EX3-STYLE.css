@@ -1,0 +1,36 @@
+.grid-cards {
+    font-size: 0;
+}
+
+.card {
+    width: 31.33%;
+    height: 140px;
+    margin: 1%;
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.purple-bg {
+    background-color: #6c63ff;
+}
+
+.red-bg {
+    background-color: #ff6584;
+}
+
+.green-bg {
+    background-color: #22c55e;
+}
+
+.yellow-bg {
+    background-color: #f59e0b;
+}
+
+.cyan-bg {
+    background-color: #06b6d4;
+}
+
+.pink-bg {
+    background-color: #ec4899;
+}

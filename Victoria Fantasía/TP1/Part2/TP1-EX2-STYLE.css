@@ -1,0 +1,52 @@
+.black-bg-sb {
+    background-color: #1c2235;
+}
+
+.black-bg-body {
+    background-color: #161b27;
+}
+
+.blue-bg {
+    background-color: #6c63ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.app {
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+.app-header {
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.app-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: calc(100vh - 60px);
+}
+
+.app-sidebar {
+  display: none; 
+}
+
+.app-main {
+  flex: 1;
+  min-height: 400px;
+}
+
+
+@media (min-width: 768px) {
+    .app-sidebar {
+        display: flex;
+        flex: 0 0 220px;
+    }
+    
+    .app-body {
+        flex-direction: row;
+    }
+}

@@ -1,0 +1,26 @@
+.main-box {
+    display: flow-root;
+    width: 100%;
+}
+
+.box {
+    float: left;
+    height: 400px;
+}
+
+.box1 {
+    width: 28%;
+    margin-right: 2%;
+}
+
+.box2 {
+    width: 70%;
+}
+
+.blue-bg {
+    background-color: #6c63ff;
+}
+
+.black-bg {
+    background-color: #1c2235;
+}

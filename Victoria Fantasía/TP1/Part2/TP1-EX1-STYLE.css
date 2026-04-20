@@ -1,0 +1,52 @@
+.purple-bg {
+    background-color: purple;
+}
+
+.red-bg {
+    background-color: red;
+}
+
+.black-bg {
+    background-color: #161b27;
+}
+
+.logo {
+    width: 48px;
+    height: 32px;
+}
+
+.link {
+    display: inline-block;
+    width: 70px;
+    height: 10px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+}
+
+.links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .links-group {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+    }
+}

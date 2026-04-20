@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+
+            .app {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+
+            .app-header {
+                height: 60px;
+                background: #6c63ff; 
+                flex-shrink: 0;
+            }
+
+            .app-body {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .app-sidebar {
+                display: none;
+                background: #1c2235;
+                min-height: 400px;
+            }
+
+            .app-main {
+                flex: 1;
+                background: #161b27;
+                min-height: 400px;
+            }
+
+            @media (min-width: 768px) {
+                .app-body {
+                    flex-direction: row;
+                }
+                .app-sidebar {
+                    display: block;
+                    flex: 0 0 220px; 
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <div class="app-header"></div>
+            <div class="app-body">
+                <div class="app-sidebar"></div>
+                <div class="app-main"></div>
+            </div>
+        </div>
+    </body>
+</html>

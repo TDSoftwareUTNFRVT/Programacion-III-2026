@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+    display: flex;
+    gap: 16px;
+}
+/* Contenedores */
+.slot-narrow { container-type: inline-size; width: 180px; }
+.slot-wide   { container-type: inline-size ;flex: 1; }
+
+/* Componente card — estilos base (angosto) */
+.feat-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.feat-thumb { height: 100px; background: #6c63ff; }
+.feat-body  { flex: 1; min-height: 60px; background: #232a3e; }
+
+@container (min-width: 380px) {
+   .feat-card { flex-direction: row; }
+   .feat-thumb { width: 140px; height: auto; flex-shrink: 0; }
+}

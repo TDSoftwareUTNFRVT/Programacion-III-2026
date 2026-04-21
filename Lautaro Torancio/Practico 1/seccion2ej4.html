@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        .slot-narrow { 
+            container-type: inline-size; 
+            width: 160px; 
+            margin: 16px; 
+        }
+        .slot-wide { 
+            container-type: inline-size; 
+            width: 400px; 
+            margin: 16px; 
+        }
+        .card-base {
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .feat-thumb { 
+            height: 100px; 
+            background: #6c63ff; 
+        }
+        .feat-body  { 
+            flex: 1; 
+            min-height: 60px; 
+            background: #232a3e; 
+        }
+        @container (min-width: 380px) {
+            .card-base {
+                flex-direction: row;
+            }
+            .feat-thumb {
+                width: 140px; 
+                height: auto; 
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slot-narrow">
+        <div class="card-base">
+            <div class="feat-thumb"></div>
+            <div class="feat-body"></div>
+        </div>
+    </div>
+    <div class="slot-wide">
+        <div class="card-base">
+            <div class="feat-thumb"></div>
+            <div class="feat-body"></div>
+        </div>
+    </div>
+</body>
+</html>

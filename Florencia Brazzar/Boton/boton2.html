@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Pirata</title>
+    <style>
+        .btn-op {
+            position: relative;
+            width: 220px;
+            height: 56px;
+            border-radius: 28px;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            background: linear-gradient(135deg, rgb(185, 67, 67), rgb(134, 3, 3));
+            transition: transform .15s ease;
+        }
+
+        .btn-op::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url(fotos/personajes.webp) center/cover no-repeat;
+            opacity: 0.25;
+            transition: opacity .3s ease;
+        }
+
+        .btn-op:hover::before { opacity: 0.45; }
+        .btn-op:hover         { transform: scale(1.04); }
+        .btn-op:active {
+        transform: scale(0.97);
+        background: transparent;
+        }
+
+        .btn-op:active::before {
+        opacity: 1;
+        }
+        .btn-op span {
+        position: relative;
+        z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-op"><span>HAZ CLICK</span></button>
+</body>
+</html>

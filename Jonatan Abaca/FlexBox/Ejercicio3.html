@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ejercicio3</title>
+    <style>
+        .grilla {
+        display: flex;
+        gap: 20px;
+        padding: 24px;
+        background: #fafafa;
+        }
+
+        .tarjeta {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .tarjeta-img {
+        height: 120px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .tarjeta-titulo {
+        font-weight: bold;
+        font-size: 1rem;
+        }
+
+        .tarjeta-texto {
+        flex-grow: 1;
+        color: #666;
+        font-size: 0.85rem;
+        }
+
+        .tarjeta-etiqueta {
+        align-self: flex-start;
+        background: #f0e040;
+        color: #000;
+        padding: 4px 12px;
+        border-radius: 99px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        }    
+    </style>
+</head>
+<body>
+  <div class="grilla">
+    <div class="tarjeta">
+      <div class="tarjeta-img"></div>
+      <p class="tarjeta-titulo">Producto Alpha</p>
+      <p class="tarjeta-texto">Descripción breve del producto con algunos detalles relevantes.</p>
+      <span class="tarjeta-etiqueta">Nuevo</span>
+    </div>
+    <div class="tarjeta">
+      <div class="tarjeta-img"></div>
+      <p class="tarjeta-titulo">Producto Beta</p>
+      <p class="tarjeta-texto">Descripción del segundo producto con información extra.</p>
+      <span class="tarjeta-etiqueta">Oferta</span>
+    </div>
+    <div class="tarjeta">
+      <div class="tarjeta-img"></div>
+      <p class="tarjeta-titulo">Producto Gamma</p>
+      <p class="tarjeta-texto">Tercer producto destacado de la colección actual.</p>
+      <span class="tarjeta-etiqueta">Top</span>
+    </div>
+  </div>
+</body>
+</html> 

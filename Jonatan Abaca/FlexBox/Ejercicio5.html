@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Ejercicio5</title>
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f1f5f9;
+      font-family: sans-serif;
+    }
+
+    .dashboard {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 20px 16px;
+      background: #1a1a2e;
+    }
+
+    .sidebar-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #f0e040;
+      padding: 0 14px 16px;
+      border-bottom: 1px solid #2a2a4a;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 6px;
+      color: #888;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .nav-item.active {
+      background: #f0e040;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .contenido {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 24px;
+    }
+
+    .contenido-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .stat-card {
+      flex-basis: calc(50% - 8px);
+      padding: 24px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+
+    .stat-card.full {
+      flex-basis: 100%;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #1a1a2e;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">Admin</div>
+      <nav class="sidebar-nav">
+        <a class="nav-item active">Dashboard</a>
+        <a class="nav-item">Usuarios</a>
+        <a class="nav-item">Reportes</a>
+      </nav>
+    </aside>
+
+    <main class="contenido">
+
+      <header class="contenido-header">
+        <h1>Dashboard</h1>
+        <span>Hoy</span>
+      </header>
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <p class="stat-label">Visitas</p>
+          <p class="stat-value">4.2k</p>
+        </div>
+
+        <div class="stat-card">
+          <p class="stat-label">Ventas</p>
+          <p class="stat-value">$1.8k</p>
+        </div>
+
+        <div class="stat-card">
+          <p class="stat-label">Usuarios</p>
+          <p class="stat-value">312</p>
+        </div>
+
+        <div class="stat-card">
+          <p class="stat-label">Tasa</p>
+          <p class="stat-value">68%</p>
+        </div>
+
+        <div class="stat-card full">
+          <p class="stat-label">Actividad semanal</p>
+          <p class="stat-value">Gráfico extendido</p>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

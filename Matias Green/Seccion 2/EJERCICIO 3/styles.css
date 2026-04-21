@@ -1,0 +1,21 @@
+.auto-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+.card {
+  flex: 1 1 220px;
+  min-height: 160px;
+  border-radius: 8px;
+}
+
+.c1 { background: #6c63ff; }
+.c2 { background: #ff6584; }
+.c3 { background: #22c55e; }
+.c4 { background: #f59e0b; }
+.c5 { background: #06b6d4; }
+.c6 { background: #ec4899; }
+.c7 { background: #a78bfa; }
+.c8 { background: #fb923c; }

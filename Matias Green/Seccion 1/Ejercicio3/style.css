@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-cards {
+  font-size: 0; /* elimina espacios */
+  padding: 10px;
+}
+
+.card {
+  display: inline-block;
+  width: 31.33%;
+  margin: 1%;
+  height: 140px;
+  vertical-align: top;
+  border-radius: 8px;
+  font-size: 16px; /* restaurar */
+}
+
+/* Colores */
+.bg-violet { background: #6c63ff; }
+.bg-red    { background: #ff6584; }
+.bg-green  { background: #22c55e; }
+.bg-yellow { background: #f59e0b; }
+.bg-cyan   { background: #06b6d4; }
+.bg-pink   { background: #ec4899; }

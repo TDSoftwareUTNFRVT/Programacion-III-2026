@@ -1,0 +1,42 @@
+*{
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     }
+
+.col {
+    float: left;
+    height: 300px;
+}
+.col-20 {
+    width:20%;
+}
+.col-60 {
+    width:60%;
+}
+
+.bg-violet {
+    background: #6c63ff;
+}
+.bg-dark {
+    background: #161b27;
+}
+.bg-red {
+    background: #ff6584;
+}
+.bg-darker {
+    background: #232a3e;
+}
+.bg-black { 
+    background: #0e1117;
+}
+.h-full {
+    height: 60px;
+    display: block;
+}
+.clear {
+    clear:both;
+}
+.cf {
+    display: flow-root;
+}

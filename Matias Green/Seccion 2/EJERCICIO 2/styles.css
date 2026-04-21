@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+}
+
+/* header */
+.app-header {
+  height: 60px;
+  background: #161b27
+}
+
+/* contenedor principal */
+.app-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* sidebar oculto en mobile */
+.app-sidebar {
+  display: none;
+  background: #1c2235;
+}
+
+/* contenido */
+.app-content {
+  height: 200px;
+  background: #6c63ff;
+}
+
+@media (min-width: 768px) {
+  .app-body {
+    flex-direction: row;
+  }
+
+  .app-sidebar {
+    display: block;
+    width: 200px;
+    height: calc(100vh - 60px);
+  }
+
+  .app-content {
+    flex: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-body {
+    flex-direction: row;
+  }
+
+  .app-sidebar {
+    display: block;
+    flex: 0 0 220px;
+  }
+}

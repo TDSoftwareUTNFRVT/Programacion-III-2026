@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  background: #0f172a;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.feat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #1e293b;
+  container-type: inline-size;
+}
+
+.feat-thumb {
+  height: 120px;
+  background: #6c63ff;
+  border-radius: 6px;
+}
+
+.feat-content {
+  color: white;
+}
+
+@container (min-width: 380px) {
+  .feat-card {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .feat-thumb {
+    width: 140px;
+    height: 100px;
+  }
+}

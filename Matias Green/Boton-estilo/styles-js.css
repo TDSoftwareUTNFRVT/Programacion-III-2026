@@ -1,0 +1,74 @@
+body {
+  background: #18164c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor vertical */
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Número grande */
+h1 {
+  font-size: 100px;
+  color: rgb(255, 234, 0);
+  margin: 0;
+}
+
+/* Animación */
+.animar {
+  animation: crecerDesaparecer 0.5s ease;
+}
+
+@keyframes crecerDesaparecer {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Botones en fila */
+.botones {
+  display: flex;
+  gap: 20px;
+}
+
+.boton {
+  padding: 15px 40px;
+  font-size: 18px;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+
+  background: linear-gradient(45deg, #fc0202, #01000a);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+.boton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  background: linear-gradient(45deg, #01000a, #fc0202);
+}
+
+.boton:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}

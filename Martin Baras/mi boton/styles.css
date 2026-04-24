@@ -66,14 +66,17 @@ body {
     width: 100%;
 }
 
-.boton {
+.texto {
     font-family: "Lilita One";
     /* Grosor y color del contorno */
     -webkit-text-stroke: 1px black;
+    font-size: 24px;
+}
+
+.boton {
     background-color: rgb(174, 132, 25);
     color: rgb(157, 157, 157);
     border-radius: 15px;
-    font-size: 24px;
     width: 180px;
     padding: 10px 5px;
     border: 2px solid black;

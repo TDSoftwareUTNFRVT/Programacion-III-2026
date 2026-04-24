@@ -14,28 +14,32 @@
     }
 }
 
-/* .destello:hover {
-    animation-duration: 0.20s;
-    animation-name: shine;
-    animation-iteration-count: 2;
-    animation-direction: alternate;
-} */
+.entrada {
+    animation: entrada 0.35s ease-out forwards
+}
 
-@keyframes shine {
+@keyframes entrada {
     from {
+        transform: scale(0.5);
+        opacity: 0.5
     }
     to {
-        background-color: white;
+        transform: scale(1);
+        opacity: 1
     }
 }
 
-.entrada{animation:entrada 0.35s ease-out forwards}
-@keyframes entrada{
-    from{transform:scale(0.5);opacity:0.5}
-    to{transform:scale(1);opacity:1}
+.salida {
+    animation: salida 0.35s ease-out forwards
 }
-.salida{animation:salida 0.35s ease-out forwards}
-@keyframes salida{
-    from{transform:scale(1);opacity: 1;}
-    to{transform: scale(5.5);opacity: 0;}
+
+@keyframes salida {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(5.5);
+        opacity: 0;
+    }
 }

@@ -1,0 +1,41 @@
+.neon {
+    animation-duration: 1s;
+    animation-name: neon;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes neon {
+    from {
+        box-shadow: 0px 0px 100px rgb(228, 148, 74), inset 0px 0px 100px rgb(228, 148, 74);
+    }
+    to {
+        box-shadow: 0px 0px 50px rgb(228, 148, 74), inset 0px 0px 50px rgb(228, 148, 74);
+    }
+}
+
+/* .destello:hover {
+    animation-duration: 0.20s;
+    animation-name: shine;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+} */
+
+@keyframes shine {
+    from {
+    }
+    to {
+        background-color: white;
+    }
+}
+
+.entrada{animation:entrada 0.35s ease-out forwards}
+@keyframes entrada{
+    from{transform:scale(0.5);opacity:0.5}
+    to{transform:scale(1);opacity:1}
+}
+.salida{animation:salida 0.35s ease-out forwards}
+@keyframes salida{
+    from{transform:scale(1);opacity: 1;}
+    to{transform: scale(5.5);opacity: 0;}
+}

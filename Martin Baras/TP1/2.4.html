@@ -1,0 +1,53 @@
+<!-- <> -->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>Card que cambia según su contenedor</title>
+    <style>
+        .slot-narrow {
+            container-type: inline-size;
+            container-name: contenedor;
+            width: 180px;
+        }
+        
+        .feat-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .feat-thumb {
+            height: 100px;
+            background: #6c63ff;
+        }
+        
+        .feat-body {
+            flex: 1;
+            min-height: 60px;
+            background: #232a3e;
+        }
+        
+        @container contenedor (min-width: 380px) {
+            .feat-card {
+                flex-direction: row;
+            }
+            .feat-thumb {
+                width: 140px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slot-narrow">
+        <div class="feat-card">
+            <div class="feat-thumb"></div>
+            <div class="feat-body"></div>
+        </div>
+    </div>
+</body>
+
+</html>

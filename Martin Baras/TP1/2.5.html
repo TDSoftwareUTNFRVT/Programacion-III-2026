@@ -1,0 +1,102 @@
+<!-- <> -->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>Dashboard completo responsivo - integrador</title>
+    <style>
+        *,*::before,*::after {box-sizing: border-box;margin: 0;padding: 0;}
+
+        .bg-black { background-color: #131825; }
+        .bg-purple { background-color: #6c63ff; }
+        .bg-lblack { background-color: #232a3e; }
+        .bg-red { background-color: #ff6584; }
+        .bg-green { background-color: #22c55e; }
+        .bg-orange { background-color: #f59e0b; }
+        .bg-lblue { background-color: #06b6d4; }
+        .bg-pink { background-color: #ec4899; }
+        .bg-gray { background-color: rgba(185, 185, 185, 0.548); }
+
+        .br16 { border-radius: 16px; }
+        .p16 { padding: 16px; }
+
+        .flex { display: flex; }
+        .flex-row { flex-direction: row; }
+        .flex-col { flex-direction: column; }
+
+        .jc-space-between { justify-content: space-between; }
+        .jc-center { justify-content: center; }
+        .jc-self-center { justify-self: center; }
+        .jc-self-flex-start { justify-self: flex-start; }
+        .jc-self-space-between{justify-self: space-between;}
+
+        .align-items-center { align-items: center; }
+        .align-self-center { align-self: center; }
+
+        .gap6 { gap: 6px; }
+        .gap8 { gap: 8px; }
+
+        .wrap { flex-wrap: wrap; }
+
+        .flex-1 { flex: 1; }
+        .f-1-1-160 { flex: 1 1 160px; }
+        .f-2-1-300 { flex: 2 1 300px; }
+        .f-1-1-200 { flex: 1 1 200px; }
+
+        
+        .app-header {width: 100vw;height: 64px;padding: 0 30px;}
+        .app-main {width: 100vw;height: calc(100vh - 112px);}
+        .app-footer {width: 100vw;height: 48px;}
+        .div-logo {width: 48px;height: 28px;border-radius: 4px;}
+        .control {width: 28px;height: 28px;border-radius: 50%;}
+        .block-container {width: 100%;height: 100%;padding: 10px 10px;border-radius: 8px;}
+        .block {width: 100%;height: 100%;border-radius: 8px;}
+        .top-group {width: 100%;height: 100%;}
+        .lower-group {width: 100%;height: 100%;}
+
+        @media (min-width:768px){
+            .app-sidebar {width: 200px;height: 100%;padding: 12px;}
+            .items-sidebar {width: 100%;height: 40px;border-radius: 8px;}
+            .block-container {width: 850px;height: 300px;padding: 10px 10px;border-radius: 8px;margin-left: 10%;}
+            .block {width: 100%;height: 100%;border-radius: 8px;}
+            .top-group {width: 100%;height: 80px;}
+            .lower-group {width: 100%;height: 240px;}
+        }
+    </style>
+</head>
+
+<body>
+    <section class="app-header bg-purple flex flex-row jc-space-between align-items-center">
+        <div class="div-logo bg-gray"></div>
+        <div class="flex flex-row align-items-center gap8">
+            <div class="control bg-gray"></div>
+            <div class="control bg-gray"></div>
+            <div class="control bg-gray"></div>
+        </div>
+    </section>
+
+    <section class="app-main bg-lblack flex flex-row">
+        <div class="app-sidebar bg-black flex flex-col gap6 pad16 jc-self-flex-start">
+            <div class="items-sidebar bg-lblack"></div>
+            <div class="items-sidebar bg-lblack"></div>
+            <div class="items-sidebar bg-lblack"></div>
+            <div class="items-sidebar bg-lblack"></div>
+            <div class="items-sidebar bg-lblack"></div>
+            <div class="items-sidebar bg-lblack"></div>
+        </div>
+        <div class="block-container bg-black flex flex-col gap8 align-self-center">
+            <div class="top-group flex flex-row gap8">
+                <div class="bg-purple block f-1-1-160"></div>
+                <div class="bg-red block f-1-1-160"></div>
+                <div class="bg-green block f-1-1-160"></div>
+            </div>
+            <div class="lower-group flex flex-row gap8">
+                <div class="bg-purple block"></div>
+                <div class="bg-red block f-2-1-300"></div>
+            </div>
+        </div>
+    </section>
+    <section class="app-footer bg-black"></section>
+
+</body>
+
+</html>

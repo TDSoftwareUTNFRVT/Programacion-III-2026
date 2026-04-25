@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Santos - Personalizador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="Imagenes/logo.png">
+</head>
+
+<body class="fondo">
+    <div class="panel">
+        <h2>¡Personaliza a tu gusto!</h2>
+
+        <h3>Colores</h3>
+        <input type="color" onchange="setColor(this.value)">
+
+        <h3>Fondos</h3>
+        <select onchange="setBackground(this.value)">
+            <option value="">Fondo 1</option>
+            <option value="">Fondo 2</option>
+            <option value="">Fondo 3</option>
+            <option value="">Fondo 4</option>
+        </select>
+
+        <h3>Forma</h3>
+        <select onchange="setShape(this.value)">
+            <option value="0">Cuadrado</option>
+            <option value="20px">Redondeado</option>
+            <option value="50%">Círculo</option>
+        </select>
+
+        <h3>Borde</h3>
+        <input type="color" onchange="setBorderColor(this.value)">
+        <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
+
+        <h3>Degrade</h3>
+        <input type="color" id="color1">
+        <input type="color" id="color2">
+
+        <h3>Sombra</h3>
+        <label>Color</label>
+        <input type="color" id="shadowColorInput" onchange="updateShadow()">
+
+        <label>Blur</label>
+        <input type="range" min="0" max="100" value="10" id ="shadowBlur" oninput="updateShadow()">
+
+        <label>Mover en Y</label>
+        <input type="range" min="0" max="200" value="10" id = "shadowMoveY" oninput="updateShadow()">
+        <label>Mover en X</label>
+        <input type="range" min="0" max="200" value="10" id = "shadowMoveX" oninput="updateShadow()">
+
+        <br><br>
+        <button class="save-btn" onclick="saveChanges()">Guardar cambios</button>   
+    </div>
+    <div class="visualizacion">
+        <div id="box"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

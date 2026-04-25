@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafafa;
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .grilla {
+      display: flex;
+      gap: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .tarjeta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .tarjeta-img {
+      height: 120px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .tarjeta-img.c2 {
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+    }
+
+    .tarjeta-img.c3 {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    .tarjeta-titulo {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .tarjeta-texto {
+      flex-grow: 1;
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    .tarjeta-etiqueta {
+      align-self: flex-start;
+      background: #f0e040;
+      color: #000;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grilla">
+    <div class="tarjeta">
+      <div class="tarjeta-img"></div>
+      <div class="tarjeta-titulo">Producto Alpha</div>
+      <div class="tarjeta-texto">Descripción breve del producto con algunos detalles relevantes.</div>
+      <div class="tarjeta-etiqueta">Nuevo</div>
+    </div>
+    <div class="tarjeta">
+      <div class="tarjeta-img c2"></div>
+      <div class="tarjeta-titulo">Producto Beta</div>
+      <div class="tarjeta-texto">TECNICATURA EN PROGRAMACIÓN UTN VENADO TUERTO HERNÁN MIÑO SEGUNDO AÑO 2026</div>
+      <div class="tarjeta-etiqueta">Oferta</div>
+    </div>
+    <div class="tarjeta">
+      <div class="tarjeta-img c3"></div>
+      <div class="tarjeta-titulo">Producto Gamma</div>
+      <div class="tarjeta-texto">Tercer producto destacado de la colección actual.</div>
+      <div class="tarjeta-etiqueta">Top</div>
+    </div>
+  </div>
+</body>
+</html>

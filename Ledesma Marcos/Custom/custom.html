@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Santos Buttons</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="fondo">
+
+  <!-- Botón a personalizar -->
+  <div class="contenedor-boton">
+    <button id="miBoton">Mi Botón</button>
+  </div>
+
+  <div class="paleta-desplegable" id="paletaDesplegable">
+
+    <div class="paleta-tab" id="paletaTab">
+      <span class="paleta-texto">Personalizar</span>
+    </div>
+
+    <div class="paleta-contenido">
+      <h2>!Tuneate re piola!</h2>
+
+       <!-------------------------------->
+      <div class="bloque-color">
+        <h3>Tamaño</h3>
+
+        <div class="fila">
+          <label for="ancho">Ancho</label>
+          <input id="ancho" type="range" min="0" max="20" value="2">
+        </div>
+
+        <div class="fila">
+          <label for="largo">Largo</label>
+          <input id="largo" type="range" min="0" max="20" value="2">
+        </div>
+
+      </div>
+       <!-------------------------------->
+      <div class="bloque-color">
+        <h3>Colores</h3>
+      <input type="color" onchange="setColor(this.value)">
+
+      <h3>Fondos</h3>
+      <select onchange="setBackground(this.value)">
+        <option value="">Fondo 1</option>
+        <option value="">Fondo 2</option>
+        <option value="">Fondo 3</option>
+        <option value="">Fondo 4</option>
+      </select>
+
+
+
+      </div>
+
+      <h3>Radio</h3>
+      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
+      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
+      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
+      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
+
+
+      <h3>Borde</h3>
+      <input type="color" onchange="setBordeColor(this.value)">
+      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
+
+      <h3>Degrade</h3>
+      <input type="color" id="color1">
+      <input type="color" id="color2">
+
+      <h3>Sombra</h3>
+      <label>Blur</label>
+      <input type="range" min="0" max="50" value="10" oninput="updateShadow()">
+
+      <label>Offset</label>
+      <input type="range" min="0" max="50" value="10" oninput="updateShadow()">
+
+      <br><br>
+      <button class="save-btn" onclick="saveChanges()">Guardar cambios</button>
+
+
+    </div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

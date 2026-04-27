@@ -73,7 +73,7 @@ body {
 }
 .degradado-frio {
     background: linear-gradient(to right, #667eea, #764ba2) !important;
-    color: white; /* para contraste */
+    color: white; 
 }
 
 

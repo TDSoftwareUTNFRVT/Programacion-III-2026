@@ -17,15 +17,15 @@ opciones.forEach(opcion => {
 
         // eliminar solo las clases del mismo grupo
         if (tipo) {
-            tipos[tipo].forEach(c => texto.classList.remove(c));
+            tipos[tipo].forEach(clase => texto.classList.remove(clase));
         }
 
         // evitar conflicto entre color y degradado
         if(tipo === "degradado"){
-            tipos.color.forEach(c => texto.classList.remove(c));
+            tipos.color.forEach(clase => texto.classList.remove(clase));
         }
         if(tipo === "color"){
-            tipos.degradado.forEach(c => texto.classList.remove(c));
+            tipos.degradado.forEach(clase => texto.classList.remove(clase));
         }
 
         // agregar nueva clase con animación

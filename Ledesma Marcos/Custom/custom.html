@@ -21,69 +21,113 @@
       <span class="paleta-texto">Personalizar</span>
     </div>
 
-    <div class="paleta-contenido">
+    <div class="paleta-contenido center-text ">
       <h2>!Tuneate re piola!</h2>
-
-       <!-------------------------------->
       <div class="bloque-color">
-        <h3>Tamaño</h3>
+        <!-- tamaño -->
+        <!-------------------------------->
+        <div>
+          <h3>Tamaño</h3>
 
-        <div class="fila">
-          <label for="ancho">Ancho</label>
-          <input id="ancho" type="range" min="0" max="20" value="2">
+          <div class="fila">
+            <label for="ancho">Ancho</label>
+            <input id="ancho" type="range" min="0" max="200" value="0" oninput="setWidht(this.value)">
+          </div>
+
+          <div class="fila">
+            <label for="largo">Alto</label>
+            <input id="largo" type="range" min="0" max="200" value="0" oninput="setHeight(this.value)">
+          </div>
+
+        </div>
+        <!-- colores -->
+        <!-------------------------------->
+        <div>
+          <div class="fila ">
+            <h3>Colores</h3>
+          </div>
+          <div class="fila">
+
+            <input type="color" id="color1" onchange="updateGradient()">
+            <input type="color" id="color2" onchange="updateGradient()">
+
+            <select onchange="setGradient(this.value)">
+              <option value="linear-gradient">Linear</option>
+              <option value="radial-gradient">Radial</option>
+              <option value="conic-gradient">Conic</option>
+            </select>
+
+          </div>
+
+
+          <div class="fila">
+            <h3>Fondos</h3>
+            <div>
+              <select onchange="setBackground(this.value)">
+                <option value="">Fondo 1</option>
+                <option value="">Fondo 2</option>
+                <option value="">Fondo 3</option>
+                <option value="">Fondo 4</option>
+              </select>
+              <input type="checkbox">
+            </div>
+          </div>
         </div>
 
-        <div class="fila">
-          <label for="largo">Largo</label>
-          <input id="largo" type="range" min="0" max="20" value="2">
+        <!-- esquinas -->
+        <!-------------------------------->
+        <div>
+          <h3>Esquinas</h3>
+
+          <div class="fila">
+            <input type="range" min="0" max="40" value="0" oninput="setRadius('tl',this.value)">
+            <input type="range" min="0" max="40" value="0" oninput="setRadius('tr',this.value)">
+          </div>
+          <div class="fila">
+            <input type="range" min="0" max="40" value="0" oninput="setRadius('bl',this.value)">
+            <input type="range" min="0" max="40" value="0" oninput="setRadius('br',this.value)">
+          </div>
+        </div>
+        <!-- bordes -->
+        <!-------------------------------->
+        <div>
+          <h3>Borde</h3>
+          <div class="fila">
+            <input type="color" onchange="setBordeColor(this.value)">
+            <input type="range" min="0" max="20" value="0" oninput="setBorderWidth(this.value)">
+          </div>
+        </div>
+        <!-- sombras -->
+        <!-------------------------------->
+        <div>
+          <h3>Sombra</h3>
+
+          <div class="fila">
+              <input id="shadowColorInput" type="color" onchange="updateShadow()">
+          </div>
+
+          <div class="fila">
+            <label>Blur</label>
+            <input id="shadowBlur" type="range" min="0" max="50" value="0" oninput="updateShadow()">
+          </div>
+
+          <div class="fila">
+            <label>Offset X</label>
+            <input id="shadowMoveX" type="range" min="0" max="50" value="0" oninput="updateShadow()">
+          </div>
+
+          <div class="fila">
+            <label>Offset Y</label>
+            <input id="shadowMoveY" type="range" min="0" max="50" value="0" oninput="updateShadow()">
+          </div>
         </div>
 
-      </div>
-       <!-------------------------------->
-      <div class="bloque-color">
-        <h3>Colores</h3>
-      <input type="color" onchange="setColor(this.value)">
-
-      <h3>Fondos</h3>
-      <select onchange="setBackground(this.value)">
-        <option value="">Fondo 1</option>
-        <option value="">Fondo 2</option>
-        <option value="">Fondo 3</option>
-        <option value="">Fondo 4</option>
-      </select>
-
+        <br><br>
+        <button class="save-btn" onclick="saveChanges()">Guardar cambios</button>
 
 
       </div>
-
-      <h3>Radio</h3>
-      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
-      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
-      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
-      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
-
-
-      <h3>Borde</h3>
-      <input type="color" onchange="setBordeColor(this.value)">
-      <input type="range" min="0" max="20" value="2" oninput="setBorderWidth(this.value)">
-
-      <h3>Degrade</h3>
-      <input type="color" id="color1">
-      <input type="color" id="color2">
-
-      <h3>Sombra</h3>
-      <label>Blur</label>
-      <input type="range" min="0" max="50" value="10" oninput="updateShadow()">
-
-      <label>Offset</label>
-      <input type="range" min="0" max="50" value="10" oninput="updateShadow()">
-
-      <br><br>
-      <button class="save-btn" onclick="saveChanges()">Guardar cambios</button>
-
-
     </div>
-
 
   </div>
 

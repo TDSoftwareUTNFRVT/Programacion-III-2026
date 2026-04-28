@@ -6,25 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const colores_bs = document.querySelectorAll(".caja-color-bs");
     let color_viejo;
     let color_nuevo;
-    const clases_colores_bs = ["bs-red",
-                            "bs-rose",
-                            "bs-orange",
-                            "bs-amber",
-                            "bs-yellow",
-                            "bs-lime",
-                            "bs-green",
-                            "bs-emerald",
-                            "bs-teal",
-                            "bs-cyan",
-                            "bs-lblue",
-                            "bs-blue",
-                            "bs-indigo",
-                            "bs-violet",
-                            "bs-purple",
-                            "bs-fuchsia",
-                            "bs-pink",
-                            "bs-black",
-                            "bs-lblack"];
+    let color_viejo_bs;
+    let color_nuevo_bs;
 
     function CambiarTexto() {
         editable_button.textContent = input_box.value;
@@ -38,13 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        colores_bs.forEach(color => {
-            color.addEventListener("click", () => {
-                colores_bs.forEach(c => c.classList.remove("border-selection"));
-                color.classList.add("border-selection");
+        colores_bs.forEach(color_bs => {
+            color_bs.addEventListener("click", () => {
+                colores_bs.forEach(c_bs => c_bs.classList.remove("border-selection"));
+                color_bs.classList.add("border-selection");
             });
         });
-
     }
 
     function CambiarColor() {
@@ -58,15 +40,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
         });
-    }
 
-    function CambiarBoxShadow() {
-
+        color_viejo_bs=editable_button.classList[3]
+        colores_bs.forEach(color_bs => {
+            if (color_bs.classList.contains("border-selection")){
+                color_nuevo_bs=color_bs.classList[1]
+                if (color_viejo_bs!==color_nuevo_bs){
+                    editable_button.classList.remove(color_viejo_bs);
+                    editable_button.classList.add(color_nuevo_bs);
+                };
+            };
+        });
     }
 
     submit_button.addEventListener("click",()=>{
         CambiarTexto();
         CambiarColor();
+        console.log(editable_button.classList)
     });
 
     SeleccionarColor();

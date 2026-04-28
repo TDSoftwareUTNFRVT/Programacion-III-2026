@@ -1,11 +1,7 @@
 *,
 *,
 *::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+*::after {box-sizing: border-box;margin: 0;padding: 0;}
 
 .bg-red     { background-color: #e0002d; }
 .bg-rose    { background-color: #f43f5e; }
@@ -27,27 +23,25 @@
 .bg-black   { background-color: #131825; }
 .bg-lblack  { background-color: #232a3e; }
 
-/* .bs-red      { box-shadow: #e0002d; }
-.bs-rose     { box-shadow: #f43f5e; }
-.bs-orange   { box-shadow: #f59e0b; }
-.bs-amber    { box-shadow: #f59e0b; }
-.bs-yellow   { box-shadow: #eab308; }
-.bs-lime     { box-shadow: #84cc16; }
-.bs-green    { box-shadow: #22c55e; }
-.bs-emerald  { box-shadow: #10b981; }
-.bs-teal     { box-shadow: #14b8a6; }
-.bs-cyan     { box-shadow: #0891b2; }
-.bs-lblue    { box-shadow: #06b6d4; }
-.bs-blue     { box-shadow: #002488; }
-.bs-indigo   { box-shadow: #4f46e5; }
-.bs-violet   { box-shadow: #7c3aed; }
-.bs-purple   { box-shadow: #6c63ff; }
-.bs-fuchsia  { box-shadow: #d946ef; }
-.bs-pink     { box-shadow: #ec4899; }
-.bs-black    { box-shadow: #131825; }
-.bs-lblack   { box-shadow: #232a3e; } */
-
-.box-shadow {box-shadow: 0 0 20px #002488}
+.bs-red      { box-shadow: 0px 0px 20px #e0002d; }
+.bs-rose     { box-shadow: 0px 0px 20px #f43f5e; }
+.bs-orange   { box-shadow: 0px 0px 20px #f59e0b; }
+.bs-amber    { box-shadow: 0px 0px 20px #f59e0b; }
+.bs-yellow   { box-shadow: 0px 0px 20px #eab308; }
+.bs-lime     { box-shadow: 0px 0px 20px #84cc16; }
+.bs-green    { box-shadow: 0px 0px 20px #22c55e; }
+.bs-emerald  { box-shadow: 0px 0px 20px #10b981; }
+.bs-teal     { box-shadow: 0px 0px 20px #14b8a6; }
+.bs-cyan     { box-shadow: 0px 0px 20px #0891b2; }
+.bs-lblue    { box-shadow: 0px 0px 20px #06b6d4; }
+.bs-blue     { box-shadow: 0px 0px 20px #002488; }
+.bs-indigo   { box-shadow: 0px 0px 20px #4f46e5; }
+.bs-violet   { box-shadow: 0px 0px 20px #7c3aed; }
+.bs-purple   { box-shadow: 0px 0px 20px #6c63ff; }
+.bs-fuchsia  { box-shadow: 0px 0px 20px #d946ef; }
+.bs-pink     { box-shadow: 0px 0px 20px #ec4899; }
+.bs-black    { box-shadow: 0px 0px 20px #131825; }
+.bs-lblack   { box-shadow: 0px 0px 20px #232a3e; }
 
 .border-selection {border:2px solid rgb(0, 255, 21)}
 

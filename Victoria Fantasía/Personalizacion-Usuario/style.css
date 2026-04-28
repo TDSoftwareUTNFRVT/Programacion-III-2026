@@ -1,0 +1,256 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-container {
+  margin: 50px;
+}
+
+.btn-bdr-groove {
+  border-style: groove;
+  border-width: 10px;
+  border-color: white grey black white;
+}
+
+button {
+  margin: 10px;
+}
+
+.plain-btn {
+  width: 60px;
+  height: 60px;
+}
+
+.text-btn {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  width: fit-content;
+  height: auto;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.form-container {
+  margin: 70px;
+}
+
+.form-btn {
+  font-size: 1.2rem;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+input {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around !important;
+}
+
+.name-display {
+  font-size: 7rem;
+  border-radius: 10px;
+  font-family: nunito;
+}
+
+.shape-sample {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.title-container {
+  justify-content: center;
+}
+
+.cat-title {
+  font-size: xx-large;
+  text-align: center;
+}
+
+.btn-submit {
+  font-family: nunito;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+input::placeholder {
+  font-family: nunito;
+}
+
+.btn-default-style {
+  background-color: #4caf50;
+  color: black;
+  border: black solid 2px;
+  cursor: pointer;
+}
+
+/* FONDOS */
+.purple-bg {
+  background-color: purple;
+}
+
+.blue-bg {
+  background-color: blue;
+}
+
+.green-bg {
+  background-color: green;
+}
+
+.yellow-bg {
+  background-color: yellow;
+}
+
+.orange-bg {
+  background-color: orange;
+}
+
+.red-bg {
+  background-color: red;
+}
+
+/* COLORES LETRAS */
+.purple-font {
+  color: purple;
+}
+
+.blue-font {
+  color: blue;
+}
+
+.green-font {
+  color: green;
+}
+
+.yellow-font {
+  color: yellow;
+}
+
+.orange-font {
+  color: orange;
+}
+
+.red-font {
+  color: red;
+}
+
+/* SOMBRAS */
+.basic-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.harsh-shadow {
+  text-shadow: 2px 2px 0px black;
+}
+
+.multilpe-shadow {
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 0 #000,
+    3px 3px 0 #000;
+}
+
+.glow-shadow {
+  text-shadow: 0 0 8px rgba(133, 155, 170, 0.944);
+}
+
+.floating-shadow {
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4),
+    0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.engraved-shadow {
+  text-shadow:
+    1px 1px 0 white,
+    -1px -1px 0 black;
+}
+
+/* BORDES */
+.solid-brd {
+  border: 2px solid black;
+}
+
+.dotted-brd {
+  border: 2px dotted black;
+}
+
+.dashed-brd {
+  border: 2px dashed black;
+}
+
+.double-brd {
+  border: 4px double black;
+}
+
+.groove-brd {
+  border: 6px groove gray;
+}
+
+.ridge-brd {
+  border: 6px ridge gray;
+}
+
+/* DEGRADÉS */
+.basic-linear-grad-bg {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+}
+
+.diagonal-linear-grad-bg {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.multicolor-linear-grad-bg {
+  background: linear-gradient(90deg, red, orange, yellow, green, blue);
+}
+
+.radial-grad-bg {
+  background: radial-gradient(circle, #ff9a9e, #fad0c4);
+}
+
+.harsh-linear-grad-bg {
+  background: linear-gradient(90deg, #000 50%, #fff 50%);
+}
+
+.repeating-linear-grad-bg {
+  background: repeating-linear-gradient(
+    45deg,
+    #606dbc,
+    #606dbc 10px,
+    #465298 10px,
+    #465298 20px
+  );
+}

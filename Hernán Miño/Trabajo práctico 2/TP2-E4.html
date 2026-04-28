@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 200px;
+      gap: 16px;
+      background: #0f172a;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      color: #f0e040;
+    }
+
+    .hero p {
+      color: #94a3b8;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 24px;
+      flex-grow: 1;
+      background: #1e293b;
+    }
+
+    .feature-item {
+      flex-basis: calc(33.33% - 11px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px;
+      background: #0f172a;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+    }
+
+    .feature-name {
+      font-weight: bold;
+    }
+
+    .feature-item:first-child {
+      order: 2;
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #0a0f1e;
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="hero">
+      <h1>Bienvenido a MiSitio ✦</h1>
+      <p>Diseño moderno con Flexbox</p>
+    </div>
+
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon"></div>
+        <div class="feature-name">Rápido</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"></div>
+        <div class="feature-name">Seguro</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"></div>
+        <div class="feature-name">Responsivo</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <span>© 2025 MiSitio</span>
+      <span>Hecho con HTML5 & CSS3</span>
+    </footer>
+  </div>
+</body>
+</html>

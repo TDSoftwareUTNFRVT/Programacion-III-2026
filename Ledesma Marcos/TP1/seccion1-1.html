@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .wrapper {
+    /* TODO: clearfix moderno — evitar colapso del padre */
+    display: flow-root;
+    width: 100%;
+  }
+
+  .sidebar {
+    /* TODO: float izquierda, 28% de ancho, 2% de margen derecho */
+    float: left; 
+    width: 28%; 
+    height: 400px;
+    background: #6c63ff;
+  }
+ 
+  .main {
+    /* TODO: float izquierda, 70% de ancho */
+    float: left; 
+    width: 70%;
+    float: right;
+    height: 400px;
+    background: #1c2235;
+  }
+  body {
+      background: #232a3e;
+      min-height: 100vh;
+    }
+</style>
+
+<div class="wrapper">
+  <div class="sidebar"></div>
+  <div class="main"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Ejercicio4</title>
+    <style>
+      * {box-sizing: border-box; margin: 0; padding: 0;}
+
+body {
+    background: #0f172a;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    gap: 16px;
+    background: #0f172a;
+}
+
+.hero-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.hero-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #f0e040;
+    text-align: center;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px;
+    flex-grow: 1;
+}
+
+.feature-item {
+    flex-basis: calc(33.33% - 11px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px;
+    background: #1e293b;
+    border-radius: 8px;
+}
+
+.feature-item:first-child {
+    order: 2;
+}
+
+.feature-item-text {
+    color: black;
+    font-size: 1.3rem;
+}
+
+.feature-icon {
+    font-size: 1.2rem;
+}
+
+.feature-text {
+    font-size: 3rem;
+    color: #94a3b8;
+    font-family: 'Space Mono', monospace;
+}
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: #0a0f1e;
+}
+
+.site-footer-text {
+    font-size: 1rem;
+    color: #475569;
+}
+    </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <section class="hero">
+      <div class="hero-item">
+        <h1 class="hero-text">Bienvenido a Mi Sitio ✦</h1>
+      </div>
+    </section>
+    <section class="features">
+      <div class="feature-item">
+        <span class="feature-text">🚀</span>
+        <p class="feature-item-text">Rápido</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-text">🔒</span>
+        <p class="feature-item-text">Seguro</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-text">📱</span>
+        <p class="feature-item-text">Responsivo</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

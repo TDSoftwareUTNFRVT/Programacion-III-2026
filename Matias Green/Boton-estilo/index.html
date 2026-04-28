@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <link rel="stylesheet" href="styles-js.css">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let contador = 0;
+            const numero = document.querySelector("h1");
+
+            function cambiaValor() {
+                numero.innerHTML = contador;
+
+                // Reinicia animación
+                numero.classList.remove("animar");
+                void numero.offsetWidth; // hack para reiniciar animación
+                numero.classList.add("animar");
+            }
+
+            function sumar() {
+                contador += 1;
+                cambiaValor();
+            }
+
+            function resta() {
+                contador -= 1;
+                cambiaValor();
+            }
+
+            document.querySelector("#suma").addEventListener("click", sumar);
+            document.querySelector("#resta").addEventListener("click", resta);
+            document.querySelector("#reset").addEventListener("click", () => {
+                contador = 0;
+                cambiaValor();
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>0</h1>
+
+        <div class="botones">
+            <button class="boton" id="suma">Sumar</button>
+            <button class="boton" id="reset">Reset</button>
+            <button class="boton" id="resta">Restar</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

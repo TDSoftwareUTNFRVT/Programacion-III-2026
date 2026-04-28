@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title> boton personalizado</title>
+        <style>
+            .contenedor{
+                position: relative;
+                height: 400px;
+                display: block;
+                margin: auto;
+            }
+            .figura{
+                position: absolute ;
+                top: 50%;
+                left: 50%;
+                width: 100px;
+                height: 150px;
+                background-color: rgb(64, 61, 61);
+                clip-path: polygon(-25% -15%, 80% 135%, 120% 100%);
+                transform-origin: center bottom;
+                transition: 0.3s ease;
+                
+            }
+
+            .f1 {transform: rotate(0deg) translate(-50%, -100%);}
+            .f2 {transform: rotate(36deg) translate(-50%, -100%);}
+            .f3 {transform: rotate(72deg) translate(-50%, -100%);}
+            .f4 {transform: rotate(108deg) translate(-50%, -100%);}
+            .f5 {transform: rotate(144deg) translate(-50%, -100%);}
+            .f6 {transform: rotate(180deg) translate(-50%, -100%);}
+            .f7 {transform: rotate(216deg) translate(-50%, -100%);}
+            .f8 {transform: rotate(252deg) translate(-50%, -100%);}
+            .f9 {transform: rotate(288deg) translate(-50%, -100%);}
+            .f10 {transform: rotate(324deg) translate(-50%, -100%);}
+
+            .f1:hover{background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQgQCN-xjXvfLH7K_GMuzy-dLoE-piOKTD8WU8sLlK2n1AfutXY6ROxzc&s");
+                    background-size: cover;
+                    background-position: center;
+                    
+                }
+            .f2:hover{background-color: rgb(30, 142, 187);}
+            .f3:hover{background-color: rgb(196, 114, 19);}
+            .f4:hover{background-color: rgba(3, 60, 136, 0.816);} 
+            .f5:hover{background-color: rgb(127, 27, 174);}
+            .f6:hover{background-color: rgb(21, 127, 125);} 
+            .f7:hover{background-color: rgb(48, 14, 14);} 
+            .f8:hover{background-color: rgb(255, 2, 204);}
+            .f9:hover{background-color: rgb(194, 169, 228);} 
+            .f10:hover{background-color: rgb(130, 232, 123);} 
+        </style>
+    </head>
+    <body>
+        <div class = "contenedor">
+            <a href="https://www.netflix.com/es/" target="_blank" class="figura f1"></a>
+            <div class ="figura f2 "></div>
+            <div class ="figura f3 "></div>
+            <div class ="figura f4 "></div>
+            <div class ="figura f5 "></div>
+            <div class ="figura f6 "></div>
+            <div class ="figura f7 "></div>
+            <div class ="figura f8 "></div>
+            <div class ="figura f9 "></div>
+            <div class ="figura f10 "></div>
+        </div>
+    </body>
+</html>

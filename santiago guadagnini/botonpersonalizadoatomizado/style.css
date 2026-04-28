@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+    height: 100vh;
+}
+
+.panel {
+    width: 250px;
+    background: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #ccc;
+    overflow-y: auto;
+}
+
+.panel h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.colores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.color-btn:hover {
+    border-color: #000;
+    transform: scale(1.1);
+}
+
+.control-group {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.control-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+select, input[type="range"], input[type="color"] {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#btnDefault {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+#btnDefault:hover {
+    background: #333;
+}
+
+.area-principal {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+}
+
+#botonPrincipal {
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #3498db;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: 0.2s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

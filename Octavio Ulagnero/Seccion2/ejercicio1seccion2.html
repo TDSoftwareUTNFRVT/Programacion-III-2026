@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>botonprogramacion</title>
+    <style>
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            }
+
+        .links-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            }
+
+        @media (min-width:768px){
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+             }
+            .links-group { justify-content: flex-end; }
+        }
+
+        .logo  { width: 48px; 
+            height: 32px; 
+            border-radius: 4px; }
+        .link  { 
+            width: 70px; 
+            height: 10px; 
+            border-radius: 4px; }
+        .fondoazuloscu{
+            background: #161b27;
+        }
+        .fondolila{
+            background: #6c63ff;
+        }
+        .fondorojo{
+            background: #ff6584;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar fondoazuloscu">
+        <div class="logo fondolila"></div> 
+        <div class="links-group">
+            <div class="link fondorojo"></div>
+            <div class="link fondorojo"></div>
+            <div class="link fondorojo"></div>
+            <div class="link fondorojo"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body {
+    background-color: #E0E0E0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.button-customer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; 
+}
+
+.button-style{
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.sections {
+    padding: 20px; 
+    border-radius: 5px; 
+    box-sizing: border-box;
+    align-content: center;
+}
+
+.main-button{
+    font-size: 30px;
+    padding: 15px 30px;
+    display: block;
+    margin: 50px auto;
+}
+
+.form-style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-style {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+
+.form-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.center-txt {text-align: center;}
+.margin-20 {margin: 20px;}
+
+
+.bg-col-pink{background-color: #FFB3BA;}
+.bg-col-orange{background-color: #FFDFBA;}
+.bg-col-yellow{background-color: #FFFFBA;}
+.bg-col-green{background-color: #BFFCC9;}
+.bg-col-lightblue{background-color: #BAE1FF;}
+.bg-col-purple{background-color: #E0BBE4;}
+
+.font-arial{font-family: Arial, sans-serif;}
+.font-verdana{font-family: Verdana, sans-serif;}
+.font-tahoma{font-family: Tahoma, sans-serif;}
+.font-times-new-roman{font-family: "Times New Roman", serif;}
+.font-georgia{font-family: Georgia, serif;}
+.font-courier-new{font-family: "Courier New", monospace;}
+
+.font-col-pink{color: #FF6F91;}
+.font-col-orange{color: #FF9A3C;}
+.font-col-yellow{color: #FFD93D;} 
+.font-col-green{color: #4CDC9E;} 
+.font-col-lightblue{color: #4DA8FF;} 
+.font-col-purple{color: #9B6CFF;}
+
+.shadow-none { box-shadow: none;}
+.shadow-subtle { box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
+.shadow-high { box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
+.shadow-solid { box-shadow: 5px 5px 0px #000000;}
+.shadow-bright { box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);}
+.shadow-inset { box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);}
+
+.border-none { border: none}
+.border-thin { border-radius: 0; border: 2px solid;}
+.border-radius { border-radius: 8px; border: 2px solid;}
+.border-pill { border-radius: 50px; border: 2px solid;}
+.border-bottom { border-radius: 0; border: none; border-bottom: 4px solid;}
+.border-double { border-radius: 12px; border: 4px double;}
+
+.gradient-1 { background: linear-gradient(135deg, #FFB3BA, #FFDFBA);}
+.gradient-2 { background: linear-gradient(135deg, #FFDFBA, #FFFFBA);}
+.gradient-3 { background: linear-gradient(135deg, #FFFFBA, #BFFCC9);}
+.gradient-4 { background: linear-gradient(135deg, #BFFCC9, #BAE1FF);}
+.gradient-5 { background: linear-gradient(135deg, #BAE1FF, #E0BBE4);}
+.gradient-6 { background: linear-gradient(135deg, #E0BBE4, #FFB3BA);}

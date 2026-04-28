@@ -1,0 +1,163 @@
+.fondo {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("img/lossantosbuttons.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center-text {
+  text-align: center;
+}
+/* BLOQUE */
+
+.bloque-color {
+    background: rgba(56, 56, 56, 0.2);
+    border-radius: 8px;
+        padding: 10px;       
+    overflow: hidden;    
+}
+
+
+.fila {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.fila label {
+    min-width: 60px;
+}
+
+.fila input {
+    flex: 1;
+}
+.fila select {
+    flex: 1;
+}
+/* INPUTS */
+/* select */
+select {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 2px solid #6113bb;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* color */
+
+
+input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border-radius: 6px;
+    border: 2px solid #6113bb;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+/* slide */
+input[type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 100%;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background: rgb(34, 32, 32);
+    height: 6px;
+    border-radius: 5px;
+    margin-top: 0px;
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-shadow: 0 0 4px #6113bb;
+    width: 16px;
+    height: 16px;
+    background: #6113bb;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4px;
+}
+
+/* BOTÓN */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#miBoton {
+    font-size: 18px;
+    background: #6113bb;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* MENÚ */
+.paleta-desplegable {
+    position: fixed;
+    /* left: -310px; */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    transition: left 0.3s ease;
+}
+
+.paleta-desplegable.open {
+    left: 0;
+}
+
+/* TAB */
+.paleta-tab {
+    background: rgba(0, 0, 0, 0.8);
+    border-right: 3px solid #6113bb;
+    border-top: 2px solid #6113bb;
+    border-bottom: 2px solid #6113bb;
+    border-radius: 0 15px 15px 0;
+    padding: 20px 12px;
+    cursor: pointer;
+}
+
+.paleta-texto {
+    writing-mode: vertical-rl;
+    color: #6113bb;
+    font-weight: bold;
+}
+
+.paleta-contenido {
+    width: 270px;
+    background: rgba(0, 0, 0, 0.8);
+    border-right: 3px solid #6113bb;
+    border-top: 2px solid #6113bb;
+    border-bottom: 2px solid #6113bb;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 20px;
+    color: white;
+}

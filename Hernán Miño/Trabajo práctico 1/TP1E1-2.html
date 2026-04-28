@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .w-full { width: 100%; }
+        .h-60 { height: 60px; }
+        .h-300 { height: 300px; }
+        
+        .block { display: block; }
+        .clear-both { clear: both; }
+        .flow-root { display: flow-root; }
+        
+        .col { float: left; }
+        .w-20 { width: 20%; }
+        .w-60 { width: 60%; }
+        
+        .bg-violet { background-color: #6c63ff; }
+        .bg-dark { background-color: #161b27; }
+        .bg-red { background-color: #ff6584; }
+        .bg-gray { background-color: #e2e8f0; }
+        .bg-charcoal { background-color: #333; }
+
+        body { margin: 0; font-family: sans-serif; color: white; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header class="block w-full h-60 bg-charcoal clear-both">
+    </header>
+
+    <div class="flow-root">
+        <aside class="col w-20 h-300 bg-violet">
+        </aside>
+        <main class="col w-60 h-300 bg-dark">
+        </main>
+        <aside class="col w-20 h-300 bg-red">
+        </aside>
+    </div>
+    <footer class="block w-full h-60 bg-gray clear-both" style="color: black;">
+    </footer>
+</body>

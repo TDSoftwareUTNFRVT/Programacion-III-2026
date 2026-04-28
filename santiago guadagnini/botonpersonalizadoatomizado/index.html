@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizador de Botón atomizado simple</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="panel">
+        <h2>Personalizar Botón</h2>
+
+        <div class="control-group">
+            <label>Color de fondo:</label>
+            <div class="colores">
+                <button class="color-btn" style="background: #e74c3c;" onclick="cambiarColor('#e74c3c')"></button>
+                <button class="color-btn" style="background: #3498db;" onclick="cambiarColor('#3498db')"></button>
+                <button class="color-btn" style="background: #2ecc71;" onclick="cambiarColor('#2ecc71')"></button>
+                <button class="color-btn" style="background: #f39c12;" onclick="cambiarColor('#f39c12')"></button>
+                <button class="color-btn" style="background: #9b59b6;" onclick="cambiarColor('#9b59b6')"></button>
+                <button class="color-btn" style="background: #1abc9c;" onclick="cambiarColor('#1abc9c')"></button>
+                <button class="color-btn" style="background: #e67e22;" onclick="cambiarColor('#e67e22')"></button>
+                <button class="color-btn" style="background: #abb6c0;" onclick="cambiarColor('#34495e')"></button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="sombra">Sombra (desplazamiento y difuminado):</label>
+            <input type="range" id="sombra" min="0" max="20" value="4" oninput="actualizarSombra()">
+            <span id="valorSombra">4px</span>
+        </div>
+
+        <div class="control-group">
+            <label for="grosorBorde">Grosor del borde:</label>
+            <input type="range" id="grosorBorde" min="0" max="10" value="3" oninput="actualizarBorde()">
+            <span id="valorGrosor">3px</span>
+
+            <label for="tipoBorde">Tipo de borde:</label>
+            <select id="tipoBorde" onchange="actualizarBorde()">
+                <option value="solid">Sólido</option>
+                <option value="dashed">Rayas</option>
+                <option value="dotted">Puntos</option>
+                <option value="double">Doble</option>
+            </select>
+
+            <label for="colorBorde">Color del borde:</label>
+            <input type="color" id="colorBorde" value="#ffffff" oninput="actualizarBorde()">
+        </div>
+
+        <div class="control-group">
+            <label for="redondez">Redondez de las esquinas:</label>
+            <input type="range" id="redondez" min="0" max="50" value="10" oninput="actualizarRedondez()">
+            <span id="valorRedondez">10px</span>
+        </div>
+
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="activarDegradado" onchange="actualizarDegradado()"> Activar degradado
+            </label>
+            <div id="opcionesDegradado" style="display: none;">
+                <label for="colorDegradado">Segundo color:</label>
+                <input type="color" id="colorDegradado" value="#ffffff" oninput="actualizarDegradado()">
+            </div>
+        </div>
+
+        <!-- Botón para restaurar valores por defecto (sin imagen) -->
+        <button id="btnDefault" onclick="resetearValores()">Restaurar valores por defecto</button>
+    </div>
+
+    <div class="area-principal">
+        <button id="botonPrincipal">Botón Principal</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

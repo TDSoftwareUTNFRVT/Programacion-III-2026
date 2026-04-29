@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .borde-animado {
+            position: relative;
+            padding: 4px;
+            border-radius: 60px;
+            overflow: hidden;
+        }
+
+        .borde-animado::before {
+            content: "";
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            background: conic-gradient(transparent, #ffffff, transparent 30%);
+            animation: rotar 2s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .borde-animado:hover::before {
+            opacity: 1;
+        }
+
+        .boton {
+            position: relative;
+            z-index: 1;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-family: "Arial", sans-serif;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .boton::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: all 0.5s;
+        }
+
+        .boton:hover::before {
+            left: 150%;
+        }
+
+        .boton.azul:hover { background-color: #3b3fff; box-shadow: 0 0 30px rgba(59,63,255,0.8); }
+        .boton.rojo:hover { background-color: #ff3b3b; box-shadow: 0 0 30px rgba(255,59,59,0.8); }
+        .boton.verde:hover { background-color: #3bff5e; box-shadow: 0 0 30px rgba(59,255,94,0.8); }
+
+        @keyframes rotar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            color: white;
+            font-size: 80px;
+            text-align: center;
+            font-family: Arial;
+            margin: 0 50px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let contador = 0;
+            
+            function cambiavalor() {
+                document.querySelector("h1").innerHTML = contador;
+            }
+            
+            function Sumar() {
+                contador++;
+                document.querySelector("h1").innerHTML = contador;
+            }
+            
+            function Restar() {
+                contador--;
+                document.querySelector("h1").innerHTML = contador;
+            }
+            
+            document.querySelector("#suma").addEventListener("click", Sumar);
+            document.querySelector("#reset").addEventListener("click", () => {
+                contador = 0;
+                cambiavalor();
+            });
+            document.querySelector("#resta").addEventListener("click", Restar);
+        });
+    </script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="borde-animado"><button id="suma" class="boton azul">Sumar</button></div>
+        <h1>0</h1>
+        <div class="borde-animado"><button id="reset" class="boton rojo"> Reset</button></div>
+        <div class="borde-animado"><button id="resta" class="boton verde">Restar</button></div>
+    </div>
+</body>
+</html>

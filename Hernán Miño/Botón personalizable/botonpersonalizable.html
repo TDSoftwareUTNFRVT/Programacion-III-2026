@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial;
+        }
+
+        .caja {
+            background: #1a1a2e;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        select, input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #0f0f1a;
+            color: white;
+        }
+
+        label {
+            color: white;
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .aplicar {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .aplicar:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <h2 style="color:white;">Personalizador</h2>
+
+        <button id="boton">Haz clic</button>
+
+        <label>Color fondo:</label>
+        <select id="color">
+            <option value="#3498db">Azul</option>
+            <option value="#e74c3c">Rojo</option>
+            <option value="#2ecc71">Verde</option>
+            <option value="#f39c12">Naranja</option>
+            <option value="#9b59b6">Morado</option>
+            <option value="#1abc9c">Turquesa</option>
+        </select>
+
+        <label>Sombra:</label>
+        <select id="sombra">
+            <option value="none">Sin sombra</option>
+            <option value="0 4px 8px rgba(0,0,0,0.3)">Suave</option>
+            <option value="0 8px 16px rgba(0,0,0,0.5)">Fuerte</option>
+        </select>
+
+        <label>Borde:</label>
+        <select id="borde">
+            <option value="none">Sin borde</option>
+            <option value="2px solid white">Blanco</option>
+            <option value="3px solid gold">Dorado</option>
+        </select>
+
+        <label>Color texto:</label>
+        <select id="colorTexto">
+            <option value="white">Blanco</option>
+            <option value="black">Negro</option>
+            <option value="#ffd700">Dorado</option>
+        </select>
+
+        <label>Texto del botón:</label>
+        <input type="text" id="texto" value="Escriba su texto aquí...">
+
+        <button id="aplicar" class="aplicar">Aplicar</button>
+    </div>
+
+    <script>
+        const boton = document.getElementById('boton');
+        const aplicar = document.getElementById('aplicar');
+        const texto = document.getElementById('texto');
+
+        function cambiar() {
+            boton.style.backgroundColor = document.getElementById('color').value;
+            boton.style.boxShadow = document.getElementById('sombra').value;
+            boton.style.border = document.getElementById('borde').value;
+            boton.style.color = document.getElementById('colorTexto').value;
+            boton.textContent = texto.value || 'Botón';
+        }
+
+        aplicar.onclick = cambiar;
+        cambiar();
+    </script>
+</body>
+</html>

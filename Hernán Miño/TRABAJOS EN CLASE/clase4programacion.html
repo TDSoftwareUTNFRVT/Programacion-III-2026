@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<title>Selectores de Colores(USO DE DATA-COLOR)</title>
+<html lang>
+    <head>
+        <script>
+            async function fetchPersonaje(id) {
+
+            // 1️⃣  Hacemos la petición
+            const response = await fetch(
+                `https://rickandmortyapi.com/api/character/${id}`
+            );
+
+            // 2️⃣  Verificamos que salió bien
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+
+            // 3️⃣  Convertimos la respuesta a objeto JS
+            const data = await response.json();
+
+            // 4️⃣  Usamos los datos
+            return data;
+            }
+x|
+
+            document.addEventListener("DOMContentLoaded",()=>){
+                document.querySelector("#mostrar").onClick = function(){
+                    document.querySelector
+                }
+                
+            }
+
+
+
+            document.addEventListener("DOMContentLoaded",()=>{
+            document.querySelector("#red").onClick = function(){
+                document.querySelector("#Hello").style.color="red";
+            }
+            })
+
+            document.addEventListener("DOMContentLoaded",()=>{
+                document.querySelectorAll("button").forEach(function(button){
+                    button.onclick=function(){
+                        document.querySelector("#Hello").style.color=button.dataset.color;
+                    }
+                })
+            })
+            
+
+        </script>
+
+         
+    </head>
+    <body>
+        <button id="mostrar">Mostrar</button>
+        <h1 id="Hello"> Hello!!</h1>
+        <button id="red">Red</button>
+        <button data-color="blue">Blue</button>
+        <button data-color="#27EAF8">Green</button>
+    </body>
+</html>

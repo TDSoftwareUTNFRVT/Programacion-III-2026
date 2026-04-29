@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .rojo{background-color:red}
+        .verde{background-color:green}
+        .azul{background-color:blue}
+    </style>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded",function(){
+            let contador=0;
+            function cambiavalor(){
+                document.querySelector("h1").innerHTML=contador;
+            }
+            function Sumar(){
+                contador+=1;
+                document.querySelector("h1").innerHTML = contador;
+            }
+            function Restar(){
+                contador-=1;
+                document.querySelector("h1").innerHTML = contador;
+            }
+            document.querySelector("#suma").addEventListener("click",Sumar);
+            
+            document.querySelector("#reset").addEventListener("click",()=>{
+                contador=0;
+                cambiavalor();})
+            document.querySelector("#resta").addEventListener("click",Restar);
+            });
+    </script>
+</head>
+<body>
+    <h1>0</h1>
+    <!-- <h1> Salchi</h1>
+    <button id="saludar">Saludar</button> -->
+    <button id="suma" class="azul">Sumar</button>
+    <button id="reset">Reset</button>
+    <button id="resta">Restar</button>
+</body>

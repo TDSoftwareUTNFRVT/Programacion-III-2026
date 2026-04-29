@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        let contador = 0;
+        function contar(){
+        contador++;
+        alert(contador);
+         }
+        document.querySelector("button").onclick=contar(); 
+        document.addEventListener("DOMContentLoaded",function(){
+        function saludo(){
+        if(document.querySelector("h1").innerHTML==="Papa"){
+        document.querySelector("h1").innerHTML="Salchi";}
+        else{document.querySelector("h1").innerHTML="Papa";}  
+         }
+        const boton = document.querySelector("#saludar");
+         boton.addEventListener("click",saludo);
+        });
+    </script>
+</head>

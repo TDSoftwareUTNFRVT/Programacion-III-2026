@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "titulo";
+    src: url(fonts/titulos/Michroma-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "parrafo";
+    src: url(fonts/parrafos/TurretRoad-ExtraLight.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "parrafo-regular";
+    src: url(fonts/parrafos/TurretRoad-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "parrafo-medio";
+    src: url(fonts/parrafos/TurretRoad-Medium.ttf);
+    font-weight: 500;
+}

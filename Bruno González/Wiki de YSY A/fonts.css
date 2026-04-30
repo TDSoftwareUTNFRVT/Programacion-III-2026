@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "titulo";
+    src: url(fonts/titulos/BioRhymeExpanded-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "titulo-2";
+    src: url(fonts/titulos/AtkinsonHyperlegibleMono-VariableFont_wght.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "titulo-3";
+    src: url(fonts/parrafos/ChakraPetch-Light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "subtitulo";
+    src: url(fonts/subtitulos/BungeeHairline-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "parrafo";
+    src: url(fonts/parrafos/PoiretOne-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "parrafo-2";
+    src: url(fonts/parrafos/ChakraPetch-Light.ttf);
+    font-weight: 100;
+}

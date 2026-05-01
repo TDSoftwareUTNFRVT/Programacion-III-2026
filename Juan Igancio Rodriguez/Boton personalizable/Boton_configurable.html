@@ -1,0 +1,299 @@
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        .sidebar {
+            width: 300px;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .color-btn {
+            width: 50px;
+            height: 50px;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .color-btn.active {
+            border-color: #fff;
+        }
+        .shadow-presets {
+            display: flex;
+            gap: 10px;
+        }
+        .shadow-preset-btn {
+            padding: 5px 10px;
+            background: #555;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .shadow-preset-btn.active {
+            background: #777;
+        }
+        .control-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .control-row label {
+            width: 60px;
+        }
+        .control-row input {
+            flex: 1;
+        }
+        .border-style-btns {
+            display: flex;
+            gap: 5px;
+        }
+        .border-style-btn {
+            padding: 5px;
+            background: #555;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .border-style-btn.active {
+            background: #777;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 25px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: #555;
+            border-radius: 25px;
+        }
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background: #fff;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .toggle-switch input:checked + .toggle-slider {
+            background: #f0a500;
+        }
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(25px);
+        }
+        .gradient-dir-btns {
+            display: flex;
+            gap: 5px;
+        }
+        .gradient-dir-btn {
+            padding: 5px;
+            background: #555;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .gradient-dir-btn.active {
+            background: #777;
+        }
+        .gradient-dir-btn.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .main-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+        }
+        .main-btn {
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            color: #fff;
+            border: none;
+            cursor: default;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Personalizador</h2>
+        <div class="section">
+            <div class="section-title">Colores</div>
+            <div class="color-grid" id="colorGrid"></div>
+        </div>
+        <div class="section">
+            <div class="section-title">Sombras</div>
+            <div class="shadow-presets" id="shadowPresets">
+                <button class="shadow-preset-btn active" data-shadow="none">Ninguna</button>
+                <button class="shadow-preset-btn" data-shadow="small">Pequeña</button>
+                <button class="shadow-preset-btn" data-shadow="large">Grande</button>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Bordes</div>
+            <div class="control-row">
+                <label>Grosor:</label>
+                <input type="range" id="borderWidth" min="0" max="10" value="0">
+                <span id="borderWidthVal">0px</span>
+            </div>
+            <div class="border-style-btns" id="borderStyleBtns">
+                <button class="border-style-btn active" data-style="solid">Sólido</button>
+                <button class="border-style-btn" data-style="dashed">Rayado</button>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Redondez</div>
+            <div class="control-row">
+                <label>Radio:</label>
+                <input type="range" id="borderRadius" min="0" max="50" value="0">
+                <span id="borderRadiusVal">0px</span>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Degradado</div>
+            <div class="control-row">
+                <label>Activar:</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="gradientToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="gradient-dir-btns" id="gradientDirBtns">
+                <button class="gradient-dir-btn active disabled" data-dir="to right">Horizontal</button>
+                <button class="gradient-dir-btn disabled" data-dir="to bottom">Vertical</button>
+            </div>
+        </div>
+    </aside>
+    <main class="main-area">
+        <button class="main-btn" id="mainButton">BOTÓN</button>
+    </main>
+    <script>
+        const mainButton = document.getElementById('mainButton');
+        const colorGrid = document.getElementById('colorGrid');
+        const shadowPresets = document.getElementById('shadowPresets');
+        const borderWidth = document.getElementById('borderWidth');
+        const borderWidthVal = document.getElementById('borderWidthVal');
+        const borderStyleBtns = document.getElementById('borderStyleBtns');
+        const borderRadius = document.getElementById('borderRadius');
+        const borderRadiusVal = document.getElementById('borderRadiusVal');
+        const gradientToggle = document.getElementById('gradientToggle');
+        const gradientDirBtns = document.getElementById('gradientDirBtns');
+
+        const colors = ['#e74c3c', '#2ecc71', '#3498db', '#9b59b6'];
+        const shadowMap = {
+            none: 'none',
+            small: '0 2px 4px rgba(0,0,0,0.2)',
+            large: '0 4px 8px rgba(0,0,0,0.3)'
+        };
+
+        let state = {
+            color: '#3498db',
+            shadow: 'none',
+            borderWidth: 0,
+            borderStyle: 'solid',
+            borderRadius: 0,
+            gradient: false,
+            gradientDir: 'to right'
+        };
+
+        function updateButton() {
+            mainButton.style.background = state.gradient ? `linear-gradient(${state.gradientDir}, ${state.color}, #fff)` : state.color;
+            mainButton.style.boxShadow = shadowMap[state.shadow];
+            mainButton.style.border = `${state.borderWidth}px ${state.borderStyle} ${state.color}`;
+            mainButton.style.borderRadius = `${state.borderRadius}px`;
+        }
+
+        // Colores
+        colors.forEach(color => {
+            const btn = document.createElement('button');
+            btn.className = 'color-btn';
+            btn.style.backgroundColor = color;
+            if (color === state.color) btn.classList.add('active');
+            btn.onclick = () => {
+                document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.color = color;
+                updateButton();
+            };
+            colorGrid.appendChild(btn);
+        });
+
+        // Sombras
+        shadowPresets.querySelectorAll('button').forEach(btn => {
+            btn.onclick = () => {
+                shadowPresets.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.shadow = btn.dataset.shadow;
+                updateButton();
+            };
+        });
+
+       
+        borderWidth.oninput = () => {
+            state.borderWidth = borderWidth.value;
+            borderWidthVal.textContent = state.borderWidth + 'px';
+            updateButton();
+        };
+
+        borderStyleBtns.querySelectorAll('button').forEach(btn => {
+            btn.onclick = () => {
+                borderStyleBtns.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.borderStyle = btn.dataset.style;
+                updateButton();
+            };
+        });
+
+        
+        borderRadius.oninput = () => {
+            state.borderRadius = borderRadius.value;
+            borderRadiusVal.textContent = state.borderRadius + 'px';
+            updateButton();
+        };
+// Degradado
+        gradientToggle.onchange = () => {
+            state.gradient = gradientToggle.checked;
+            gradientDirBtns.querySelectorAll('button').forEach(btn => {
+                btn.classList.toggle('disabled', !state.gradient);
+            });
+            updateButton();
+        };
+
+        gradientDirBtns.querySelectorAll('button').forEach(btn => {
+            btn.onclick = () => {
+                if (!state.gradient) return;
+                gradientDirBtns.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                state.gradientDir = btn.dataset.dir;
+                updateButton();
+            };
+        });
+
+        updateButton();
+    </script>
+</body>
+</html>

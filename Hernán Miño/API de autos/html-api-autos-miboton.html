@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Autos por Marca</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: black;
+      color: white; 
+    }
+    h1 { text-align: center; }
+
+    .navegacion {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .borde-animado {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
+      overflow: hidden;
+      border-radius: 60px;
+    }
+
+    .borde-animado::before {
+      content: "";
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      background: conic-gradient(transparent, #ffffff, transparent 30%);
+      animation: rotar 2s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .borde-animado:hover::before {
+      opacity: 1;
+    }
+
+    button {
+      position: relative;
+      z-index: 1;
+      padding: 14px 28px;
+      font-size: 1.5rem;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      color: white;
+      background-color: red;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      outline: none;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+      transition: all 0.5s;
+    }
+
+    button:hover::before {
+      left: 150%;
+    }
+
+    button:hover {
+      background-color: #3b3fff;
+      box-shadow: 0 0 30px rgba(59, 63, 255, 0.8);
+    }
+
+    @keyframes rotar {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    #nombreMarca {
+      font-size: 1.8rem;
+      font-weight: bold;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    #listaModelos {
+      list-style: none;
+      padding: 0;
+    }
+
+    #listaModelos li {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 6px;
+      color: black;
+    }
+
+    #estado { text-align: center; color: white; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Autos por Marca</h1>
+
+<div class="navegacion">
+  <div class="borde-animado">
+    <button id="botonAnterior">&#8592;</button>
+  </div>
+
+  <div id="nombreMarca"></div>
+
+  <div class="borde-animado">
+    <button id="botonSiguiente">&#8594;</button>
+  </div>
+</div>
+
+<div id="estado">Cargando...</div>
+<ul id="listaModelos"></ul>
+
+<script>
+  const marcas = ['Toyota', 'Ford', 'Chevrolet', 'Volkswagen'];
+
+  let indiceMarcaActual = 0;
+
+  const elementoNombreMarca = document.getElementById('nombreMarca');
+  const elementoListaModelos = document.getElementById('listaModelos');
+  const elementoEstado       = document.getElementById('estado');
+
+  async function cargarModelos() {
+    const marcaSeleccionada = marcas[indiceMarcaActual];
+
+    elementoNombreMarca.textContent = marcaSeleccionada;
+    elementoListaModelos.innerHTML = '';
+    elementoEstado.textContent = 'Cargando...';
+
+    const respuesta = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${marcaSeleccionada}?format=json`);
+    const datos = await respuesta.json();
+
+    elementoEstado.textContent = `${datos.Results.length} modelos encontrados`;
+
+    datos.Results.forEach(auto => {
+      const item = document.createElement('li');
+      item.textContent = auto.Model_Name;
+      elementoListaModelos.appendChild(item);
+    });
+  }
+
+  document.getElementById('botonAnterior').onclick = () => {
+    indiceMarcaActual = (indiceMarcaActual - 1 + marcas.length) % marcas.length;
+    cargarModelos();
+  };
+
+  document.getElementById('botonSiguiente').onclick = () => {
+    indiceMarcaActual = (indiceMarcaActual + 1) % marcas.length;
+    cargarModelos();
+  };
+
+  cargarModelos();
+</script>
+</body>
+</html>

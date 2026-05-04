@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*CENTRAR H1*/
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+#card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+}
+
+
+.card {
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.card h2 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+.card p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+#buscador {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 8px 12px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+

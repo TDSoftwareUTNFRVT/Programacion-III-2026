@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Personalizador Básico - Al Costado</title>
+
+    <style>
+        body { 
+            margin: 20px; 
+            font-family: sans-serif; 
+            background-color: #f4f4f4; 
+        }
+
+        .contenedor-principal {
+            display: flex; 
+            gap: 40px; 
+            align-items: flex-start;
+        }
+        
+
+        .controles {
+            border: 2px solid black; 
+            padding: 15px; 
+            width: 350px; 
+            background-color: white; 
+        }
+
+        .opcion {
+            margin-bottom: 12px; 
+            padding-bottom: 8px; 
+            border-bottom: 1px solid #ccc; 
+        }
+
+        label { 
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 4px; 
+        }
+        
+        
+        .zona-resultado {
+            background-color: #e0e0e0;
+            padding: 30px;
+            border: 2px dashed #999; 
+            border-radius: 10px;
+            text-align: center; 
+            flex: 1; 
+        }
+
+        #miBoton {
+            padding: 20px 40px; 
+            font-size: 20px; 
+            background: blue; 
+            color: white;           
+            border: 2px solid black; 
+            border-radius: 0px;      
+            box-shadow: 0px 0px 0px black; 
+            cursor: pointer; 
+        }
+    </style>
+    <script>
+        function actualizarBoton() {
+            let btn = document.getElementById('miBoton');
+
+
+            btn.innerText = document.getElementById('inTexto').value;
+            btn.style.color = document.getElementById('inColorLetra').value;
+
+
+            let usaDegradado = document.getElementById('inUsaDegradado').checked; 
+            let fondo1 = document.getElementById('inFondo1').value;
+            let fondo2 = document.getElementById('inFondo2').value;
+
+            if (usaDegradado == true) {
+                btn.style.background = "linear-gradient(to right, " + fondo1 + ", " + fondo2 + ")";
+            } else {
+                btn.style.background = fondo1;
+            }
+
+
+            let radio = document.getElementById('inRadio').value;
+            btn.style.borderRadius = radio + "px";
+
+            let grosorBorde = document.getElementById('inBordeGrosor').value;
+            let colorBorde = document.getElementById('inBordeColor').value;
+            btn.style.border = grosorBorde + "px solid " + colorBorde;
+
+            let sX = document.getElementById('inSombraX').value;
+            let sY = document.getElementById('inSombraY').value;
+            let sBlur = document.getElementById('inSombraBlur').value;
+            let sColor = document.getElementById('inSombraColor').value;
+            btn.style.boxShadow = sX + "px " + sY + "px " + sBlur + "px " + sColor;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="contenedor-principal">
+
+        <div class="controles">
+            <h2>Herramientas</h2>
+            
+
+            <div class="opcion">
+                <label>Texto y Color de Letra:</label>
+                <input type="text" id="inTexto" value="Hacé clic" oninput="actualizarBoton()">
+                <input type="color" id="inColorLetra" value="#ffffff" oninput="actualizarBoton()">
+            </div>
+
+            <div class="opcion">
+                <label>Color de Fondo 1:</label>
+                <input type="color" id="inFondo1" value="#0000ff" oninput="actualizarBoton()">
+                <br>
+                <input type="checkbox" id="inUsaDegradado" onchange="actualizarBoton()"> 
+                <span>Sumar Color 2 (Degradado):</span>
+                <input type="color" id="inFondo2" value="#ff0000" oninput="actualizarBoton()">
+            </div>
+
+            <div class="opcion">
+                <label>Forma (Redondear esquinas):</label>
+                <input type="range" id="inRadio" min="0" max="50" value="0" oninput="actualizarBoton()">
+                
+                <label>Grosor y Color de Borde:</label>
+                <input type="range" id="inBordeGrosor" min="0" max="10" value="2" oninput="actualizarBoton()">
+                <input type="color" id="inBordeColor" value="#000000" oninput="actualizarBoton()">
+            </div>
+
+            <div class="opcion">
+                <label>Sombra (Derecha / Abajo / Difuminado):</label>
+                <input type="range" id="inSombraX" min="-15" max="15" value="0" oninput="actualizarBoton()">
+                <input type="range" id="inSombraY" min="-15" max="15" value="0" oninput="actualizarBoton()">
+                <input type="range" id="inSombraBlur" min="0" max="20" value="0" oninput="actualizarBoton()">
+                <input type="color" id="inSombraColor" value="#000000" oninput="actualizarBoton()">
+            </div>
+        </div>
+
+        <div class="zona-resultado">
+            <h2>Resultado:</h2>
+            <button id="miBoton">Hacé clic</button>
+        </div>
+
+    </div> 
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* 
+color : fucsia y negro (en degrades, de fucsia a negro en diagonal)
+forma : redondeada
+detalles : símbolo de siguiente
+transicion : a medida que se pasa el mouse, se cambia el color (cual no se todavia)
+
+    
+*/
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+
+
+.bg-fucsia-negro{
+    background: linear-gradient(45deg,rgb(78, 27, 78),black)
+}
+
+.bg-negro-fucsia{
+    background: linear-gradient(45deg,black,rgb(78, 27, 78))
+}
+
+.tamanio15-30{
+    padding: 30px 65px;
+}
+
+.fuente1{
+    font-family: 'Saira Stencil One';
+    color:white;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.bor-red{
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+.cur-poin{
+    cursor:pointer;
+}
+
+
+.boton1 {
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease; 
+    outline: none;
+}
+
+.boton1:hover {
+    filter: brightness(1.7); 
+    transform: translateY(-5px); 
+}
+
+
+body {
+    background-color: rgb(218, 209, 209);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+

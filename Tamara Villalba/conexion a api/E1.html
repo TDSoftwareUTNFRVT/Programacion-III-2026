@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+// 1. Tu función genérica (ya la tenés)
+        async function fetchSeguro(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Error ${response.status}: ${response.statusText}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error('Falló la petición:', error.message);
+                throw error; 
+            }
+        }
+
+        async function cargarPeliculasPopulares() {
+            const apiKey = 'af64148bebd4876524daedd058f8db9c'; 
+            const pagina='1';
+            const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-ES&page=${pagina}`;
+
+            try {
+                const data = await fetchSeguro(url);
+                console.log("¡Datos recibidos con éxito!");
+                renderizarPeliculas(data.results); 
+
+            } catch (error) {
+                console.log("No se pudieron cargar las películas, revisá la consola.");
+            }
+        }
+        function renderizarPeliculas(peliculas) {
+            const container = document.getElementById('contenedor-peliculas');
+
+            container.innerHTML = peliculas.map(peli => `
+                <div class="movie-card" style="border: 1px solid #ccc; margin-bottom: 20px; padding: 10px; max-width: 300px;">
+                    
+                    <img src="https://image.tmdb.org/t/p/w500${peli.poster_path}" alt="${peli.title}" style="width: 100%;">
+                    
+                    <h2>${peli.title}</h2>
+                    <p>${peli.overview.substring(0, 100)}...</p> 
+                    
+                </div>
+            `).join(''); 
+        }
+        cargarPeliculasPopulares();
+    </script>
+</head>
+<body>
+    <div id="contenedor-peliculas" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
+</body>
+</html>

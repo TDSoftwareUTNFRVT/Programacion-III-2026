@@ -1,0 +1,133 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root {
+    --yellow: yellow;
+    --red: red;
+    --blue: blue;
+    --white: white;
+}
+
+.general-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.bg-red {
+    background-color: var(--red);
+}
+
+.bg-yellow {
+    background-color: var(--yellow);
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
+.background-settings {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.bg-img-1 {
+    background-image: url(imagenes/fondo.png);
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.medium-panel {
+    width: 50%;
+    height: 100vh;
+}
+
+.result-displayer {
+    width: 95%;
+    height: 95%;
+    margin: auto;
+    border-radius: 15px;
+    background: radial-gradient(#121212,#121212ac);
+}
+
+.full-size {
+    min-height: 100vh;
+}
+
+.fdr {
+    flex-direction: row;
+}
+
+.fdc {
+    flex-direction: column;
+}
+
+.button:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 0 5px 0 white;
+}
+
+.small-gap {
+    gap: 15px;
+}
+
+.main-title {
+    color: white;
+    text-shadow: 0 0 5px white;
+    font-weight: 100;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 0;
+    font-size: 40px;
+}
+
+.title {
+    color: white;
+    text-shadow: 0 0 5px white;
+    font-weight: 100;
+    text-align: center;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.input-text {
+    outline: 0;
+    padding: 15px;
+    border-radius: 25px;
+    border-style: none;
+    border-bottom: 5px solid gray;
+    transition: all 0.5s;
+    margin: auto;
+    margin-top: 0;
+    text-align: center;
+}
+
+.input-text:hover {
+    padding: 15px 45px;
+}
+
+.img-1 {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 25px;
+    margin-bottom: 0;
+    margin-top: 25px;
+    background: radial-gradient(black, transparent);
+}

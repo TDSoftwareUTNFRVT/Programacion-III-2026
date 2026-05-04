@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.default{
+    height: 70px;
+    width:250px ;
+    border-radius:10px ;
+    cursor: pointer;
+    float: left;
+    margin:20px 
+}
+.preset_1{
+    background:url('https://images.pexels.com/photos/7367257/pexels-photo-7367257.jpeg') center / cover no-repeat; 
+    font-size: 25px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style:oblique;
+    letter-spacing:4px ;
+    color: rgb(62, 63, 64);
+    border: 3px solid rgba(44, 102, 133, 0.943);;
+    outline: 2px solid rgba(83, 82, 92, 0.907);
+    transition:all 0.5s ease-in-out;
+    
+}
+.preset_1:hover{
+    width: 300px;
+    height: 120px;
+    font-size:45px;
+   
+}
+.preset_2 {
+    background: linear-gradient(45deg, white, white, red, white, white);
+    color: #000000;
+    border: 1px solid #ff1e1e;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.5s ease-in-out;
+    position:relative;
+}
+.preset_2::before{
+    content:"";
+    position:absolute;
+    height:40px;
+    outline:1px solid black ;
+    width: calc(240px - 20px);
+    transform:translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border:1px solid rgb(180, 180, 180) ;
+    border-radius: 10px;
+    box-shadow: 7px 7px 7px black;
+     
+    
+}
+
+.preset_2:hover {
+    background: url('https://media.tycsports.com/files/2022/12/09/514260/river-boca-libertadores-2018_1440x810_wmk.webp?v=1.jpeg') center / cover no-repeat;
+    font-size:25px ;
+    width: 500px;
+    height:300px ;
+    color:transparent ;
+    }
+.preset_2:hover::before{
+    display: none;
+}
+
+.preset_3{
+    background: linear-gradient(to left,rgb(163, 96, 218), rgb(110, 110, 233), rgb(110, 110, 233), rgb(163, 96, 218));
+    color: #d7b3eb;
+    border-radius: 30px;
+    border: 1px solid #6a07ec;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition:all 0.5s ease-in-out;
+    position:relative;
+    
+    
+}
+.preset_3:hover{
+    transform: translateY(-10px);
+    position: absolute;
+    box-shadow:  0px 6px 0px rgb(143, 141, 141);
+    transition:all 0.5s ease-in-out;
+}
+.preset_3::after{
+    content:"";
+    position:absolute;
+    height:40px;
+    width: calc(240px - 20px);
+    transform:translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border:1px solid rgb(9, 40, 216) ;
+    border-radius: 30px;
+    
+    }
+.preset_3:hover::after{
+    box-shadow: 3px 3px 3px rgb(143, 119, 250);
+    transition:all 0.5s ease-in-out;
+}
+
+</style>
+</head>
+<body>
+    <div>
+        <button onclick="window.location.href='https://www.espn.com.ar/futbol/partido/_/juegoId/528144/boca-juniors-river-plate'" class="default preset_1">
+            Moriste en Madrid
+        </button>
+        <button onclick="window.location.href='https://www.espn.com.ar/futbol/partido/_/juegoId/528144/boca-juniors-river-plate'" class="default preset_2">
+            Moriste en Madrid
+        </button>
+        <button onclick="window.location.href='https://www.instagram.com/sebadriussi.11/?hl=es'" class="default preset_3">Seba Driussi
+        </button>
+    </div>
+
+</body>
+<script>
+   
+    
+    
+</script>
+
+
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0f1320;
+}
+
+
+.contenedor_main {
+  display: flex;
+  flex-direction: column; 
+  height: 100vh;
+  gap: 8px;
+}
+
+
+.header {
+  flex: 0 0 20vh;
+  background-color: rgb(24, 48, 94);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contenido {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  min-height: 0;
+}
+
+.contenedor_boton {
+  flex: 4;
+  background: linear-gradient(to right, rgb(34, 34, 77), rgb(90, 90, 164));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor_personalizacion {
+  flex: 6;
+  background: linear-gradient(to left, rgb(34, 34, 77), rgb(90, 90, 164));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titulo{
+  font-size:90px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background:linear-gradient(to right, rgb(37, 84, 117),rgb(89, 89, 178));
+  border-radius:40px ;
+  padding:3px ;
+  border:3px solid rgb(61, 48, 92) ;
+  color:rgb(188, 188, 203) ;
+  box-shadow: 5px 5px 5px rgb(46, 44, 44);
+}
+.div_personalizacion{
+  width:70% ;
+  height: 150px;
+  background:linear-gradient(to right, rgb(37, 84, 117),rgb(89, 89, 178) );
+  margin: 7px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px rgb(46, 44, 44);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+ 
+  
+}
+.div_contenedor_colores{
+ display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  
+}
+
+.div_submit{
+  width:40% ;
+  height: 100px;
+  background: linear-gradient(to right, rgb(37, 84, 117),rgb(89, 89, 178) );
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px rgb(46, 44, 44);
+}
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+  padding: 10px;
+}
+.formulario input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  width:200px ;
+}
+
+.formulario button {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #5a5aa4;
+  color: white;
+  cursor: pointer;
+}
+.boton_eleccion{
+  width:40px;
+  height:40px;
+  cursor:pointer;
+  border:2px solid black
+}
+.titulo_personalizar{
+  font-size: 30px;
+  text-align: center;
+   color:rgb(235, 235, 240) ;
+}
+.boton_personalizable{
+  width: 500px;
+  height: 250px;
+  cursor: pointer;
+   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.rojo{
+  background-color: rgb(115, 32, 32);
+}
+.azul{
+background-color: rgb(34, 34, 126);
+}
+.verde{
+  background-color: rgb(40, 78, 40);
+}
+.blanco{
+  background-color: white;
+}
+.negro{
+background-color: black;
+}
+.naranja{
+  background-color: rgb(243, 160, 8);
+}
+.rectangulo{
+  border-radius: 0px;
+}
+.circulo{
+  border-radius: 30px;
+}
+.semi_circulo{
+  border-radius:10px ;
+}
+.rojo_azul{
+  background:linear-gradient(to right, rgb(124, 20, 20), rgb(38, 38, 118));
+}
+.naranja_rojo{
+   background:linear-gradient(to right, rgb(204, 117, 17), rgb(147, 43, 43));
+}
+.verde_amarillo{
+   background:linear-gradient(to right, rgb(22, 100, 15), rgb(198, 208, 10));
+}
+.blanco_celeste{
+ background:linear-gradient(to right, rgb(255, 255, 255), rgb(34, 209, 209));
+}
+.negro_azul{
+   background:linear-gradient(to right, rgb(0, 0, 0), rgb(3, 45, 197));
+}
+.river{
+  background:linear-gradient(45deg, rgb(255, 255, 255),rgb(255, 255, 255), rgb(197, 3, 3),rgb(255, 255, 255),rgb(255, 255, 255));
+}
+</style>
+
+</head>
+
+<body>
+<div class="contenedor_main">
+  <div class="header">
+    <div class="titulo">Personalización</div>
+  </div>
+
+  <div class="contenido">
+    <div class="contenedor_boton">
+      <div class = "div_submit">
+        <form class="formulario">
+          <input type="text" placeholder="Escriba el contenido del boton">
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+      <div class = "div_personalizacion fondo">
+        <h1 class="titulo_personalizar">Color del Fondo</h1>
+        <div class="div_contenedor_colores">
+          <button class="boton_eleccion rojo"></button>
+          <button class="boton_eleccion azul"></button>
+          <button class="boton_eleccion verde"></button>
+          <button class="boton_eleccion blanco"></button>
+          <button class="boton_eleccion negro"></button>
+          <button class="boton_eleccion naranja"></button>
+        </div>
+      </div>
+      <div class = "div_personalizacion texto">
+        <h1 class="titulo_personalizar">Color de Letra</h1>
+        <div class="div_contenedor_colores">
+          <button class="boton_eleccion rojo"></button>
+          <button class="boton_eleccion azul"></button>
+          <button class="boton_eleccion verde"></button>
+          <button class="boton_eleccion blanco"></button>
+          <button class="boton_eleccion negro"></button>
+          <button class="boton_eleccion naranja"></button>
+        </div>
+      </div>
+      <div class = "div_personalizacion somra">
+        <h1 class="titulo_personalizar">Color de sombra</h1>
+        <div class="div_contenedor_colores">
+          <button class="boton_eleccion rojo"></button>
+          <button class="boton_eleccion azul"></button>
+          <button class="boton_eleccion verde"></button>
+          <button class="boton_eleccion blanco"></button>
+          <button class="boton_eleccion negro"></button>
+          <button class="boton_eleccion naranja"></button>
+        </div>
+      </div>
+      <div class = "div_personalizacion borde">
+        <h1 class="titulo_personalizar">Color de Borde</h1>
+        <div class="div_contenedor_colores">
+          <button class="boton_eleccion rojo"></button>
+          <button class="boton_eleccion azul"></button>
+          <button class="boton_eleccion verde"></button>
+          <button class="boton_eleccion blanco"></button>
+          <button class="boton_eleccion negro"></button>
+          <button class="boton_eleccion naranja"></button>
+        </div>
+      </div>
+      <div class = "div_personalizacion degrade">
+        <h1 class="titulo_personalizar">Degradé</h1>
+        <div class="div_contenedor_colores">
+          <button class="boton_eleccion rojo_azul"></button>
+          <button class="boton_eleccion river"></button>
+          <button class="boton_eleccion verde_amarillo"></button>
+          <button class="boton_eleccion blanco_celeste"></button>
+          <button class="boton_eleccion negro_azul"></button>
+          <button class="boton_eleccion naranja_rojo"></button>
+        </div>
+      </div>
+      <div class = "div_personalizacion forma">
+        <h1 class="titulo_personalizar">Formas</h1>
+        <div class="div_contenedor_colores">
+          <button class="boton_eleccion blanco rectangulo"></button>
+          <button class="boton_eleccion blanco semi_circulo"></button>
+          <button class="boton_eleccion blanco circulo"></button>
+        </div>
+      </div>
+    </div>
+    <div class="contenedor_personalizacion">
+     <button class="boton_personalizable"></button>
+    </div>
+  </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        
+        const botonPersonalizable = document.querySelector('.boton_personalizable');
+        const inputTexto = document.querySelector('.formulario input');
+        const botonSubmit = document.querySelector('.formulario button');
+        
+        
+        botonSubmit.addEventListener('click', function(evento) {
+            evento.preventDefault();
+            const texto = inputTexto.value;
+            if (texto.trim() !== '') {
+                botonPersonalizable.textContent = texto;
+            }
+        });
+        
+        // Fondo
+        document.querySelector('.fondo .div_contenedor_colores').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                botonPersonalizable.style.background = getComputedStyle(e.target).backgroundColor;
+                botonPersonalizable.style.backgroundImage = 'none';
+            }
+        });
+        
+        // Letra
+        document.querySelector('.texto .div_contenedor_colores').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                botonPersonalizable.style.color = getComputedStyle(e.target).backgroundColor;
+            }
+        });
+        
+        // Sombra
+        document.querySelector('.somra .div_contenedor_colores').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                botonPersonalizable.style.boxShadow = `0 8px 16px ${getComputedStyle(e.target).backgroundColor}`;
+            }
+        });
+        
+        // Borde
+        document.querySelector('.borde .div_contenedor_colores').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                botonPersonalizable.style.border = `4px solid ${getComputedStyle(e.target).backgroundColor}`;
+            }
+        });
+        
+        // Degradé
+        document.querySelector('.degrade .div_contenedor_colores').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                const clase = e.target.classList[1];
+                const degradados = {
+                    'rojo_azul': 'linear-gradient(to right, rgb(124, 20, 20), rgb(38, 38, 118))',
+                    'naranja_rojo': 'linear-gradient(to right, rgb(204, 117, 17), rgb(147, 43, 43))',
+                    'verde_amarillo': 'linear-gradient(to right, rgb(22, 100, 15), rgb(198, 208, 10))',
+                    'blanco_celeste': 'linear-gradient(to right, rgb(255, 255, 255), rgb(34, 209, 209))',
+                    'negro_azul': 'linear-gradient(to right, rgb(0, 0, 0), rgb(3, 45, 197))',
+                    'river': 'linear-gradient(45deg, rgb(255, 255, 255),rgb(255, 255, 255), rgb(197, 3, 3),rgb(255, 255, 255),rgb(255, 255, 255))'
+                };
+                if (degradados[clase]) {
+                    botonPersonalizable.style.background = degradados[clase];
+                }
+            }
+        });
+        
+        // Forma
+        document.querySelector('.forma .div_contenedor_colores').addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                if (e.target.classList.contains('rectangulo')) {
+                    botonPersonalizable.style.borderRadius = '0px';
+                } else if (e.target.classList.contains('semi_circulo')) {
+                    botonPersonalizable.style.borderRadius = '35px';
+                } else if (e.target.classList.contains('circulo')) {
+                    botonPersonalizable.style.borderRadius = '350px';
+                }
+            }
+        });
+        
+        // Estilos iniciales
+        botonPersonalizable.style.border = '7px solid white';
+        botonPersonalizable.style.fontSize = '60px';
+        botonPersonalizable.style.fontWeight = 'bold';
+        botonPersonalizable.style.color = 'black';
+        botonPersonalizable.textContent = 'Mi Botón';
+        
+    });
+</script>
+
+</body>
+</html>

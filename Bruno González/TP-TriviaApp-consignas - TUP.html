@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TP · Trivia App · UTN Tecnicatura Universitaria en Programación</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f0e8;
+  --surface: #fffdf7;
+  --border: #d4c9a8;
+  --border2: #e8dfc0;
+  --accent: #c8522a;
+  --accent2: #2a6b8a;
+  --green: #2d6a4f;
+  --text: #1a1208;
+  --text-mid: #4a3f2a;
+  --text-dim: #8a7a5a;
+  --mark: #f9e784;
+  --font-mono: 'Space Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.75;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* ── HEADER ── */
+.header {
+  border-bottom: 3px solid var(--text);
+  padding: 48px 0 28px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.header::after {
+  content: 'TP·01';
+  position: absolute;
+  top: 48px; right: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 64px;
+  color: var(--border2);
+  line-height: 1;
+}
+.institute {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 6vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.title span { color: var(--accent); }
+.subtitle {
+  font-size: 14px;
+  color: var(--text-mid);
+  max-width: 520px;
+}
+.meta-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.meta-item strong { color: var(--text); }
+
+/* ── SECTIONS ── */
+.section { margin-bottom: 56px; }
+.section-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+p { color: var(--text-mid); margin-bottom: 14px; }
+strong { color: var(--text); }
+
+/* ── CALLOUT ── */
+.callout {
+  border-left: 4px solid var(--accent);
+  background: white;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 13px;
+}
+.callout.info { border-color: var(--accent2); }
+.callout.success { border-color: var(--green); }
+.callout-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.callout.info .callout-title { color: var(--accent2); }
+.callout.success .callout-title { color: var(--green); }
+
+/* ── CODE ── */
+.code-wrap {
+  background: #1a1208;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-bottom: 1px solid #2a2010;
+}
+.code-filename { font-size: 11px; color: #8a7a5a; }
+.code-lang {
+  font-size: 10px;
+  color: var(--accent);
+  background: rgba(200,82,42,0.15);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+pre {
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: #e8dfc0;
+  overflow-x: auto;
+}
+.kw { color: #c792ea; }
+.fn { color: #82aaff; }
+.str { color: #c3e88d; }
+.cm { color: #4a5568; font-style: italic; }
+.num { color: #f78c6c; }
+code {
+  background: rgba(200,82,42,0.1);
+  color: var(--accent);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* ── CONSIGNA LIST ── */
+.consigna-list { list-style: none; padding: 0; }
+.consigna-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border2);
+}
+.consigna-item:last-child { border-bottom: none; }
+.c-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.c-body { flex: 1; }
+.c-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.c-desc { font-size: 13px; color: var(--text-mid); }
+.c-tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.tag-req { background: rgba(200,82,42,0.12); color: var(--accent); }
+.tag-bonus { background: rgba(42,107,138,0.12); color: var(--accent2); }
+
+/* ── RUBRICA ── */
+.rubrica-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 16px 0;
+}
+.rubrica-table th {
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.rubrica-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border2);
+  color: var(--text-mid);
+  vertical-align: top;
+}
+.rubrica-table tr:last-child td { border-bottom: none; font-weight: 700; color: var(--text); }
+.pts {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ── ESTRUCTURA DE ARCHIVOS ── */
+.file-tree {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 2;
+  margin: 16px 0;
+}
+.ft-folder { color: var(--accent2); font-weight: 700; }
+.ft-file { color: var(--text-mid); }
+.ft-comment { color: var(--text-dim); font-size: 11px; }
+
+/* ── URL BOX ── */
+.url-box {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 13px;
+}
+.url-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.url-value {
+  color: var(--accent2);
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+
+/* ── ENTREGA ── */
+.entrega-box {
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 8px;
+  padding: 28px 32px;
+  margin-top: 32px;
+}
+.entrega-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: white;
+}
+.entrega-list { list-style: none; padding: 0; }
+.entrega-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #2a2010;
+  font-size: 13px;
+  color: #c8b99a;
+  display: flex;
+  gap: 10px;
+}
+.entrega-list li::before { content: '→'; color: var(--accent); }
+
+/* ── FOOTER ── */
+.footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 3px solid var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--text);
+}
+
+@media print {
+  body { max-width: 100%; padding: 20px; }
+  .header::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="institute">UTN · Tecnicatura Universitaria en Programación · Programación III · Segundo Año</div>
+  <div class="title">Trabajo Práctico:<br><span>Trivia App</span></div>
+  <div class="subtitle">Aplicación de preguntas y respuestas usando clases JavaScript, fetch y manejo de errores con la Open Trivia API.</div>
+  <div class="meta-row">
+    <div class="meta-item"><strong>Modalidad:</strong> Individual o parejas</div>
+    <div class="meta-item"><strong>Entrega:</strong> 2 semanas</div>
+    <div class="meta-item"><strong>Archivos:</strong> JS + HTML separados</div>
+    <div class="meta-item"><strong>Puntaje:</strong> 100 pts + 20 bonus</div>
+  </div>
+</div>
+
+
+<!-- SECCIÓN 1: CONTEXTO -->
+<div class="section">
+  <div class="section-num">Sección 01</div>
+  <div class="section-title">Contexto y objetivo</div>
+
+  <p>Van a construir una <strong>aplicación de trivia</strong> que consume la <strong>Open Trivia Database</strong>, una API pública y gratuita que devuelve preguntas de múltiple opción sobre distintas categorías.</p>
+
+  <p>El objetivo del TP no es solo que funcione, sino que el código esté <strong>organizado en clases</strong>, que los errores estén <strong>correctamente manejados</strong> y que la interfaz sea <strong>clara para el usuario</strong>.</p>
+
+  <div class="url-box">
+    <div class="url-label">API base</div>
+    <div class="url-value">https://opentdb.com/api.php?amount=10&type=multiple</div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-title">📖 Cómo funciona la API</div>
+    La API devuelve un objeto con un array <code>results</code>. Cada elemento tiene: <code>question</code>, <code>correct_answer</code>, <code>incorrect_answers</code> (array de 3) y <code>category</code>. Las preguntas tienen caracteres HTML escapados (<code>&amp;amp;</code>, <code>&amp;quot;</code>) — hay que decodificarlos.
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-header">
+      <div class="code-filename">Respuesta de ejemplo — opentdb.com</div>
+      <div class="code-lang">JSON</div>
+    </div>
+    <pre><code>{
+  <span class="str">"response_code"</span>: 0,
+  <span class="str">"results"</span>: [
+    {
+      <span class="str">"category"</span>: <span class="str">"Science & Nature"</span>,
+      <span class="str">"difficulty"</span>: <span class="str">"medium"</span>,
+      <span class="str">"question"</span>: <span class="str">"What is the chemical symbol for gold?"</span>,
+      <span class="str">"correct_answer"</span>: <span class="str">"Au"</span>,
+      <span class="str">"incorrect_answers"</span>: [<span class="str">"Ag"</span>, <span class="str">"Fe"</span>, <span class="str">"Cu"</span>]
+    }
+  ]
+}</code></pre>
+  </div>
+</div>
+
+
+<!-- SECCIÓN 2: ESTRUCTURA -->
+<div class="section">
+  <div class="section-num">Sección 02</div>
+  <div class="section-title">Estructura de archivos</div>
+
+  <p>El proyecto se entrega con esta estructura de carpetas y archivos:</p>
+
+  <div class="file-tree">
+    <span class="ft-folder">trivia-app/</span><br>
+    &nbsp;&nbsp;├── <span class="ft-file">index.html</span> &nbsp;<span class="ft-comment">// estructura y UI</span><br>
+    &nbsp;&nbsp;├── <span class="ft-file">css/</span><br>
+    &nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── <span class="ft-file">styles.css</span> &nbsp;<span class="ft-comment">// estilos</span><br>
+    &nbsp;&nbsp;└── <span class="ft-file">js/</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="ft-file">TriviaAPI.js</span> &nbsp;<span class="ft-comment">// clase que maneja fetch</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="ft-file">TriviaGame.js</span> &nbsp;<span class="ft-comment">// clase que maneja la lógica del juego</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="ft-file">main.js</span> &nbsp;<span class="ft-comment">// punto de entrada, conecta todo</span>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">⚠ Obligatorio</div>
+    La lógica de fetch va en <code>TriviaAPI.js</code> y la lógica del juego en <code>TriviaGame.js</code>. <strong>No mezclar todo en un solo archivo.</strong> Esa separación es parte de la nota.
+  </div>
+</div>
+
+
+<!-- SECCIÓN 3: CONSIGNAS -->
+<div class="section">
+  <div class="section-num">Sección 03</div>
+  <div class="section-title">Consignas</div>
+
+  <ul class="consigna-list">
+
+    <li class="consigna-item">
+      <div class="c-num">1</div>
+      <div class="c-body">
+        <div class="c-title">Clase TriviaAPI</div>
+        <div class="c-desc">
+          Crear la clase <code>TriviaAPI</code> en <code>js/TriviaAPI.js</code> con al menos los siguientes métodos:
+          <ul style="margin-top:8px;padding-left:20px;color:var(--text-mid)">
+            <li><code>getPreguntas(cantidad, categoria, dificultad)</code> — hace el fetch y devuelve el array de preguntas</li>
+            <li><code>getCategorias()</code> — trae las categorías disponibles desde <code>https://opentdb.com/api_category.php</code></li>
+          </ul>
+          Debe incluir manejo de errores con <code>try/catch</code> y verificar <code>response.ok</code>.
+        </div>
+        <span class="c-tag tag-req">OBLIGATORIO</span>
+      </div>
+    </li>
+
+    <li class="consigna-item">
+      <div class="c-num">2</div>
+      <div class="c-body">
+        <div class="c-title">Clase TriviaGame</div>
+        <div class="c-desc">
+          Crear la clase <code>TriviaGame</code> en <code>js/TriviaGame.js</code> con:
+          <ul style="margin-top:8px;padding-left:20px;color:var(--text-mid)">
+            <li>Propiedad <code>puntaje</code> (inicia en 0)</li>
+            <li>Propiedad <code>preguntaActual</code> (índice)</li>
+            <li>Método <code>iniciar(preguntas)</code> — carga las preguntas y resetea el estado</li>
+            <li>Método <code>responder(respuesta)</code> — verifica si es correcta, actualiza puntaje y devuelve <code>true</code>/<code>false</code></li>
+            <li>Método <code>siguiente()</code> — avanza a la próxima pregunta</li>
+            <li>Método <code>haTerminado()</code> — devuelve <code>true</code> si se respondieron todas</li>
+          </ul>
+        </div>
+        <span class="c-tag tag-req">OBLIGATORIO</span>
+      </div>
+    </li>
+
+    <li class="consigna-item">
+      <div class="c-num">3</div>
+      <div class="c-body">
+        <div class="c-title">Decodificación de HTML</div>
+        <div class="c-desc">
+          Las preguntas de la API vienen con caracteres escapados. Implementar una función utilitaria <code>decodificarHTML(texto)</code> que los convierta correctamente antes de mostrarlos.
+          <br><br>
+          Pista: se puede usar un elemento <code>&lt;textarea&gt;</code> temporal del DOM para decodificar.
+        </div>
+        <span class="c-tag tag-req">OBLIGATORIO</span>
+      </div>
+    </li>
+
+    <li class="consigna-item">
+      <div class="c-num">4</div>
+      <div class="c-body">
+        <div class="c-title">Interfaz de usuario</div>
+        <div class="c-desc">
+          El <code>index.html</code> debe mostrar:
+          <ul style="margin-top:8px;padding-left:20px;color:var(--text-mid)">
+            <li>Pantalla de inicio con selector de dificultad (fácil / medio / difícil) y botón "Jugar"</li>
+            <li>Texto de la pregunta actual y número de pregunta (ej: "Pregunta 3 de 10")</li>
+            <li>4 opciones de respuesta como botones (las respuestas deben aparecer en orden aleatorio)</li>
+            <li>Feedback visual al responder: verde si acertó, rojo si falló</li>
+            <li>Puntaje visible en todo momento</li>
+            <li>Pantalla final con puntaje total y botón para volver a jugar</li>
+          </ul>
+        </div>
+        <span class="c-tag tag-req">OBLIGATORIO</span>
+      </div>
+    </li>
+
+    <li class="consigna-item">
+      <div class="c-num">5</div>
+      <div class="c-body">
+        <div class="c-title">Estados de carga y error</div>
+        <div class="c-desc">
+          Mostrar al usuario:
+          <ul style="margin-top:8px;padding-left:20px;color:var(--text-mid)">
+            <li>Un mensaje de "Cargando preguntas..." mientras se hace el fetch</li>
+            <li>Un mensaje de error claro si la API falla (sin mostrar el error técnico crudo)</li>
+            <li>Un botón "Reintentar" cuando hay error</li>
+          </ul>
+        </div>
+        <span class="c-tag tag-req">OBLIGATORIO</span>
+      </div>
+    </li>
+
+    <li class="consigna-item">
+      <div class="c-num">6</div>
+      <div class="c-body">
+        <div class="c-title">Selector de categoría</div>
+        <div class="c-desc">
+          Usar <code>getCategorias()</code> para popular dinámicamente un <code>&lt;select&gt;</code> con las categorías disponibles. El jugador puede elegir una antes de empezar.
+        </div>
+        <span class="c-tag tag-bonus">BONUS +10</span>
+      </div>
+    </li>
+
+    <li class="consigna-item">
+      <div class="c-num">7</div>
+      <div class="c-body">
+        <div class="c-title">Historial de partidas</div>
+        <div class="c-desc">
+          Guardar en <code>localStorage</code> los últimos 5 puntajes con fecha. Mostrarlos en la pantalla final.
+        </div>
+        <span class="c-tag tag-bonus">BONUS +10</span>
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+
+<!-- SECCIÓN 4: ESQUELETO DE CÓDIGO -->
+<div class="section">
+  <div class="section-num">Sección 04</div>
+  <div class="section-title">Esqueleto de código sugerido</div>
+
+  <p>Este es el punto de partida. No es código completo — es la estructura que deben completar.</p>
+
+  <div class="code-wrap">
+    <div class="code-header">
+      <div class="code-filename">js/TriviaAPI.js</div>
+      <div class="code-lang">JS</div>
+    </div>
+    <pre><code><span class="kw">class</span> <span class="fn">TriviaAPI</span> {
+  <span class="kw">static</span> BASE_URL = <span class="str">'https://opentdb.com'</span>;
+
+  <span class="kw">async</span> <span class="fn">getPreguntas</span>(cantidad = <span class="num">10</span>, categoria = <span class="str">''</span>, dificultad = <span class="str">''</span>) {
+    <span class="cm">// TODO: construir la URL con los parámetros</span>
+    <span class="cm">// TODO: hacer el fetch con try/catch</span>
+    <span class="cm">// TODO: verificar response.ok</span>
+    <span class="cm">// TODO: devolver data.results</span>
+  }
+
+  <span class="kw">async</span> <span class="fn">getCategorias</span>() {
+    <span class="cm">// TODO: fetch a /api_category.php</span>
+    <span class="cm">// TODO: devolver el array de categorías</span>
+  }
+}
+
+<span class="cm">// No olvidar exportar si usan módulos:</span>
+<span class="cm">// export default TriviaAPI;</span></code></pre>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-header">
+      <div class="code-filename">js/TriviaGame.js</div>
+      <div class="code-lang">JS</div>
+    </div>
+    <pre><code><span class="kw">class</span> <span class="fn">TriviaGame</span> {
+  constructor() {
+    <span class="kw">this</span>.preguntas = [];
+    <span class="kw">this</span>.preguntaActual = <span class="num">0</span>;
+    <span class="kw">this</span>.puntaje = <span class="num">0</span>;
+  }
+
+  <span class="fn">iniciar</span>(preguntas) {
+    <span class="cm">// TODO: guardar preguntas, resetear puntaje e índice</span>
+  }
+
+  <span class="fn">getPreguntaActual</span>() {
+    <span class="cm">// TODO: devolver la pregunta en el índice actual</span>
+  }
+
+  <span class="fn">responder</span>(respuesta) {
+    <span class="cm">// TODO: comparar con correct_answer</span>
+    <span class="cm">// TODO: sumar puntaje si es correcta</span>
+    <span class="cm">// TODO: devolver true o false</span>
+  }
+
+  <span class="fn">siguiente</span>() {
+    <span class="cm">// TODO: incrementar preguntaActual</span>
+  }
+
+  <span class="fn">haTerminado</span>() {
+    <span class="cm">// TODO: devolver true si preguntaActual >= preguntas.length</span>
+  }
+}
+
+<span class="cm">// export default TriviaGame;</span></code></pre>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-header">
+      <div class="code-filename">js/main.js</div>
+      <div class="code-lang">JS</div>
+    </div>
+    <pre><code><span class="cm">// Instancias globales</span>
+<span class="kw">const</span> api = <span class="kw">new</span> TriviaAPI();
+<span class="kw">const</span> game = <span class="kw">new</span> TriviaGame();
+
+<span class="cm">// Función para decodificar HTML escapado</span>
+<span class="kw">function</span> <span class="fn">decodificarHTML</span>(texto) {
+  <span class="kw">const</span> el = document.createElement(<span class="str">'textarea'</span>);
+  el.innerHTML = texto;
+  <span class="kw">return</span> el.value;
+}
+
+<span class="cm">// Función para mezclar el array de respuestas</span>
+<span class="kw">function</span> <span class="fn">mezclar</span>(array) {
+  <span class="cm">// TODO: implementar Fisher-Yates shuffle</span>
+  <span class="cm">// Pista: buscar "Fisher-Yates shuffle JavaScript"</span>
+}
+
+<span class="cm">// TODO: función para mostrar una pregunta en el DOM</span>
+<span class="kw">function</span> <span class="fn">mostrarPregunta</span>() { }
+
+<span class="cm">// TODO: función para mostrar pantalla final</span>
+<span class="kw">function</span> <span class="fn">mostrarResultado</span>() { }
+
+<span class="cm">// TODO: evento del botón "Jugar"</span>
+document.getElementById(<span class="str">'btn-jugar'</span>)
+  .addEventListener(<span class="str">'click'</span>, <span class="kw">async</span> () => {
+    <span class="cm">// TODO: obtener dificultad seleccionada</span>
+    <span class="cm">// TODO: llamar a api.getPreguntas()</span>
+    <span class="cm">// TODO: llamar a game.iniciar()</span>
+    <span class="cm">// TODO: mostrar primera pregunta</span>
+  });</code></pre>
+  </div>
+
+  <div class="callout success">
+    <div class="callout-title">💡 Tip — decodificar HTML</div>
+    La API devuelve textos como <code>&amp;amp;quot;</code> o <code>&amp;amp;amp;</code>. La función <code>decodificarHTML</code> ya está dada en el esqueleto — úsenla antes de mostrar cualquier texto de la API en el DOM.
+  </div>
+</div>
+
+
+<!-- SECCIÓN 5: RÚBRICA -->
+<div class="section">
+  <div class="section-num">Sección 05</div>
+  <div class="section-title">Criterios de evaluación</div>
+
+  <table class="rubrica-table">
+    <thead>
+      <tr>
+        <th>Criterio</th>
+        <th>Descripción</th>
+        <th>Pts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Clase TriviaAPI</strong></td>
+        <td>Fetch correcto, parámetros, try/catch, response.ok</td>
+        <td><span class="pts">25 pts</span></td>
+      </tr>
+      <tr>
+        <td><strong>Clase TriviaGame</strong></td>
+        <td>Estado interno correcto, métodos funcionan, puntaje bien calculado</td>
+        <td><span class="pts">25 pts</span></td>
+      </tr>
+      <tr>
+        <td><strong>Interfaz de usuario</strong></td>
+        <td>Flujo completo jugable, feedback visual, pantalla final</td>
+        <td><span class="pts">25 pts</span></td>
+      </tr>
+      <tr>
+        <td><strong>Manejo de errores</strong></td>
+        <td>Estados de carga, error legible para el usuario, reintentar</td>
+        <td><span class="pts">15 pts</span></td>
+      </tr>
+      <tr>
+        <td><strong>Separación de archivos</strong></td>
+        <td>Estructura correcta, cada clase en su archivo, main.js como orquestador</td>
+        <td><span class="pts">10 pts</span></td>
+      </tr>
+      <tr>
+        <td><strong>Bonus: Categorías</strong></td>
+        <td>Select dinámico con getCategorias()</td>
+        <td><span class="pts">+10 pts</span></td>
+      </tr>
+      <tr>
+        <td><strong>Bonus: Historial</strong></td>
+        <td>localStorage con últimas 5 partidas</td>
+        <td><span class="pts">+10 pts</span></td>
+      </tr>
+      <tr>
+        <td colspan="2"><strong>TOTAL</strong></td>
+        <td><span class="pts">100 + 20</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">⚠ Descuentos automáticos</div>
+    <strong>−20 pts</strong> si toda la lógica está en un solo archivo sin separación de clases.<br>
+    <strong>−15 pts</strong> si no hay ningún manejo de errores (sin try/catch ni verificación de response.ok).<br>
+    <strong>−10 pts</strong> si los textos de la API se muestran con caracteres HTML sin decodificar.
+  </div>
+</div>
+
+
+<!-- ENTREGA -->
+<div class="entrega-box">
+  <div class="entrega-title">📦 Checklist de entrega</div>
+  <ul class="entrega-list">
+    <li>Carpeta <code>trivia-app/</code> con la estructura pedida</li>
+    <li>Archivo <code>TriviaAPI.js</code> con la clase completa</li>
+    <li>Archivo <code>TriviaGame.js</code> con la clase completa</li>
+    <li>Archivo <code>main.js</code> que conecta las dos clases</li>
+    <li>La app corre abriendo <code>index.html</code> en el navegador (sin servidor)</li>
+    <li>Se puede jugar una partida completa de principio a fin</li>
+    <li>Se muestra algún mensaje si la API falla</li>
+    <li>Nombre y apellido en un comentario al inicio de cada archivo JS</li>
+  </ul>
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div class="footer-brand">UTN</div>
+    <div style="margin-top:2px;font-size:11px;color:var(--text-dim)">Tecnicatura Universitaria en Programación · Programación III · Segundo Año</div>
+  </div>
+  <div style="text-align:right;font-size:11px;color:var(--text-dim)">
+    API: opentdb.com/api_category.php<br>
+    Docs: opentdb.com/api_config.php
+  </div>
+</div>
+
+</body>
+</html>

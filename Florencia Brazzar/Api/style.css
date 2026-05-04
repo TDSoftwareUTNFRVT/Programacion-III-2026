@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #000;
+}
+
+h1 {
+    font-family: 'Chela One', cursive;
+    text-align: center;
+    font-size: 4em;
+    letter-spacing: 4px;
+    color: red;
+}
+
+#buscador {
+    display: block;
+    margin: 0 auto 24px auto;
+    padding: 10px 16px;
+    width: 280px;
+    border: 5px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#buscador:focus {
+    border-color: red;
+}
+
+#card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 24px 40px;
+}
+
+.card {
+    width: 220px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 12px 14px 16px;
+}
+
+.card h2 {
+    font-size: 1em;
+    margin-bottom: 8px;
+    color: #1a1a2e;
+    line-height: 1.3;
+}
+
+.card p {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.label {
+    font-weight: bold;
+    color: #333;
+}
+
+.vacio,
+.error {
+    text-align: center;
+    color: #888;
+    font-size: 1em;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.error {
+    color: #e74c3c;
+}

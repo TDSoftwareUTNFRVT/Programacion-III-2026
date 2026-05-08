@@ -1,0 +1,48 @@
+<!-- <> -->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <title>API Series y peliculas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="app-header bg-purple-gradient flex flex-row jc-center align-items-center">
+        <h1 class="font-lilita-one title-font-size">Buscador de peliculas y series</h1>
+    </section>
+
+    <section class="app-main bg-lblack flex flex-row">
+        <div class="block-container bg-black flex flex-col align-self-center of-hidden bs-black20">
+            <div class="nav-container flex flex-row br8 jc-center">
+                <div class="nav-title"><input type="text" class="cien-x-cien"
+                        placeholder="Nombre de la pelicula..." id="movie-name"></div>
+                <div class="nav-year"><input type="text" class="cien-x-cien"
+                        placeholder="Año de la pelicula..." id="movie-year"></div>
+                <div class="nav-filter"><input type="text" class="cien-x-cien" placeholder="Filtro"
+                        id="movie-filter"></div>
+                <div class="nav-page"><input type="text" class="cien-x-cien" placeholder="Pag"
+                        id="movie-page"></div>
+                <div class="nav-search"><button class="cien-x-cien" id="search-button"><img
+                            src="img/lupa.png"></button></div>
+                
+            </div>
+            <div class="results bg-black flex flex-row wrap gap6 jc-center align-items-center" id="billboards">
+                <!-- map() -->
+            </div>
+
+        </div>
+    </section>
+    <section class="app-footer bg-black">
+        <!-- <p id="total-results" style="color:white"></p> -->
+    </section>
+
+</body>
+
+</html>

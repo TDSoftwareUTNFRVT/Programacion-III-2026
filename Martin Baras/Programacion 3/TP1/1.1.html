@@ -1,0 +1,41 @@
+<!-- <> -->
+<!DOCTYPE = html>
+<html>
+    <head>
+        <title>Seccion1.1</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+        *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        }
+        .padre{
+            width:100%;
+            display:flow-root;
+        }
+        .sidebar{
+            width:28%;
+            float:left;
+            margin-right: 2%;
+            height:400px;
+            background-color: #6c63ff;
+        }
+        .main{
+            float: left;
+            width: 70%;
+            height: 400px;
+            background-color: #1c2235;
+        }
+
+        </style>
+    </head>
+
+    <body>
+        <section class="padre">
+            <div class="sidebar"></div>
+            <div class="main"></div>
+        </section>
+    </body>
+
+</html>

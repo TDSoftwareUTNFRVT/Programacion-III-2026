@@ -1,0 +1,78 @@
+*,
+*,
+*::before,
+*::after {box-sizing: border-box;margin: 0;padding: 0;}
+
+.bg-red     { background-color: #e0002d; }
+.bg-rose    { background-color: #f43f5e; }
+.bg-orange  { background-color: #f59e0b; }
+.bg-amber   { background-color: #f59e0b; }
+.bg-yellow  { background-color: #eab308; }
+.bg-lime    { background-color: #84cc16; }
+.bg-green   { background-color: #22c55e; }
+.bg-emerald { background-color: #10b981; }
+.bg-teal    { background-color: #14b8a6; }
+.bg-cyan    { background-color: #0891b2; }
+.bg-lblue   { background-color: #06b6d4; }
+.bg-blue    { background-color: #002488; }
+.bg-indigo  { background-color: #4f46e5; }
+.bg-violet  { background-color: #7c3aed; }
+.bg-purple  { background-color: #6c63ff; }
+.bg-fuchsia { background-color: #d946ef; }
+.bg-pink    { background-color: #ec4899; }
+.bg-black   { background-color: #131825; }
+.bg-lblack  { background-color: #232a3e; }
+
+.bs-red      { box-shadow: 0px 0px 20px #e0002d; }
+.bs-rose     { box-shadow: 0px 0px 20px #f43f5e; }
+.bs-orange   { box-shadow: 0px 0px 20px #f59e0b; }
+.bs-amber    { box-shadow: 0px 0px 20px #f59e0b; }
+.bs-yellow   { box-shadow: 0px 0px 20px #eab308; }
+.bs-lime     { box-shadow: 0px 0px 20px #84cc16; }
+.bs-green    { box-shadow: 0px 0px 20px #22c55e; }
+.bs-emerald  { box-shadow: 0px 0px 20px #10b981; }
+.bs-teal     { box-shadow: 0px 0px 20px #14b8a6; }
+.bs-cyan     { box-shadow: 0px 0px 20px #0891b2; }
+.bs-lblue    { box-shadow: 0px 0px 20px #06b6d4; }
+.bs-blue     { box-shadow: 0px 0px 20px #002488; }
+.bs-indigo   { box-shadow: 0px 0px 20px #4f46e5; }
+.bs-violet   { box-shadow: 0px 0px 20px #7c3aed; }
+.bs-purple   { box-shadow: 0px 0px 20px #6c63ff; }
+.bs-fuchsia  { box-shadow: 0px 0px 20px #d946ef; }
+.bs-pink     { box-shadow: 0px 0px 20px #ec4899; }
+.bs-black    { box-shadow: 0px 0px 20px #131825; }
+.bs-lblack   { box-shadow: 0px 0px 20px #232a3e; }
+
+.border-selection {border:2px solid rgb(0, 255, 21)}
+
+.text-font {font-family: "Lilita One";font-size: 101%;}
+
+.border {border:2px solid black}
+.border-left {border-left: 2px solid black}
+
+.flex {display: flex; }
+.flex-row {flex-direction: row; }
+.flex-col {flex-direction: column; }
+
+.jc-space-between {justify-content: space-between; }
+.jc-center {justify-content: center; }
+.jc-self-center {justify-self: center; }
+.jc-self-flex-start {justify-self: flex-start; }
+
+.align-items-center {align-items: center; }
+.align-self-center {align-self: center; }
+
+.wrap {flex-wrap: wrap; }
+.gap10 {gap:10px}
+
+.main {width: 100%;height: 500px;}
+
+.div-colores {width:400px;height:100px;}
+.caja-color {width:30px;height: 30px;margin:1px}
+
+.div-box-shadow {width:400px;height:100px;}
+.caja-color-bs {width:30px;height: 30px;margin:1px}
+
+.div-formulario {width:400px;height:100px;}
+.editable-button {width:80px;height: 50px;}
+.submit-button {width:80px;height: 50px;}

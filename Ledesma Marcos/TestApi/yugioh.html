@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscador de Cartas Yu-Gi-Oh</title>
+  <link rel="stylesheet" href="yugioh.css">
+</head>
+<body>
+
+  <h1>Buscador Yu-Gi-Oh</h1>
+  <p class="subtitle">Buscá cualquier carta por nombre para armar un deck re fachero</p>
+
+  <div class="search-bar">
+    <input type="text" id="query" placeholder="Ej: Dark Magician" />
+    <button onclick="buscar()">Buscar</button>
+  </div>
+
+  <!-- Filtros por tipo -->
+  <div class="filtros">
+    <button class="filtro-btn activo" data-tipo="todos">Todos</button>
+    <button class="filtro-btn" data-tipo="normal">Normal</button>
+    <button class="filtro-btn" data-tipo="efecto">Efecto</button>
+    <button class="filtro-btn" data-tipo="fusion">Fusión</button>
+    <button class="filtro-btn" data-tipo="sincro">Sincro</button>
+    <button class="filtro-btn" data-tipo="xyz">XYZ</button>
+    <button class="filtro-btn" data-tipo="link">Link</button>
+    <button class="filtro-btn" data-tipo="ritual">Ritual</button>
+    <button class="filtro-btn" data-tipo="spell">Spell</button>
+    <button class="filtro-btn" data-tipo="trap">Trampa</button>
+  </div>
+
+  <p id="status"></p>
+  <div id="results"></div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modal-box">
+      <button id="close-btn">✕</button>
+      <img id="modal-img" src="" alt="">
+      <div id="modal-info">
+        <h2 id="modal-name"></h2>
+        <div id="modal-tags"></div>
+        <p id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="yugioh.js"></script>
+</body>
+</html>

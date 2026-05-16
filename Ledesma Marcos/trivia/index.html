@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trivia</title>
+    <link href="css/style2.css" rel="stylesheet" />
+  </head>
+
+  <body class="body">
+    <h1>Trivia</h1>
+
+    <!-- ===== PANTALLA INICIO ===== -->
+    <div id="pantalla-inicio">
+      <div class="card ">
+        <div>
+          <label id="titulo">Queré juga?</label>
+        </div>
+        <!-- <span class="badge badge-warn">Dasdk</span>
+<span class="badge badge-info">Ejemplo</span> -->
+        <div>
+          <label for="categoria" class="text-aqua">Categorías</label>
+          <div class="select-wrap ">
+            <select id="categoria">
+              <option value="">Todas las categorías</option>
+              <option value="9">General Knowledge</option>
+              <option value="10">Entertainment: Books</option>
+              <option value="11">Entertainment: Film</option>
+              <option value="12">Entertainment: Music</option>
+              <option value="13">Entertainment: Musicals &amp; Theatres</option>
+              <option value="14">Entertainment: Television</option>
+              <option value="15">Entertainment: Video Games</option>
+              <option value="16">Entertainment: Board Games</option>
+              <option value="17">Science &amp; Nature</option>
+              <option value="18">Science: Computers</option>
+              <option value="19">Science: Mathematics</option>
+              <option value="20">Mythology</option>
+              <option value="21">Sports</option>
+              <option value="22">Geography</option>
+              <option value="23">History</option>
+              <option value="24">Politics</option>
+              <option value="25">Art</option>
+              <option value="26">Celebrities</option>
+              <option value="27">Animals</option>
+              <option value="28">Vehicles</option>
+              <option value="29">Entertainment: Comics</option>
+              <option value="30">Science: Gadgets</option>
+              <option value="31">Entertainment: Japanese Anime &amp; Manga</option>
+              <option value="32">Entertainment: Cartoon &amp; Animations</option>
+            </select>
+            <i></i>
+          </div>
+
+          <div>
+            <label for="dificultad">Dificultad</label>
+            <div class="select-wrap">
+              <select id="dificultad">
+                <option value="">Cualquiera</option>
+                <option value="easy">Fácil</option>
+                <option value="medium">Medio</option>
+                <option value="hard">Difícil</option>
+              </select>
+              <i></i>
+            </div>
+          </div>
+
+          <button id="btn-jugar" class="bt_style btn-jugar">JUGAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PANTALLA JUEGO ===== -->
+    <div id="pantalla-juego" class="oculto">
+      <div class="card juego-card">
+        <p id="progreso" class="texto-progreso"></p>
+        <p id="pregunta" class="texto-pregunta"></p>
+        <div id="respuestas" class="contenedor-respuestas"></div>
+        <p id="mensaje" class="texto-mensaje"></p>
+      </div>
+    </div>
+
+    <!-- ===== PANTALLA ERROR ===== -->
+    <div id="pantalla-error" class="oculto">
+      <div class="card resultado-card">
+        <p class="texto-pregunta" style="color:var(--red-b);">⚠ Error</p>
+        <p id="error-mensaje" class="nombres" style="color:var(--fg-2);text-transform:none;font-size:16px;margin:16px 0;"></p>
+        <button id="btn-reintentar" class="bt_style btn-jugar">REINTENTAR</button>
+      </div>
+    </div>
+
+    <!-- ===== PANTALLA RESULTADO ===== -->
+    <div id="pantalla-resultado" class="oculto">
+      <div class="card resultado-card">
+        <p id="puntaje-final" class="puntaje-final"></p>
+        <p class="texto-pregunta">INTEGRANTES </p>
+        <p class="nombres">Marcos Ledesma</p>
+        <p class="nombres">Agustin Lanthier</p>
+
+        <!-- HISTORIAL -->
+        <div style="margin: 20px 0 10px;">
+          <p class="texto-progreso" style="margin-bottom:10px;">Últimas partidas</p>
+          <div id="historial-lista"></div>
+        </div>
+
+        <button id="btn-jugar-de-nuevo" class="bt_style btn-jugar">
+          JUGAR DE NUEVO
+        </button>
+      </div>
+    </div>
+    
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

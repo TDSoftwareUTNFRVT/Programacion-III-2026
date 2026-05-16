@@ -1,0 +1,219 @@
+
+body {
+  background: #1a0a2e;
+  color: #e0d0ff;
+  font-family: Georgia, serif;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px #ffd70088;
+}
+
+p.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px 14px;
+  width: 280px;
+  border: 2px solid #5533aa;
+  border-radius: 6px;
+  background: #2a1550;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus { border-color: #ffd700; }
+
+button {
+  padding: 10px 18px;
+  background: #ffd700;
+  color: #1a0a2e;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+button:hover { background: #ffec6e; }
+
+/* Filtros */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.filtro-btn {
+  padding: 6px 14px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: #2a1550;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: Georgia, serif;
+  transition: all 0.2s;
+}
+
+.filtro-btn:hover {
+  border-color: #aaa;
+  color: #fff;
+  background: #2a1550;
+}
+
+.filtro-btn.activo {
+  color: #1a0a2e;
+  font-weight: bold;
+  border-color: transparent;
+}
+
+/* Colores filtro */
+.filtro-btn[data-tipo="todos"].activo        { background: #ffd700; }
+.filtro-btn[data-tipo="normal"].activo       { background: #c8a84b; }
+.filtro-btn[data-tipo="efecto"].activo       { background: #e07020; }
+.filtro-btn[data-tipo="fusion"].activo       { background: #a040a0; }
+.filtro-btn[data-tipo="sincro"].activo       { background: #e0e0e0; color: #222; }
+.filtro-btn[data-tipo="xyz"].activo          { background: #333; color: #fff; border-color: #999; }
+.filtro-btn[data-tipo="link"].activo         { background: #1560bd; color: #fff; }
+.filtro-btn[data-tipo="ritual"].activo       { background: #4488cc; color: #fff; }
+.filtro-btn[data-tipo="spell"].activo        { background: #1d7a4a; color: #fff; }
+.filtro-btn[data-tipo="trap"].activo         { background: #8b1a4a; color: #fff; }
+
+/* Status */
+#status {
+  text-align: center;
+  color: #bbb;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+/* Grid de cartas */
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.card {
+  background: #2a1550;
+  border: 1px solid #5533aa;
+  border-radius: 8px;
+  width: 160px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #ffd700;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.card .name {
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: #ffd700;
+  word-break: break-word;
+}
+
+.card .type {
+  font-size: 0.7rem;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* Modal */
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 20px;
+}
+
+#modal.open { display: flex; }
+
+#modal-box {
+  background: #1f0e42;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  max-width: 420px;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  gap: 16px;
+}
+
+#modal-box img {
+  width: 120px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+#modal-info h2 {
+  color: #ffd700;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+#modal-info p {
+  font-size: 0.8rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+#modal-info .tag {
+  display: inline-block;
+  background: #5533aa;
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin: 4px 2px 6px;
+}
+
+#close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}

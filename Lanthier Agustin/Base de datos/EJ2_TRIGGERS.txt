@@ -1,0 +1,156 @@
+Ejercicio 2
+
+DELIMITER $$ CREATE TRIGGER 
+trg_calcular_total BEFORE INSERT
+ON ventas 
+FOR EACH ROW 
+BEGIN
+DECLARE precio_producto DECIMAL(10,2);
+SELECT precio
+INTO precio_producto
+FROM productos 
+WHERE id_producto = NEW.id_producto;
+SET NEW.total = precio * NEW.cantidad; 
+END$$ 
+DELIMITER ;
+
+Ejercicio 3
+
+DELIMITER $$
+
+CREATE TRIGGER trg_cambio_precios
+AFTER UPDATE
+ON productos
+FOR EACH ROW
+BEGIN
+
+    IF OLD.precio <> NEW.precio THEN
+
+        INSERT INTO auditoria_precios
+        (
+            id_producto,
+            precio_anterior,
+            precio_nuevo,
+            usuario
+        )
+        VALUES
+        (
+            NEW.id_producto,
+            OLD.precio,
+            NEW.precio,
+            USER()
+        );
+
+    END IF;
+
+END$$
+
+DELIMITER ;
+
+Ejercicio 4
+DELIMITER $$
+
+CREATE TRIGGER trg_guardar_registros
+BEFORE DELETE
+ON clientes
+FOR EACH ROW
+BEGIN
+	INSERT INTO log_clientes_eliminados(
+			id_cliente,
+			nombre,
+			email,
+			fecha_eliminacion
+			)
+		VALUES(
+			OLD.id_cliente,
+			OLD.nombre,
+			OLD.email
+			)
+
+END$$
+
+DELIMITER ;
+Ejercicio 5
+
+DELIMITER $$
+
+CREATE TRIGGER trg_controlar_stock
+BEFORE INSERT
+ON ventas 
+FOR EACH ROW
+BEGIN
+	DECLARE stock_actual DECIMAL(10,2)
+	SELECT stock
+	INTO stock_actual
+	FROM productos
+	WHERE id_producto = NEW.id_producto;
+	
+	IF stock_actual < NEW.cantidad THEN
+
+ 	SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'No tenemos pa, compra otra cosa';
+
+	END IF;
+END$$
+
+DELIMITER ;
+
+Ejercicio 6
+DELIMITER $$
+
+CREATE TRIGGER trg_actualizar_saldo
+AFTER INSERT
+ON ventas 
+FOR EACH ROW
+BEGIN
+	DECLARE saldo_viejo DECIMAL (12,2);
+	SELECT saldo
+	INTO saldo_viejo
+	FROM clientes
+
+	UPDATE clientes
+	SET saldo = saldo_viejo - NEW.total
+	WHERE id_cliente = NEW.id_cliente;
+	
+END$$
+
+DELIMITER ;
+
+
+
+Ejercicio 7
+
+DELIMITER $$
+
+CREATE TRIGGER trg_proteger_emails
+BEFORE UPDATE
+ON clientes 
+FOR EACH ROW
+BEGIN
+	
+	IF LOWER(OLD.email) <> LOWER(NEW.email) THEN
+		SET email = LOWER(NEW.email)
+	
+	ELSE 
+		SIGNAL SQLSTATE '45000'
+        	SET MESSAGE_TEXT = 'No tenemos pa, compra otra cosa';
+	END IF;
+	
+END$$
+DELIMITER;
+
+Ejercicio 8 
+
+DELIMITER $$
+CREATE TRIGGER trg_eliminacion_venta
+AFTER DELETE
+ON ventas
+FOR EACH ROW
+BEGIN
+	UPDATE productos
+	SET stock = stock + OLD.cantidad
+	WHERE id_producto = OLD.id_producto;
+	
+
+END$$
+DELIMITER ;

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trivia</title>
+  <link href="css/style2.css" rel="stylesheet" />
+  <link rel="icon" href="img/utn.png" />
+</head>
+
+<body class="body">
+  <h1>Trivia</h1>
+  <h2>¿Estás listo para desafiar tu conocimiento?</h2>
+  <i></i>
+
+  <!-- ===== PANTALLA INICIO ===== -->
+  <div id="pantalla-inicio">
+    <div class="card ">
+      <div>
+        <label id="titulo">Haz tu elección</label>
+      </div>
+      <!-- LOGUEO -->
+      <div>
+        <label for="nombre">Tu nombre</label>
+        <div class="select-wrap">
+          <input type="text" id="nombre" placeholder="Ingresá tu nombre" />
+        </div>
+      </div>
+      <!-- CATEGORIAS -->
+      <div>
+        <label for="categoria" class="text-aqua">Categorías</label>
+        <div class="select-wrap ">
+          <select id="categoria"></select>
+          <i></i>
+        </div>
+        <!-- DIFICULTAD -->
+        <div>
+          <label for="dificultad">Dificultad</label>
+          <div class="select-wrap">
+            <select id="dificultad">
+              <option value="">Cualquiera</option>
+              <option value="easy">Fácil</option>
+              <option value="medium">Medio</option>
+              <option value="hard">Difícil</option>
+            </select>
+            <i></i>
+          </div>
+        </div>
+        <!-- JUGAR -->
+        <button id="btn-jugar" class="bt_style btn-jugar">JUGAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PANTALLA JUEGO ===== -->
+  <div id="pantalla-juego" class="oculto">
+    <div class="card juego-card">
+      <p id="progreso" class="texto-progreso"></p>
+      <p id="pregunta" class="texto-pregunta"></p>
+      <div id="respuestas" class="contenedor-respuestas"></div>
+      <p id="mensaje" class="texto-mensaje"></p>
+    </div>
+  </div>
+
+  <!-- ===== PANTALLA ERROR ===== -->
+  <div id="pantalla-error" class="oculto">
+    <div class="card resultado-card">
+      <p class="texto-pregunta" style="color:var(--red-b);">⚠ Error</p>
+      <p id="error-mensaje" class="nombres" style="color:var(--fg-2);text-transform:none;font-size:16px;margin:16px 0;">
+      </p>
+      <button id="btn-reintentar" class="bt_style btn-jugar">REINTENTAR</button>
+    </div>
+  </div>
+
+  <!-- ===== PANTALLA RESULTADO ===== -->
+  <div id="pantalla-resultado" class="oculto">
+    <div class="card resultado-card">
+      <p id="puntaje-final" class="puntaje-final"></p>
+      <p id="nombre-jugador" class="nombres" style="color: var(--yellow-b); font-size: 24px;"></p>
+      <p class="texto-final">Creado por: </p>
+      <p class="nombres">Marcos Ledesma</p>
+      <p class="nombres">Agustin Lanthier</p>
+
+      <!-- HISTORIAL -->
+      <div style="margin: 20px 0 10px;">
+        <p class="texto-progreso" style="margin-bottom:10px;">Últimas partidas</p>
+        <div id="historial-lista"></div>
+      </div>
+      <!-- VOLVER A JUGAR -->
+      <button id="btn-jugar-de-nuevo" class="bt_style btn-jugar">
+        JUGAR DE NUEVO
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

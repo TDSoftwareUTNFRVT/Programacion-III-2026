@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tonto o Crack</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="fondo-pagina">
+
+  <div class="logo-superior">
+    <img src="default.png" alt="Tonto o Crack">
+  </div>
+  <div class="contenedor-app">
+    <div class="pantalla" id="pantalla-inicio">
+      <h1 class="titulo-grande">Tonto o Crack</h1>
+      <p class="subtitulo">Demostra si sos tonto o sos crack!!</p>
+
+      <div class="grupo-campo">
+        <label class="etiqueta" for="select-categoria">Categoría</label>
+        <select class="selector" id="select-categoria">
+          <option value="">Todas las categorías</option>
+        </select>
+      </div>
+
+      <div class="grupo-campo">
+        <label class="etiqueta" for="select-dificultad">Dificultad</label>
+        <select class="selector" id="select-dificultad">
+          <option value="">Cualquier dificultad</option>
+          <option value="easy"><Table>Tontito</Table></option>
+          <option value="medium">Medio Tonto</option>
+          <option value="hard">Crack</option>
+        </select>
+      </div>
+
+      <button class="boton-primario" id="btn-jugar">Mandale</button>
+    </div>
+
+    <div class="pantalla oculto" id="pantalla-carga">
+      <div class="pantalla-carga-interior">
+        <div class="spinner"></div>
+        <p>Bancame un toque...</p>
+      </div>
+    </div>
+
+    <div class="pantalla oculto" id="pantalla-juego">
+      <trivia-puntaje id="comp-puntaje" numero="1" total="10" puntaje="0"></trivia-puntaje>
+      <trivia-pregunta id="comp-pregunta"></trivia-pregunta>
+    </div>
+
+    <div class="pantalla oculto" id="pantalla-resultado">
+      <div class="pantalla-resultado-interior">
+        <h1 class="titulo-grande">Resultado</h1>
+        <div class="puntaje-grande" id="resultado-puntaje">0 / 10</div>
+        <p class="mensaje-resultado" id="resultado-mensaje"></p>
+        <trivia-historial id="comp-historial"></trivia-historial>
+        <button class="boton-primario" id="btn-volver-a-jugar">Mandarle de nuevo</button>
+      </div>
+    </div>
+
+    <div class="pantalla oculto" id="pantalla-error">
+      <div class="pantalla-error-interior">
+        <div class="icono-error">⚠️</div>
+        <h1 class="titulo-grande">Algo salió mal</h1>
+        <p class="mensaje-error" id="mensaje-error"></p>
+        <button class="boton-primario" id="btn-reintentar">Reintentar</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/TriviaAPI.js"></script>
+  <script src="js/TriviaGame.js"></script>
+  <script src="js/TriviaComponents.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- PANTALLA INICIO -->
+    <div id="pantalla-inicio">
+        <h1 class="titulo">Trivia App</h1>
+        <div class="seleccion">
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" placeholder="Ingresá tu nombre" />
+        </div>
+        <div class="seleccion">
+            <label for="dificultad">Dificultad:</label>
+            <select id="dificultad">
+                <option value="">Aleatorio</option>
+                <option value="easy">Fácil</option>
+                <option value="medium">Medio</option>
+                <option value="hard">Difícil</option>
+            </select>
+        </div>
+        <div class="seleccion">
+            <label for="categoria">Categoría:</label>
+            <select id="categoria">
+                <option value="">Aleatorio</option>
+                <option value="9">General Knowledge</option>
+                <option value="10">Entertainment: Books</option>
+                <option value="11">Entertainment: Film</option>
+                <option value="12">Entertainment: Music</option>
+                <option value="13">Entertainment: Musicals & Theatres</option>
+                <option value="14">Entertainment: Television</option>
+                <option value="15">Entertainment: Video Games</option>
+                <option value="16">Entertainment: Board Games</option>
+                <option value="17">Science & Nature</option>
+                <option value="18">Science: Computers</option>
+                <option value="19">Mythology</option>
+                <option value="20">Sports</option>
+                <option value="21">Geography</option>
+                <option value="22">History</option>
+                <option value="23">Politics</option>
+                <option value="24">Art</option>
+                <option value="25">Celebrities</option>
+                <option value="26">Animals</option>
+            </select>
+        </div>
+        <button id="btn-jugar">Jugar</button>
+    </div>
+
+    <!-- PANTALLA CARGA -->
+    <div id="pantalla-carga" style="display:none">
+        <p>Cargando preguntas...</p>
+    </div>
+
+    <!-- PANTALLA ERROR -->
+    <div id="pantalla-error" style="display:none">
+        <p id="mensaje-error"></p>
+        <button id="btn-reintentar">Reintentar</button>
+    </div>
+
+    <!-- PANTALLA JUEGO -->
+    <div id="pantalla-juego" style="display:none">
+        <p id="contador">Pregunta 1 de 10</p>
+        <p id="puntaje">Puntaje: 0</p>
+        <h2 id="pregunta"></h2>
+        <div id="opciones"></div>
+    </div>
+
+    <!-- PANTALLA RESULTADO -->
+    <div id="pantalla-resultado" style="display:none">
+        <h2 class="titulo">¡Juego terminado!</h2>
+        <p id="puntaje-final"></p>
+        <div id="historial"></div>
+        <button id="btn-reiniciar">Jugar de nuevo</button>
+    </div>
+
+    <script src="js/TriviaAPI.js"></script>
+    <script src="js/TriviaGame.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

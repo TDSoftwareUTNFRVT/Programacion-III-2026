@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Todas las pantallas centradas en columna */
+#pantalla-inicio,
+#pantalla-carga,
+#pantalla-error,
+#pantalla-juego,
+#pantalla-resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+    padding: 32px;
+    background: white;
+    border-radius: 8px;
+}
+
+/* Labels arriba de los selects */
+.seleccion {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+/* Inputs y selects del mismo ancho */
+select, button {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+/* Feedback de respuestas */
+button.correcta {
+    background-color: #4caf50;
+    color: white;
+    opacity: 1;
+}
+
+button.incorrecta {
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+}
+.titulo {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+}
+h1, h2, p, select, button, .seleccion {
+    margin-bottom: 8px;
+}

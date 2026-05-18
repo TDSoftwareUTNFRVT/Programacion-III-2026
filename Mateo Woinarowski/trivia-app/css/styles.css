@@ -1,0 +1,270 @@
+/* =============================================
+   VARIABLES — editá acá para personalizar
+   ============================================= */
+:root {
+  --color-fondo:             #1a1a2e;
+  --color-superficie:        #16213e;
+  --color-primario:          #e94560;
+  --color-primario-hover:    #c73652;
+  --color-opcion:            #0f3460;
+  --color-borde-opcion:      #1a4a8a;
+  --color-opcion-hover:      #1a4a8a;
+  --color-correcta-fondo:    #1a4a2e;
+  --color-correcta-borde:    #2ecc71;
+  --color-correcta-texto:    #2ecc71;
+  --color-incorrecta-fondo:  #4a1a1a;
+  --color-incorrecta-borde:  #e94560;
+  --color-incorrecta-texto:  #e94560;
+  --color-texto:             #eee;
+  --color-texto-suave:       #aaa;
+  --radio-tarjeta:           16px;
+  --radio-boton:             10px;
+}
+
+/* =============================================
+   RESET
+   ============================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================
+   BASE
+   ============================================= */
+.fondo-pagina {
+  background:linear-gradient(to right, rgb(197, 63, 63), rgb(96, 48, 96)); ;
+  color: var(--color-texto);
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* =============================================
+   LOGO
+   ============================================= */
+.logo-superior {
+  width: 500px;
+  text-align: center;
+
+  background:linear-gradient(top, rgb(215, 215, 215),rgb(197, 63, 63)) ;
+}
+
+.logo-superior img {
+  height: 100%;
+  width: 100%;
+}
+
+/* =============================================
+   CONTENEDOR APP
+   ============================================= */
+.contenedor-app {
+  width: 100%;
+  max-width: 580px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+/* =============================================
+   PANTALLAS
+   ============================================= */
+.pantalla {
+  background: var(--color-superficie);
+  border-radius: var(--radio-tarjeta);
+  padding: 26px 22px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* =============================================
+   TIPOGRAFÍA
+   ============================================= */
+.titulo-grande {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--color-primario);
+}
+
+.subtitulo {
+  text-align: center;
+  color: var(--color-texto-suave);
+  margin-bottom: 28px;
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   FORMULARIO INICIO
+   ============================================= */
+.grupo-campo {
+  margin-bottom: 16px;
+}
+
+.etiqueta {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 6px;
+}
+
+.selector {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: var(--color-opcion);
+  color: var(--color-texto);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.selector:focus {
+  outline: 2px solid var(--color-primario);
+}
+
+/* =============================================
+   BOTÓN PRINCIPAL
+   ============================================= */
+.boton-primario {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-primario);
+  color: rgb(220, 220, 220);
+  border: none;
+  border-radius: var(--radio-boton);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.boton-primario:hover {
+  background: var(--color-primario-hover);
+}
+
+/* =============================================
+   PANTALLA CARGA
+   ============================================= */
+.pantalla-carga-interior {
+  text-align: center;
+  padding: 60px 32px;
+}
+
+
+/* =============================================
+   PANTALLA ERROR
+   ============================================= */
+.pantalla-error-interior {
+  text-align: center;
+}
+
+.icono-error {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.mensaje-error {
+  color: var(--color-primario);
+  margin: 12px 0 24px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* =============================================
+   PANTALLA RESULTADO
+   ============================================= */
+.pantalla-resultado-interior {
+  text-align: center;
+}
+
+.puntaje-grande {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--color-primario);
+  margin: 12px 0;
+}
+
+.mensaje-resultado {
+  font-size: 1.2rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 28px;
+}
+
+/* =============================================
+   WEB COMPONENT: <trivia-puntaje>
+   ============================================= */
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+}
+
+.display-puntaje {
+  font-weight: 700;
+  color: var(--color-primario);
+  font-size: 1rem;
+}
+
+/* =============================================
+   WEB COMPONENT: <trivia-pregunta>
+   ============================================= */
+.texto-pregunta {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  min-height: 60px;
+}
+
+.contenedor-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-opcion {
+  padding: 13px 16px;
+  background: var(--color-opcion);
+  color: var(--color-texto);
+  border: 2px solid var(--color-borde-opcion);
+  border-radius: var(--radio-boton);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-opcion:hover:not(:disabled) {
+  background: var(--color-opcion-hover);
+  border-color: var(--color-primario);
+}
+
+.btn-opcion:disabled {
+  cursor: default;
+}
+
+.btn-opcion.correcta {
+  background: var(--color-correcta-fondo);
+  border-color: var(--color-correcta-borde);
+  color: var(--color-correcta-texto);
+}
+
+.btn-opcion.incorrecta {
+  background: var(--color-incorrecta-fondo);
+  border-color: var(--color-incorrecta-borde);
+  color: var(--color-incorrecta-texto);
+}

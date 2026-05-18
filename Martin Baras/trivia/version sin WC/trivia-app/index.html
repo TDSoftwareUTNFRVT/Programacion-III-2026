@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <section id="general-wrapper">
+        <div id="contenedor-menu">
+            <h2 class="main-title">Trivia</h2>
+            <h2 id="titulo-dificultad" class="title-2">Seleccione una dificultad</h2>
+            <div class="wrapper fdr margin-auto dif-buttons-container">
+                <button id="boton-dif-facil" data-difficulty="Fácil" class="button difficulty-button easy">Fácil</button>
+                <button id="boton-dif-medio" data-difficulty="Medio" class="button difficulty-button medium">Medio</button>
+                <button id="boton-dif-dificil" data-difficulty="Difícil" class="button difficulty-button hard">Difícil</button>
+            </div>
+            <h2>Categoria</h2>
+            <select id="categories-group">
+                <!--Esto se va a rellenar con un selector_categorias.innerHTML-->
+            </select>
+            <button id="boton-jugar">Jugar</button>
+        </div>
+        <div id="contenedor-juego">
+            <div id="contenedor-preguntaindex-score">
+                <!-- ActualizarContenedor.contenedor_info.innerHTML -->
+            </div>
+            <div id="contenedor-pregunta"> 
+                <!-- MostrarPregunta.contenedor_pregunta -->
+            </div>
+        </div>
+        <div id="contenedor-fin-juego">
+            <!-- game.haTerminado() -->
+        </div>
+    </section>
+</body>
+</html>

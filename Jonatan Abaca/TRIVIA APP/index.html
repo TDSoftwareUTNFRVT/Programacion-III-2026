@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="contenedor">
+
+    <div id="pantalla-inicio">
+      <h1>🎯 Trivia App</h1>
+    
+
+      
+      <div class="form-grupo">
+        <label for="select-categoria">Categoría</label>
+        <select id="select-categoria">
+          <option value="">Cargando categorías...</option>
+        </select>
+      </div>
+
+      <div class="form-grupo">
+        <label for="select-dificultad">Dificultad</label>
+        <select id="select-dificultad">
+          <option value="">Cualquiera</option>
+          <option value="easy">Fácil</option>
+          <option value="medium">Medio</option>
+          <option value="hard">Difícil</option>
+        </select>
+      </div>
+
+      <button id="btn-jugar">Jugar</button>
+    </div>
+
+
+    
+    <div id="pantalla-carga" class="oculto">
+      <div class="spinner"></div>
+      <p>Cargando preguntas...</p>
+    </div>
+
+
+   
+    <div id="pantalla-error" class="oculto">
+      <div class="error-icono">⚠️</div>
+      <p id="error-mensaje">Ocurrió un error.</p>
+      <button id="btn-reintentar">Reintentar</button>
+    </div>
+
+
+    
+    <div id="pantalla-juego" class="oculto">
+
+      
+      <div class="barra-superior">
+        <span id="contador">Pregunta 1 de 10</span>
+        <span id="puntaje">Puntaje: 0</span>
+      </div>
+
+      
+      <div class="pregunta-card">
+        <p id="pregunta-texto"></p>
+      </div>
+
+      
+      <div id="respuestas" class="respuestas-grid"></div>
+
+    </div>
+
+
+ 
+    <div id="pantalla-resultado" class="oculto">
+      <h2>¡Juego terminado!</h2>
+      <p>Tu puntaje final:</p>
+      <div class="puntaje-final" id="puntaje-final"></div>
+
+      
+      <div class="historial-wrap">
+        <p class="historial-titulo">Últimas partidas</p>
+        <div id="historial"></div>
+      </div>
+
+      <button id="btn-jugar-nuevo">Jugar de nuevo</button>
+    </div>
+
+  </div>
+
+
+
+  <script src="js/TriviaAPI.js"></script>
+  <script src="js/TriviaGame.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

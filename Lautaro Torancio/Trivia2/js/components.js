@@ -54,7 +54,6 @@ class BotonMenuCard extends HTMLElement {
             gap: 8px;
         `;
 
-        // Creamos el h3 con el título
         const h3 = document.createElement('h3');
         h3.textContent = titulo;
         h3.style.cssText = `

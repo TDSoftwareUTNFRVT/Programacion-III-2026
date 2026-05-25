@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container bg-wht border-soft brd-col-wht shadow-soft" id="pantalla-inicio">
+        <h1 class="title font-col-prpl">Trivia-Game</h1>
+        <div class="selector">
+            <label class="font-col-lght-prpl font-weight-600" for="categorias">Elige la categoria</label>
+            <select class="select-style" name="categoria" id="categorias"></select>
+        </div>
+        <div class="selector">
+            <label class="font-col-lght-prpl font-weight-600" for="dificultades">Elige la dificultad</label>
+            <select class="select-style" name="dificultad" id="dificultades">
+                <option value="easy">Facil</option>
+                <option value="medium">Medio</option>
+                <option value="hard">Dificil</option>
+            </select>
+        </div>
+        <button class="btn font-weight-600 bg-lght-prpl font-col-wht" id="btn-jugar">Jugar</button>
+    </div>
+
+    <div class="bg-wht card border-soft brd-col-wht shadow-soft " id="pantalla-juego">
+        <p id="num-preg"></p>
+        <p id="preg"></p>
+        <div class="grp-preg" id="grp-rta"></div>
+    </div>
+    
+    <div class="card bg-wht border-soft brd-col-wht shadow-soft " id="pantalla-final">
+        <h2 class="title font-col-blck" id="puntaje-final"></h2>
+        <button class="btn bg-lvndr font-col-prpl brd-col-lvndr" id="btn-volver">Volver a jugar</button>
+    </div>
+
+    <div class="container " id="pantalla-error">
+        <h2 class="title font-col-blck">Hubo un error al cargar las preguntas.</h2>
+        <button class="btn" id="btn-reintentar">Reintentar</button>
+    </div>
+
+    <div id="pantalla-cargando">
+        <h2 class="title font-col-blck">Cargando...</h2>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

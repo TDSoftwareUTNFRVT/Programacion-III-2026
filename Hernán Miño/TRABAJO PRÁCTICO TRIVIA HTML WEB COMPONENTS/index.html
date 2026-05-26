@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="contenedor">
+
+    <div id="pantalla-inicio">
+      <h1>Trivia App</h1>
+      <h2>¿Cuánto sabés?</h2>
+
+      <label for="select-categoria">Categoría:</label>
+      <select id="select-categoria">
+        <option value="">Todas las categorías</option>
+      </select>
+
+      <label for="select-dificultad">Dificultad:</label>
+      <select id="select-dificultad">
+        <option value="">Cualquiera</option>
+        <option value="easy">Fácil</option>
+        <option value="medium">Medio</option>
+        <option value="hard">Difícil</option>
+      </select>
+
+      <button id="btn-jugar" class="btn btn-primario">Jugar</button>
+    </div>
+
+    <div id="pantalla-carga" class="oculto">
+      <div class="spinner"></div>
+      <p>Cargando preguntas...</p>
+    </div>
+
+    <div id="pantalla-error" class="oculto">
+      <h2>Algo salió mal</h2>
+      <p id="texto-error"></p>
+      <button id="btn-reintentar" class="btn btn-primario">Reintentar</button>
+    </div>
+
+    <div id="pantalla-juego" class="oculto">
+      <div class="info-juego">
+        <span id="contador-pregunta">Pregunta 1 de 10</span>
+        <span id="puntaje">Puntaje: 0</span>
+      </div>
+      <trivia-pregunta id="componente-pregunta"></trivia-pregunta>
+      </div>
+    </div>
+
+    <div id="pantalla-resultado" class="oculto">
+      <h2>¡Juego terminado!</h2>
+      <div class="puntaje-grande" id="resultado-puntaje">0 / 10</div>
+      <p id="resultado-mensaje"></p>
+
+      <button id="btn-jugar-otra" class="btn btn-primario">Jugar otra vez</button>
+
+      <div id="historial"></div>
+    </div>
+
+  </div>
+
+  <script src="js/TriviaAPI.js"></script>
+  <script src="js/TriviaGame.js"></script>
+  <script src="js/components/trivia-pregunta.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

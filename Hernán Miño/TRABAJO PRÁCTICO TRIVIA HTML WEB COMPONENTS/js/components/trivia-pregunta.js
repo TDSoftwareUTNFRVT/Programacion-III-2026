@@ -80,7 +80,7 @@ class TriviaPregunta extends HTMLElement {
     });
     const evento = new CustomEvent('respuesta',{
         bubbles : true,
-        compossed : true,
+        composed : true,
         detail:{opcionElegida}
     });
     this.dispatchEvent(evento);

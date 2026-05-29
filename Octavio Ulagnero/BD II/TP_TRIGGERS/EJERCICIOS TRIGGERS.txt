@@ -1,0 +1,87 @@
+EJERCICIOS DE BASE DE DATOS TRIGGERS
+TABLAS CON INSERCION DE DATOS:
+CREATE TABLE clientes ( id_cliente INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(100) NOT NULL, email VARCHAR(150) UNIQUE, saldo DECIMAL(12,2) DEFAULT 0.00, activo TINYINT(1) DEFAULT 1, fecha_registro DATETIME DEFAULT NOW() ); CREATE TABLE productos ( id_producto INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(100) NOT NULL, precio DECIMAL(10,2) NOT NULL, stock INT DEFAULT 0, fecha_modificacion DATETIME ); CREATE TABLE ventas ( id_venta INT AUTO_INCREMENT PRIMARY KEY, id_cliente INT NOT NULL, id_producto INT NOT NULL, cantidad INT NOT NULL, total DECIMAL(12,2), fecha DATETIME DEFAULT NOW(), FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente), FOREIGN KEY (id_producto) REFERENCES productos(id_producto) );
+CREATE TABLE auditoria_precios ( id INT AUTO_INCREMENT PRIMARY KEY, id_producto INT, precio_anterior DECIMAL(10,2), precio_nuevo DECIMAL(10,2), usuario VARCHAR(100), fecha_cambio DATETIME DEFAULT NOW() ); CREATE TABLE log_clientes_eliminados ( id INT AUTO_INCREMENT PRIMARY KEY, id_cliente INT, nombre VARCHAR(100), email VARCHAR(150), fecha_eliminacion DATETIME DEFAULT NOW() );
+INSERT INTO ventas (id_cliente, id_producto, cantidad, total) VALUES (1, 3, 5, 250.00); SELECT stock FROM productos WHERE id_producto = 3;  
+ EJERCICIO 5)
+DELIMITER $$
+
+CREATE TRIGGER before_insert_ventas
+BEFORE INSERT ON ventas
+FOR EACH ROW
+BEGIN
+    DECLARE stock_actual INT;
+    
+    -- Obtener el stock actual del producto
+    SELECT stock INTO stock_actual
+    FROM productos
+    WHERE id_producto = NEW.id_producto;
+    
+    -- Verificar si hay stock suficiente
+    IF stock_actual < NEW.cantidad THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Error: Stock insuficiente para realizar la venta';
+    END IF;
+END$$
+
+DELIMITER ;
+EJERCICIO 6)
+DELIMITER $$
+
+CREATE TRIGGER after_insert_ventas
+AFTER INSERT ON ventas
+FOR EACH ROW
+BEGIN
+    -- Descontar el total de la venta del saldo del cliente
+    UPDATE clientes
+    SET saldo = saldo - NEW.total
+    WHERE id_cliente = NEW.id_cliente;
+END$$
+
+DELIMITER ;
+EJERCICIO 7)
+DELIMITER $$
+
+CREATE TRIGGER before_update_clientes
+BEFORE UPDATE ON clientes
+FOR EACH ROW
+BEGIN
+    DECLARE email_existente INT;
+    
+    -- Solo validar si está cambiando el email
+    IF NEW.email <> OLD.email THEN
+        
+        -- Normalizar el nuevo email a minúsculas
+        SET NEW.email = LOWER(NEW.email);
+        
+        -- Verificar si ya existe otro cliente con ese email
+        SELECT COUNT(*) INTO email_existente
+        FROM clientes
+        WHERE email = NEW.email
+        AND id_cliente <> NEW.id_cliente;
+        
+        -- Si ya existe, lanzar error
+        IF email_existente > 0 THEN
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Error: Ya existe otro cliente con ese email';
+        END IF;
+        
+    END IF;
+END$$
+
+DELIMITER ;
+EJERCICIO 8)
+DELIMITER $$
+
+CREATE TRIGGER after_delete_ventas
+AFTER DELETE ON ventas
+FOR EACH ROW
+BEGIN
+    -- Restaurar el stock del producto
+    UPDATE productos
+    SET stock = stock + OLD.cantidad,
+        fecha_modificacion = NOW()
+    WHERE id_producto = OLD.id_producto;
+END$$
+
+DELIMITER ;

@@ -1,0 +1,52 @@
+EJERCICIO 9)
+   START TRANSACTION;
+   INSERT INTO clientes(nombre, email, saldo) VALUES('Ana Torres', 'ana@email.com', 1000);
+   SET @id = last_insert_id();
+   INSERT INTO VENTAS(id_cliente, id_producto, cantidad, total) VALUES(@id, 1, 2, 150.00);
+   COMMIT;
+   ROLLBACK;
+
+EJERCICIO 10)
+START TRANSACTION;
+	SET AUTOCOMMIT = 0;
+	UPDATE cuentas SET saldo = saldo -  WHERE id_cliente = 1;
+    	UPDATE cuentas SET saldo = saldo + 300 WHERE id_cliente = 2;
+COMMIT;
+EJERCICIO 11)
+START TRANSACTION;
+	SET AUTOCOMMIT = 0;
+  SELECT id_cliente INTO @id_cliente FROM clientes WHERE id_cliente = LAST_INSERT_ID();
+    
+	SAVEPOINT save_obt_id_cliente;
+    
+  SELECT total INTO @total FROM ventas WHERE id_cliente = LAST_INSERT_ID();
+    
+	SAVEPOINT save_obt_total;
+    
+  SELECT estado INTO @estado FROM pedidos WHERE id_cliente = LAST_INSERT_ID();
+   
+	SAVEPOINT save_obt_estado;
+    
+    	INSERT INTO pedidos(id_cliente, total, estado) VALUES(@id_cliente, @total, @estado);
+
+ COMMIT;
+ ROLLBACK;
+
+EJERCICIO 12)
+START TRANSACTION;
+	SET AUTOCOMMIT = 0;
+    
+   	INSERT INTO productos(nombre, precio, stock);
+	VALUES ('Mouse razer', 350000.00, 10), ('Libro Edgar Allan Poe', 20000.00, 10), ('Teclado redragon', 7500.00, 5), ('Alfajor rasta', 3000.00, 115), ('Coca zero', 1300.00, 50);
+COMMIT;
+ROLLBACK;
+
+EJERCICIO 13 (No se vio el tema en clase)
+
+EJERCICIO 14)
+START TRANSACTION;
+	SET AUTOCOMMIT = 0;
+    	SELECT disponible FROM asiento WHERE id_asiento = 15 FOR UPDATE;
+	UPDATE asiento SET disponible = 0 WHERE id_asiento = 15;
+COMMIT;
+ROLLBACK;

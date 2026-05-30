@@ -1,0 +1,18 @@
+CREATE OR REPLACE VIEW vista_detalle_pedidos AS
+SELECT
+    pedidos.id_pedido,
+    pedidos.fecha,
+    pedidos.estado,
+    clientes.nombre AS cliente_nombre,
+    clientes.ciudad,
+    clientes.email,
+    productos.nombre AS producto_nombre,
+    categorias.nombre AS categoria,
+    detalles_pedido.cantidad,
+    detalles_pedido.precio_unitario,
+    detalles_pedido.cantidad * detalles_pedido.precio_unitario AS subtotal
+FROM pedidos
+INNER JOIN clientes ON clientes.id_cliente = pedidos.id_cliente
+INNER JOIN detalles_pedido ON detalles_pedido.id_pedido = pedidos.id_pedido
+INNER JOIN productos ON productos.id_producto = detalles_pedido.id_producto
+INNER JOIN categorias ON categorias.id_categoria = productos.id_categoria;

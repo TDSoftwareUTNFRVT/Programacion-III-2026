@@ -1,0 +1,32 @@
+-Ingresos por mes, tendencia de venta:
+SELECT DATE_FORMAT(fecha_pedido, '%Y-%m') AS mes,
+    COUNT(DISTINCT id_pedido) AS pedidos,
+    SUM(subtotal) AS ingreso_total
+FROM vista_detalle_pedidos
+GROUP BY mes
+ORDER BY mes DESC;
+
+-Los 5 clientes que mas gastaron:
+SELECT cliente_nombre,
+    COUNT(DISTINCT id_pedido) AS cantidad_pedidos,
+    SUM(subtotal) AS total_gastado
+FROM vista_detalle_pedidos
+GROUP BY cliente_nombre
+ORDER BY total_gastado DESC
+LIMIT 5;
+
+-Dias de la semana que mas se vendio:
+SELECT DAYNAME(fecha_pedido) AS dia_semana,
+    COUNT(DISTINCT id_pedido) AS cantidad_pedidos,
+    SUM(subtotal) AS ingreso_total
+FROM vista_detalle_pedidos
+GROUP BY dia_semana
+ORDER BY ingreso_total DESC;
+
+-Productos que nunca se vendieron o tuvieron pocas ventas:
+SELECT producto_nombre, categoria,
+    SUM(cantidad) AS unidades_vendidas
+FROM vista_detalle_pedidos
+GROUP BY producto_nombre, categoria
+HAVING SUM(cantidad) < 3
+ORDER BY unidades_vendidas ASC;

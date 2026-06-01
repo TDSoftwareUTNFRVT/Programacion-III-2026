@@ -1,0 +1,75 @@
+Ejercicio 10
+
+START TRANSACTION;
+
+SET autocommit = 0;
+
+UPDATE cuentas SET saldo = saldo - 1000
+WHERE id = 1
+AND saldo >= 1000;
+
+
+UPDATE cuentas SET saldo = saldo + 1000
+WHERE id = 2;
+
+COMMIT;
+
+ROLLBACK;
+
+END TRANSACTION;
+
+Ejercicio 11:
+
+
+START TRANSACTION;
+
+SET autocommit = 0;
+
+INSERT INTO pedidos (id_cliente) VALUES (1);
+
+SAVEPOINT sp_id_cliente;
+
+UPDATE pedidos 
+SET total = 1000.00
+WHERE id = LAST_INSERT_ID();
+
+SAVEPOINT sp_total;
+
+UPDATE pedidos 
+SET estado = 'preparado'
+WHERE id = LAST_INSERT_ID();
+
+SAVEPOINT sp_estado;
+
+--sp_total;
+
+COMMIT;
+
+--ROLLBACK;
+
+END TRANSACTION;
+
+Ejercicio 12: 
+
+START TRANSACTION;
+
+SET autocommit = 0;
+
+INSERT INTO productos (nombre, precio, stock, fecha_modificacion) 
+VALUES ("Taladro", 5000.00, 10, NOW());
+
+INSERT INTO productos (nombre, precio, stock, fecha_modificacion) 
+VALUES ("Chocolate", 5000.00, 3, NOW());
+
+INSERT INTO productos (nombre, precio, stock, fecha_modificacion) 
+VALUES ("Monitor", 10000.00, 8, NOW());
+
+INSERT INTO productos (nombre, precio, stock, fecha_modificacion) 
+VALUES ("Teclado", 8000.00, 22, NOW());
+
+INSERT INTO productos (nombre, precio, stock, fecha_modificacion) 
+VALUES ("Mouse", 6000.00, 11, NOW());
+
+COMMIT;
+
+ROLLBACK;

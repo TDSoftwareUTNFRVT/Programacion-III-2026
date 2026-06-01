@@ -1,0 +1,14 @@
+CREATE OR REPLACE VIEW vista_ganancia_productos AS
+SELECT
+    productos.id_producto,
+    productos.nombre  AS producto,
+    productos.precio_compra,
+    productos.precio_venta,
+    productos.precio_venta - productos.precio_compra    AS ganancia_unitaria,
+    detalle_pedido.cantidad,
+    detalle_pedido.cantidad * (productos.precio_venta - productos.precio_compra) AS ganancia_total,
+    clientes.nombre  AS cliente,
+    clientes.ciudad
+FROM productos
+INNER JOIN detalle_pedido ON detalle_pedido.id_producto = productos.id_producto
+INNER JOIN clientes       ON clientes.id_cliente        = detalle_pedido.id_cliente;

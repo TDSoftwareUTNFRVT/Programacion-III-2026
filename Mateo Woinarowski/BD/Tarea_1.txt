@@ -1,0 +1,48 @@
+ejercicio1:
+ALTER TABLE cliente
+ADD COLUMN telefono VARCHAR(20) NULL;
+UPDATE cliente
+SET telefono = '+543414000001'
+WHERE nombre = 'Ana' AND apellido = 'Garcia';
+
+ejercicio 2:
+SELECT
+    p.nro_pedido,
+    p.nro_cliente,
+    c.ciudad,
+    p.fecha_pedido,
+    p.estado,
+    SUM(ip.cantidad * ip.precio_unitario) AS total_pedido
+FROM pedido p
+JOIN cliente c ON p.nro_cliente = c.nro_cliente
+JOIN item_pedido ip ON p.nro_pedido = ip.nro_pedido
+GROUP BY
+    p.nro_pedido,
+    p.nro_cliente,
+    c.ciudad,
+    p.fecha_pedido,
+    p.estado
+ORDER BY total_pedido DESC;
+
+ejercicio 3:
+SELECT nro_producto, nombre
+FROM producto
+WHERE nro_producto NOT IN (
+    SELECT DISTINCT nro_producto
+    FROM item_pedido
+);
+ejercicio 4:
+CREATE VIEW resumen_clientes AS
+SELECT
+    c.nombre,
+    c.ciudad,
+    COUNT(p.nro_pedido)                   AS cantidad_pedidos,
+    SUM(ip.cantidad * ip.precio_unitario) AS monto_total
+FROM cliente c
+LEFT JOIN pedido p      ON c.nro_cliente  = p.nro_cliente
+LEFT JOIN item_pedido ip ON p.nro_pedido  = ip.nro_pedido
+GROUP BY
+    c.nro_cliente,
+    c.nombre,
+    c.ciudad
+ORDER BY monto_total DESC;

@@ -1,0 +1,77 @@
+<!-- Integrantes: Lautaro Torancio y Octavio Ulagnero -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Juego · UTN</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="vista-menu" class="vista">
+        <div class="menu-contenedor">
+
+            <h1 class="titulo">Trivia Juego</h1>
+
+            <boton-menu-card titulo="HISTORIAL" class="menu-card">
+                <div id="historial">Sin partidas aún</div>
+            </boton-menu-card>
+
+            <boton-menu-card titulo="CATEGORÍA" class="menu-card">
+                <select id="categoria"></select>
+            </boton-menu-card>
+
+            <boton-menu-card titulo="DIFICULTAD" class="menu-card">
+                <select id="dificultad">
+                    <option value="easy">Facil</option>
+                    <option value="medium">Medio</option>
+                    <option value="hard">Dificil</option>
+                </select>
+            </boton-menu-card>
+
+            <btn-jugar texto="JUGAR" id-boton="btn-jugar"></btn-jugar>
+
+        </div>
+    </div>
+    <div id="vista-juego" class="vista oculto">
+        <div class="juego-contenedor">
+
+            <div class="juego-header">
+                <span id="porcentaje-actual">0% aciertos</span>
+                <span id="contador-pregunta">Pregunta -/-</span>
+            </div>
+
+            <div class="caja-pregunta">
+                <p id="pregunta">Cargando...</p>
+            </div>
+
+            <div class="opciones">
+                <opciones-boton letra="A"></opciones-boton>
+                <opciones-boton letra="B"></opciones-boton>
+                <opciones-boton letra="C"></opciones-boton>
+                <opciones-boton letra="D"></opciones-boton>
+            </div>
+
+            <p id="puntaje">Puntaje: 0</p>
+        </div>
+    </div>
+    <div id="vista-resultado" class="vista oculto">
+        <div class="resultado-contenedor">
+            <h2 class="resultado-titulo">¡Juego terminado!</h2>
+
+            <div class="resultado-circulo">
+                <span id="resultado-porcentaje">0%</span>
+                <small>de aciertos</small>
+            </div>
+            <p id="resultado-texto">Respondiste bien 0 de 10 preguntas.</p>
+
+            <btn-jugar texto="VOLVER" id-boton="btn-volver"></btn-jugar>
+
+        </div>
+    </div>
+    <script src="js/components.js"></script>
+    <script src="js/TriviaAPI.js"></script>
+    <script src="js/TriviaGame.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

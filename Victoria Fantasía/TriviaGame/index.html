@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:ital,wght@0,200..800;1,200..800&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script type="module" src="js/main.js"></script>
+    <title>TRIVIA GAME</title>
+</head>
+
+<body>
+    <div id="start-screen" class="full-size opacity-transition">
+        <div class="flex-display column center-xy full-size bg-lightblue">
+            <div class="title-container center-x bg-white shadow-soft border-solid">
+                <h1 class="title font-luckiest-guy font-black">Trivia<br>Game</h1>
+            </div>
+            <div class="difficulty-container flex-display column center-xy full-width">
+                <div class="row center-x">
+                    <p class="subtitle font-bebas-neue">Selecciona una dificultad:</p>
+                </div>
+                <div class="row center-x">
+                    <button id="btn-easy"
+                        class="btn-difficulty bg-white font-black font-karla border-radius-soft">Fácil</button>
+                    <button id="btn-medium"
+                        class="btn-difficulty bg-white font-black font-karla border-radius-soft">Medio</button>
+                    <button id="btn-hard"
+                        class="btn-difficulty bg-white font-black font-karla border-radius-soft">Difícil</button>
+                </div>
+            </div>
+            <div class="categories-container flex-display column center-xy">
+                <div class="row center-x">
+                    <p class="subtitle font-bebas-neue">Selecciona una categoría:</p>
+                </div>
+                <div class="row center-x">
+                    <select name="categories" id="categories"
+                        class="select-category font-karla border-radius-soft shadow-soft">
+                    </select>
+                </div>
+            </div>
+            <div class="btn-play-container row center-x">
+                <button id="btn-start"
+                    class="btn-start-replay bg-white font-black font-karla border-radius-soft">Jugar</button>
+            </div>
+        </div>
+    </div>
+    <div id="loading-screen" class="hidden full-size opacity-transition">
+        <div class="flex-display column center-xy full-size bg-lightblue">
+            <div id="loading-msg" class="loading-msg flex-display column center-xy bg-white border-radius-soft shadow-soft">
+                <p id="loading-questions" class="font-montserrat m-font text-centered"></p>
+            </div>
+        </div>
+    </div>
+    <div id="game-screen" class="hidden full-size opacity-transition">
+        <div class="flex-display column center-xy full-size bg-lightblue">
+            <div class="score-container flex-display center-xy bg-white border-radius-soft">
+                <p id="score" class="text-centered font-karla font-700">Puntaje: 0</p>
+            </div>
+            <div class="trivia-container flex-display column center-xy">
+                <div class="question-container flex-display column center-xy bg-white border-radius-soft shadow-soft">
+                    <p id="current-question" class="font-karla m-font text-centered">[Número de pregunta actual]</p>
+                    <p id="question" class="font-montserrat text-centered font-700">[Contenido de la pregunta]</p>
+                </div>
+                <div id="answers-container" class="answers-container flex-display center-xy">
+                </div>
+            </div>
+            <div id="trivia-error" class="hidden">[Mensaje de error cuando corresponda]</div>
+        </div>
+    </div>
+    <div id="final-screen" class="hidden full-size opacity-transition">
+        <div class="flex-display column center-xy full-size bg-lightblue">
+            <div class="final-message-container flex-display column center-xy border-radius-soft">
+                <p id="final-message" class="final-score-msg font-bebas-neue font-white text-centered font-550"></p>
+                <p id="final-greeting" class="final-greeting-msg font-bebas-neue font-white text-centered font-550">
+                    ¡Gracias por haber jugado!</p>
+            </div>
+            <div class="final-score-container flex-display column center-xy">
+                <p id="final-score" class="final-score text-centered font-karla font-white font-550">[Puntaje final]</p>
+            </div>
+            <div class="last-scores-container flex-display column center-xy bg-white border-radius-soft shadow-soft">
+                <ol id="last-scores" class="last-scores no-bullet-points text-centered font-karla font-black">Últimos
+                    puntajes:
+                </ol>
+            </div>
+            <div class="btn-play-replay-container">
+                <button id="btn-replay"
+                    class="btn-start-replay bg-white font-black font-karla border-radius-soft">Volver a jugar</button>
+            </div>
+        </div>
+    </div>
+    <div id="error-screen" class="hidden full-size opacity-transition">
+        <div class="flex-display column center-xy full-size bg-lightblue">
+            <div class="error-container flex-display column center-xy bg-white border-radius-soft shadow-soft">
+                <p id="error-msg" class="font-montserrat text-centered font-550">Ha ocurrido un error</p>
+            </div>
+            <div class="btn-retry-container">
+                <button id="btn-retry"
+                    class="btn-retry bg-white font-black font-karla border-radius-soft">Reintentar</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+
+
+
+#contenedor {
+    background-color: bisque;
+    padding:10px;
+    display:flex;
+    flex-flow:column nowrap;
+    gap:15px;
+    justify-content: center;
+
+}
+
+#input,#opciones {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    
+}
+
+#pagination{
+    display:flex;
+    flex-flow:row nowrap;
+    gap:10px;
+    justify-content: center;
+}
+.mostrar{
+    visibility: visible;
+}
+
+.ocultar{
+    visibility: hidden;
+}
+
+@media (min-width:600){
+
+    #result{
+        flex-wrap: wrap;
+        flex:1 1 30%;
+    }
+    #input,#opciones {
+        flex:1 1 30%;
+    }
+}
+@media (max-width:600){
+    #result{
+        flex-wrap: wrap;
+        flex:1 1 80%;
+    }
+}
+

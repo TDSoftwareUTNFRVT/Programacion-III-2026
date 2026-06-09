@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Parcial</title>
+    <style>
+        .select,  button{
+            padding: 6px 8px;
+        }
+        #results{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .card{
+            flex-direction: column;
+            flex: auto;
+            box-sizing: border-box;
+            text-align: center;
+            
+        }
+        #pagination{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            flex-direction: column;
+        }
+        @media (min-width: 600px){
+            .card{display:inline-block}
+        }
+    </style>
+</head>
+<body>
+    <div id="pagination">
+        <input>Ingresar búsqueda</input>
+            <div type="text">
+                <select>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+                <button type="button">Buscar</button>
+                <div id="results">resultados</div>
+    </div>
+    <button type="button">siguiente</div>
+    <button type="button">anterior</div>
+    <script>
+    class AuthorCard extends HTMLElement {
+    constructor() {
+        super();
+        this.shadow = this.attachShadow({mode: "open"});
+    }
+
+    static get observedAttributes() {
+        return ["name", "birth-year", "top-work", "photo-url"];
+    }
+
+    connectedCallback() {
+        this.render();
+    }
+
+    attributeChangedCallback() {
+        this.render();
+    }
+
+    render() {
+        const name = this.getAttribute("name");
+        const birthYear = this.getAttribute("birth-year");
+        const topWork = this.getAttribute("top-work");
+        const photoUrl = this.getAttribute("photo-url");
+        this.shadow.innerHTML = `
+            <style>
+                .card {
+                    flex-direction: column;
+                    flex: auto;
+                    box-sizing: border-box;
+                    text-align: center;
+                }
+            </style>
+            <div class="card">
+                <author-card 
+                    name="gabriel garcia" 
+                    birth-year="1927" 
+                    top-work="cien años de soledad"
+                    photo-url="https://cover.openlibrary.org/a/olid/OL27349OF-M.jpg">
+                </author-card>            
+            </div>
+        `;
+    }
+    }
+
+    customElements.define("author-card", AuthorCard);
+    let CurrentPage = 1;
+    let totalPages = 1;
+        async function buscar(query, page = 1, limit = 5){
+            const url =`https://openlibrary.org/search/authors.json?q={query} &page;={page}&limit;={limit}`
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            const resultados = document.getElementById("results");
+            results.innerHTML = "";
+
+            data.array.forEach(element => {
+                const card = document.createElement("author-card");
+                card.setAttribute("birth-year");
+                card.setAttribute("name");
+                card.setAttribute("top-work");
+                card.setAttribute("photo-url");
+                resultados.appendChild(card);
+            });
+            
+        }
+        function Pagination(query,limit){
+            const pag = document.getElementById("pagination");
+            pag.innerHTML = "";
+            const BtnPrevio = document.createElement("button");
+            BtnPrevio.textContent = "anterior";
+            BtnPrevio.disabled = CurrentPage === totalPages;
+            BtnPrevio.onclick = () => buscar(query,CurrentPage - 1, limit);
+
+            const BtnSiguiente = document.createElement("button");
+            BtnSiguiente.textContent = "siguiente";
+            BtnSiguiente.disabled = CurrentPage === totalPages;
+            BtnSiguiente.onclick = () => buscar(query,CurrentPage+1,limit);
+
+            pag.append(BtnPrevio,BtnSiguiente)
+        }
+    </script>
+</body>
+</html>

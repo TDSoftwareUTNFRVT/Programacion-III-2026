@@ -1,0 +1,12 @@
+
+body { font-family: Arial, sans-serif; margin: 20px; }
+#pokemonInfo { margin-top: 20px; padding: 10px; border: 1px solid #ccc; width:400px;}
+#buscador {width: 400px; }
+.center {
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  text-align: center;
+  margin: auto;
+}
+/*#centrado {text-align: center;}*/

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Botón personalizable</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+    <h1>Botón personalizable: <button class="default-button" id="button">Texto de ejemplo</button></h1>
+	
+	<main>
+		<div class="options">
+			<div class="option">
+				<label>Texto:</label>
+					<input type="text" id="text" placeholder="Escriba su texto aquí...">
+			</div>
+			
+			<div class="option">
+				<label>Color de fondo:</label>
+					<select id="color">
+						<option value="white">Blanco</option>
+						<option value="black">Negro</option>
+						<option value="red">Rojo</option>
+						<option value="blue">Azul</option>
+						<option value="green">Verde</option>
+					</select>
+			</div>
+			
+			<div class="option">
+				<label>Color de texto:</label>
+					<select id="colorText">
+						<option value="black">Negro</option>
+						<option value="white">Blanco</option>
+						<option value="red">Rojo</option>
+						<option value="blue">Azul</option>
+						<option value="green">Verde</option>
+					</select>
+			</div>
+			
+			<div class="option">
+				<button id="apply" class="apply">Aplicar</button>
+			</div>
+		</div>
+	</main>
+    <script src="main.js"></script>
+  </body>
+</html>

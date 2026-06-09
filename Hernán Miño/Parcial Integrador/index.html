@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 1</title>
+        <style>
+            .layout{
+            height: 700px ;
+            width: 1500px;
+            flex: 0 0 70.5%;
+            display: flex;
+            flex-wrap: wrap(3);
+            background-color:black;
+            justify-content: center;
+            align-items: center;
+            }
+            .tarjeta{
+            width: 500px;   
+            height: 500px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color:white;
+            color:black;
+            border: 2px solid black;
+            border-radius: 8px;      
+            margin: 2px;
+            }
+
+            .boton{
+             height: 50px;
+             width: 70px;
+             background-color:white;
+             border-color:black;
+             border: radius 10px;
+             justify-content: center;
+             align-items: center;
+             
+            }
+
+            .select{
+             height: 100px;
+             width: 100px;
+             justify-content: center;
+             align-items: center;
+            }
+
+            @media (max-width: 600px) {
+            .layout-fila {
+             flex-direction: column; 
+            }}
+        </style>
+
+        <script>
+            async function cargarAutores() {
+                const respuesta = await fetch(`https://openlibrary.org/search/authors.json?q={query}&page;={page}&limit;={limit}`);
+                const datos = await respuesta.json();
+            }
+       </script>
+    </head>
+    <body>
+     <div Class=layout>
+      <div Class=tarjeta>
+        <div id="results" class="resultados-contenedor">
+        <div class="resultado-item"></div>
+        <div class="resultado-item">Resultado 2</div>
+        <div class="resultado-item">Resultado 3</div>
+    </div>
+      </div>
+       <div Class=tarjeta>
+        <select>
+            <option>resultado 1</option>
+            <option>resultado 2</option>
+            <option>resultado 3</option>
+            <option>resultado 4</option>
+        </select>
+       </div>
+       <div Class=tarjeta>
+        <textarea>Introducir texto..</textarea>
+         <button Class=boton>buscar</button>
+       </div>
+     </div>
+    </body>
+</html>

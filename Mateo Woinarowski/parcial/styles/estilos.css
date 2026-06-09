@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.main_div{
+    background:linear-gradient(to right, rgb(255, 89, 0), rgb(87, 35, 193));
+    width: 100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div_api{
+    width: 40%;
+    height:70vh;
+    background-color: rgb(98, 105, 148);
+    border-radius:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.opciones{
+    width: 100%;
+    height:30% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.resultados{
+    width:100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:20px
+}
+.boton_buscar{
+    width: 20%;
+    height:40px;
+    border-radius: 12px;
+    border:1px solid rgb(65, 30, 155);
+    background-color:rgb(255, 89, 0) ;
+    color: white;
+}
+.boton_buscar:hover{
+    cursor: pointer;
+}
+.ver_opciones{
+    width: 10%;
+    height:20px ;
+    border-radius: 2px;
+    border:1px solid rgb(65, 30, 155);
+    background-color:rgb(255, 89, 0) ;
+    color: white;
+}
+.buscador{
+    width: 30%;
+    height:20px;
+    border-radius: 2px;
+    border:1px solid rgb(65, 30, 155);
+    background-color:rgb(255, 89, 0) ;
+}
+.book-card{
+    width:30%;
+    height:220px;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:12px ;
+}

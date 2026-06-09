@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+    <section class="wrapper">
+        <h1>Buscador de libros</h1>
+        <div class="contenedor-menu">
+            <input type="text" id="entrada_texto" class="entrada_texto">
+            <select name="selector" class="selector" id="selector">
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+            <button id="boton-buscar" class="control-button">Buscar</button>
+        </div>
+        <div id="results" class="results">
+            <h4>Inicia tu camino en el amplio mundo de la literatura</h4>
+        </div>
+        <div id="pagination" class="pagination">
+            <button class="control-button" id="before-button">Anterior</button>
+            <h2 id="page-index"></h2>
+            <button class="control-button" id="after-button">Siguiente</button>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,530 @@
+:root {
+  /* Fondos */
+  --bg-hard: #1d2021;
+  --bg: #282828;
+  --bg-soft: #32302f;
+  --bg-1: #3c3836;
+  --bg-2: #504945;
+  --bg-3: #665c54;
+  --bg-4: #7c6f64;
+
+  /* Textos */
+  --fg: #fbf1c7;
+  --fg-1: #ebdbb2;
+  --fg-2: #d5c4a1;
+  --fg-3: #bdae93;
+  --fg-4: #a89984;
+
+  /* Colores */
+  --red: #cc241d;
+  --red-b: #fb4934;
+  --green: #98971a;
+  --green-b: #b8bb26;
+  --yellow: #d79921;
+  --yellow-b: #fabd2f;
+  --blue: #458588;
+  --blue-b: #83a598;
+  --purple: #b16286;
+  --purple-b: #d3869b;
+  --aqua: #689d6a;
+  --aqua-b: #8ec07c;
+  --orange: #d65d0e;
+  --orange-b: #fe8019;
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-hard);
+  color: var(--fg-1);
+  text-align: center;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+h1 {
+  font-size: 60px;
+  color: var(--fg);
+  margin-top: 50px;
+  text-shadow: 0 0 10px rgba(235, 219, 178, 0.3);
+}
+
+label {
+  font-size: 20px;
+  color: var(--aqua-b);
+  text-shadow: 0 0 10px rgba(235, 219, 178, 0.3);
+}
+
+#titulo {
+  font-size: 40px;
+  text-transform: none;
+  text-shadow: 0 0 10px rgba(235, 219, 178, 0.3);
+}
+
+/* texto*/
+.text {
+  color: var(--fg);
+}
+.text-2 {
+  color: var(--fg-2);
+}
+.text-3 {
+  color: var(--fg-3);
+}
+.text-muted {
+  color: var(--fg-4);
+}
+
+.text-red {
+  color: var(--red-b);
+}
+.text-green {
+  color: var(--green-b);
+}
+.text-yellow {
+  color: var(--yellow-b);
+}
+.text-blue {
+  color: var(--blue-b);
+}
+.text-purple {
+  color: var(--purple-b);
+}
+.text-aqua {
+  color: var(--aqua-b);
+}
+.text-orange {
+  color: var(--orange-b);
+}
+
+/* fondo*/
+.bg-hard {
+  background-color: var(--bg-hard);
+}
+.bg {
+  background-color: var(--bg);
+}
+.bg-soft {
+  background-color: var(--bg-soft);
+}
+.bg-1 {
+  background-color: var(--bg-1);
+}
+.bg-2 {
+  background-color: var(--bg-2);
+}
+.bg-3 {
+  background-color: var(--bg-3);
+}
+.bg-4 {
+  background-color: var(--bg-4);
+}
+
+/* Bordes  */
+.border {
+  border: 1px solid var(--bg-3);
+}
+.border-red {
+  border-color: var(--red-b);
+}
+.border-green {
+  border-color: var(--green-b);
+}
+.border-yellow {
+  border-color: var(--yellow-b);
+}
+.border-blue {
+  border-color: var(--blue-b);
+}
+.border-aqua {
+  border-color: var(--aqua-b);
+}
+.border-orange {
+  border-color: var(--orange-b);
+}
+
+/* Ocultar pantallas */
+.oculto {
+  display: none;
+}
+
+/* CARD   */
+.card {
+  border-radius: 50px;
+  box-shadow: 5px 8px 10px -2px rgba(0, 0, 0, 0.35);
+  color: var(--fg);
+  background: var(--bg-soft);
+  display: inline-block;
+  font-weight: 500;
+  line-height: 70px;
+  margin: 10px;
+  width: min(90vw, 700px);
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid var(--bg-2);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+/* .card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--bg-hard);
+} */
+
+.card-accent-yellow {
+  border-top: 3px solid var(--yellow-b);
+}
+.card-accent-green {
+  border-top: 3px solid var(--green-b);
+}
+.card-accent-red {
+  border-top: 3px solid var(--red-b);
+}
+.card-accent-blue {
+  border-top: 3px solid var(--blue-b);
+}
+.card-accent-purple {
+  border-top: 3px solid var(--purple-b);
+}
+
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+}
+
+#results .error,
+#results .loading {
+  color: var(--yellow-b);
+  font-size: 1.2rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem auto 2rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  #titulo {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    width: calc(100vw - 2rem);
+    height: auto;
+    padding: 1rem;
+  }
+
+  #pantalla-inicio .card {
+    padding: 1rem;
+    height: auto;
+  }
+
+  input,
+  select {
+    width: calc(100vw - 2rem);
+    font-size: 16px;
+  }
+
+  autor-card {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  #results {
+    padding: 0.5rem;
+    max-width: 100%;
+    gap: 0.5rem;
+  }
+
+  .bt_style,
+  .bt_respuesta {
+    width: calc(100vw - 2rem);
+    height: auto;
+    line-height: 2.5rem;
+    font-size: 0.9rem;
+    margin: 0.5rem;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pagination button {
+    width: calc(100vw - 2rem);
+  }
+}
+
+
+.page-info {
+  color: var(--fg-1);
+  font-size: 1rem;
+}
+
+/* logueo */
+
+input {
+  background: var(--bg-1);
+  color: var(--fg-2);
+  border: 2px solid var(--bg-3);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  outline: none;
+  width: min(90vw, 300px);
+  transition: border-color 0.15s ease;
+}
+input:hover {
+  border-color: var(--yellow);
+}
+input:focus {
+  border-color: var(--yellow-b);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--yellow) 22%, transparent);
+}
+input::placeholder {
+  color: var(--fg-4);
+}
+
+select {
+  background: var(--bg-1);
+  color: var(--fg-2);
+  border: 2px solid var(--bg-3);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  width: min(90vw, 120px);
+  transition: border-color 0.15s ease;
+}
+
+select:hover {
+  border-color: var(--yellow);
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--yellow-b);
+}
+/*inicio*/
+#pantalla-inicio .card {
+  height: 320px;
+  padding: 20px 40px;
+}
+
+.juego-card {
+  height: auto;
+  padding: 20px 40px;
+  line-height: normal;
+}
+
+.texto-progreso {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--fg-3);
+  text-transform: none;
+}
+
+.texto-pregunta {
+  font-size: 20px;
+  line-height: 1.4;
+  text-transform: none;
+  color: var(--fg);
+  margin-bottom: 10px;
+}
+
+.contenedor-respuestas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.texto-mensaje {
+  font-size: 16px;
+  margin-top: 10px;
+  min-height: 24px;
+  text-transform: capitalize;
+}
+
+.resultado-card {
+  height: auto;
+  padding: 40px;
+  line-height: normal;
+}
+
+.puntaje-final {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.nombres {
+  margin: 5px 5px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: none;
+  color: var(--fg-1);
+}
+/* BOTONES */
+.bt_style {
+  border-radius: 50px;
+  box-shadow: 5px 8px 10px -2px rgba(0, 0, 0, 0.35);
+  color: var(--fg);
+  display: inline-block;
+  font-weight: 500;
+  line-height: 70px;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.bt_style::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 2px solid var(--orange-b);
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.bt_style:hover::after {
+  inset: 0;
+}
+
+.btn_buscar {
+  width: 400px;
+  height: 70px;
+  background: var(--bg);
+}
+.btn_buscar:hover {
+  background: var(--bg-1);
+  transition: background 0.6s;
+}
+
+/* RESPUESTA */
+.bt_respuesta {
+  width: 400px;
+  height: 70px;
+  background: var(--bg);
+  border-radius: 50px;
+  box-shadow: 5px 8px 10px -2px rgba(0, 0, 0, 0.35);
+  color: var(--fg);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  transition: background 0.2s;
+  margin: 5px;
+}
+.bt_respuesta::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 2px solid var(--fg-1);
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.bt_respuesta:hover::after {
+  inset: 0;
+}
+.bt_respuesta:hover {
+  background: var(--bg-1);
+}
+
+.correcta {
+  background: var(--green) !important;
+  color: var(--fg) !important;
+}
+.incorrecta {
+  background: var(--red) !important;
+  color: var(--fg) !important;
+}
+
+/*  SELECT */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--bg-1);
+  color: var(--fg-2);
+  border: 2px solid var(--bg-3);
+  border-radius: 8px;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  width: 300px;
+  transition: border-color 0.15s ease;
+  text-align: center; 
+}
+select:hover {
+  border-color: var(--yellow);
+}
+select:focus {
+  border-color: var(--yellow-b);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--yellow) 22%, transparent);
+}
+select option {
+  background: var(--bg-1);
+  color: var(--fg);
+}
+
+.select-wrap {
+  position: relative;
+  display: inline-block;
+  margin: 8px;
+  text-align: center;
+}
+/* por si pregunta cesar el "i" es un elemento vacio que lo use para crear un cuadrado
+para despues modificarlo para simular una flecha */
+.select-wrap i {
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 10px);
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-left: 3px solid var(--yellow-b);
+  border-bottom: 3px solid var(--yellow-b);
+  transform: rotate(-45deg);
+  pointer-events: none;
+  transition: transform 0.25s ease;
+}
+.select-wrap select:focus ~ i {
+  transform: rotate(135deg);
+  border-color: var(--orange-b);
+  margin-top: 4px;
+}

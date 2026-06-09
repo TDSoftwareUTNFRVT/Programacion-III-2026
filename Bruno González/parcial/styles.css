@@ -1,0 +1,45 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root {
+    --bg-colour: linear-gradient(#A1FAFF, #8AF9FF);
+    --bg-colour-2: linear-gradient(#CAE4E4, #ACD4D4);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-colour);
+}
+
+.contenedor-menu {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 25%;
+    background: var(--bg-colour-2);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.entrada_texto {
+    width: 95%;
+    padding: 5px;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+

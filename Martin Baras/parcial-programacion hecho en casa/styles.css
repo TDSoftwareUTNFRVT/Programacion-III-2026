@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container{
+    width:100vw;
+    height:100vh;
+    background-color:red;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+.navbar{
+    width: 100%;
+    height: 10vh;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    background: green;
+    padding: 4px;
+    gap: 4px;
+}
+.navbar__inputBox{
+    width:60%;
+    height:100%;
+    border: 2px solid black;
+    background: blue;
+    overflow:hidden;
+
+}
+.navbar__selectLimit{
+    width:20%;
+    height:100%;
+    border: 2px solid black;
+    background: blue;
+    overflow:hidden;
+}
+.navbar__searchButton{
+    width:20%;
+    height:100%;
+    border: 2px solid black;
+    background: blue;
+    overflow:hidden;
+}
+.results{
+    width: 100%;
+    height: 90vh;
+    display:flex;
+    flex-wrap: wrap;
+    overflow:auto;
+    overflow-x:hidden;
+    justify-content:center;
+    align-content:start;
+    border: 2px solid black;
+    background:orange;
+    padding: 4px;
+    gap:4px;
+
+}
+

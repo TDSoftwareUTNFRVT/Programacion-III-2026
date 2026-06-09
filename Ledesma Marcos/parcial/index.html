@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><--ElMasGrande</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/file.jpg" />
+</head>
+
+<body class="body">
+    <h1>Ejercicio 1</h1>
+
+    <div id="pantalla-inicio">
+        <!-- caja re bonita para buscar tu autor favorito -->
+        <div class="card select-wrap">
+            <div>
+                <label id="titulo">Haz tu busqueda </label>
+            </div>
+            <input type="text" id="busqueda" placeholder="Ingrese su busqueda">
+            <!-- selector fachero para mostrar mas o menos -->
+            <select id="opciones">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+            <div class="select-wrap">
+                <button id="buscar" class="bt_style bt_respuesta">Buscar</button>
+            </div>
+        </div>
+    </div>
+    <div id="results" class="results"></div>
+            <span id="page-info" class="page-info">Página 1</span>
+    <!-- botone re bonitos para cambiar de pagina -->
+    <div class="pagination">
+        <button id="anterior" class="bt_style bt_respuesta correcta"> < Anterior</button>
+        <button id="siguiente" class="bt_style bt_respuesta correcta">Siguiente ></button>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

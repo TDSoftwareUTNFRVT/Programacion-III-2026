@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial practica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Buscador de libreria abierta</h1>
+    <p>Busca libros por titulo. Elegi cuantos queres.</p>
+    <div class="barra-busqueda">
+        <input type="text" id="busqueda" placeholder="Buscar...">
+        <select name="cantidad" id="cantidad">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+        <button id="botonBuscar">Buscar</button>
+    </div>
+
+    <div id="resultados"></div>
+    <div id="paginaInfo"></div>
+    <ul class="pagination" id="paginacion"></ul>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

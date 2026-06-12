@@ -1,0 +1,55 @@
+body {
+  font-family: sans-serif;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Pantalla angosta: 1 columna */
+@media (max-width: 600px) {
+  #search-bar {
+    align-items: center;
+    justify-content: center;
+  }
+
+  book-card {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  #results {
+
+    flex-direction: column;
+  }
+}

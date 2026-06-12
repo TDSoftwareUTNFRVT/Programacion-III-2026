@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>BUSCADOR DE LIBROS</h1>
+
+    <div id="search-bar">
+      <input type="text" id="query" placeholder="Buscar libro..." />
+      <select id="limit">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+      </select>
+      <button id="btn-search">Buscar</button>
+    </div>
+
+    <div id="results"></div>
+
+    <div id="pagination">
+      <button id="btn-prev" disabled>Anterior</button>
+      <span id="page-info"></span>
+      <button id="btn-next" disabled>Siguiente</button>
+    </div>
+  </div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>

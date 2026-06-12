@@ -1,0 +1,48 @@
+body{
+    background-color: #80ef80;
+}
+
+
+.container{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+}
+
+#results{
+    display:grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+
+}
+
+@media (min-width: 600px) {
+    #results{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+#buscar{
+    border-radius:15px ;
+    height: 40px;
+}
+
+#paginas{
+    border-radius: 15px;
+    height: 40px;
+    background-color:#fff;
+}
+
+#pagination{
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.btn{
+    border-radius: 15px;
+    height: 40px;
+    background-color:#fff;
+}
+

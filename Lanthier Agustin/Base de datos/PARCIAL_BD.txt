@@ -1,0 +1,127 @@
+Ejercicio 1.a
+---
+
+**Query #1**
+
+    CREATE VIEW vista_pedidos_detalle AS
+    SELECT clientes.razon_social, detalle_pedido.cantidad, detalle_pedido.precio_venta, (detalle_pedido.cantidad * detalle_pedido.precio_venta) AS subtotal
+    FROM detalle_pedido
+    JOIN pedidos ON pedidos.id_pedido = detalle_pedido.id_pedido
+    JOIN clientes ON clientes.id_cliente = pedidos.id_cliente;
+
+---
+**Query #2**
+
+    SELECT * FROM vista_pedidos_detalle
+
+| razon_social        | cantidad | precio_venta | subtotal |
+| ------------------- | -------- | ------------ | -------- |
+| Almacén Don José    | 10       | 1300.0       | 13000.0  |
+| Almacén Don José    | 20       | 950.0        | 19000.0  |
+| Despensa La Esquina | 5        | 2600.0       | 13000.0  |
+| Supermercado Norte  | 15       | 850.0        | 12750.0  |
+| Supermercado Norte  | 8        | 3300.0       | 26400.0  |
+
+---------------------------------------------------------------------------------------------------------------------
+Ejercicio 1.b
+
+**Query #1**
+
+    CREATE VIEW vista_stock_bajo AS
+    SELECT productos.id_producto, productos.nombre, productos.categoria, productos.stock_actual 
+    FROM productos
+    WHERE stock_actual < 50;
+
+---
+**Query #2**
+
+    SELECT * FROM vista_stock_bajo;
+
+| id_producto | nombre             | categoria | stock_actual |
+| ----------- | ------------------ | --------- | ------------ |
+| 7           | Jabón en polvo 3kg | Limpieza  | 40           |
+
+---------------------------------------------------------------------------------------------------------------------
+Ejercicio 1.c
+---
+**Query #1**
+
+    CREATE VIEW vista_pedidos_detalle AS
+        SELECT clientes.razon_social, detalle_pedido.cantidad, detalle_pedido.precio_venta, (detalle_pedido.cantidad * detalle_pedido.precio_venta) AS subtotal
+        FROM detalle_pedido
+        JOIN pedidos ON pedidos.id_pedido = detalle_pedido.id_pedido
+        JOIN clientes ON clientes.id_cliente = pedidos.id_cliente;
+
+---
+**Query #2**
+
+    SELECT razon_social, SUM(subtotal) AS suma_subtotales
+    	FROM vista_pedidos_detalle
+    	GROUP BY razon_social
+    	ORDER BY suma_subtotales DESC;
+
+| razon_social        | suma_subtotales |
+| ------------------- | --------------- |
+| Supermercado Norte  | 39150.0         |
+| Almacén Don José    | 32000.0         |
+| Despensa La Esquina | 13000.0         |
+--------------------------------------------------------------------------------------------------------------------
+Ejercicio 2.a
+
+DELIMITER $$
+
+CREATE TRIGGER 
+trg_actualizar_stock AFTER INSERT
+ON detalle_pedido
+FOR EACH ROW
+BEGIN
+	DECLARE stock_viejo INT;
+	SELECT stock_actual
+	INTO stock_viejo
+	FROM productos
+
+	UPDATE productos
+	SET stock_actual = stock_viejo - NEW.cantidad
+	WHERE id_producto = NEW.id_producto;
+	
+END $$
+
+DELIMITER ;
+
+-----------------------------------------------------------------------------------------------------------------
+Ejercicio 2.b
+
+DELIMITER $$
+
+CREATE TRIGGER 
+trg_auditoria_stock AFTER UPDATE
+ON productos
+FOR EACH ROW
+BEGIN 
+	IF stock_actual =! OLD.stock_actual THEN
+    	INSERT INTO auditoria_stock 
+        (id_producto, stock_anterior, stock_nuevo, fecha_cambio)
+        VALUES 
+        (NEW.id_producto, OLD.stock_actual, NEW.stock_actual, CURRENT_TIMESTAMP);
+        END IF;
+END $$
+DELIMITER;
+-----------------------------------------------------------------------------------------------------------------
+Ejercicio 2.c
+
+SET autocommit = 1;
+START TRANSACTION
+	INSERT INTO pedidos (id_cliente, fecha_pedido, estado) VALUES (4, '2026-06-10', 'CONFIRMADO');
+    SAVEPOINT sp_pedido_creado;
+    INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_venta)
+    VALUES (LAST_INSERT_ID(), (SELECT id_producto FROM productos WHERE nombre = 'Arroz 1kg'), 5, 1300.00);
+    SAVEPOINT sp_detalle_pedido_uno;
+    INSERT INTO detalle_pedido (id_pedido, id_producto, cantidad, precio_venta)
+    VALUES (LAST_INSERT_ID(), (SELECT id_producto FROM productos WHERE nombre = 'Lavandina 1L'), 3, 850.00);
+    SAVEPOINT sp_detalle_pedido_dos;
+    -- Si se necesita hacer un ROLLBACK se utiliza cualquiera
+    --ROLLBACK TO SAVEPOINT sp_pedido_creado
+    --ROLLBACK TO SAVEPOINT sp_detalle_pedido_uno
+    --ROLLBACK TO SAVEPOINT sp_detalle_pedido_dos
+    COMMIT;
+

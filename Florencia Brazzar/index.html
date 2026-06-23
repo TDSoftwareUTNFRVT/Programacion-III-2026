@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Finder</title>
+</head>
+<body>
+    <h1>Music Finder</h1>
+    <br>
+    <input type ="text" id="searchArtist" placeholder="Buscar por artista..">
+    <select id="opciones">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+    </select>
+    <button id="searchButton">Buscar</button>
+    <div id="results"></div>
+    <div id="pagination">
+        <button id="previousButton">Anterior</button>
+        <span id="pageInfo"></span>
+        <button id="nextButton">Siguiente</button>
+    </div>
+
+
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>

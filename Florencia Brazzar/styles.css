@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+#searchArtist {
+    display: flex;
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#searchType {
+    display: flex;
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#searchButton {
+    display: flex;
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#previousButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#nextButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+#pageInfo {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    #searchArtist, #searchType, #searchButton {
+        width: 100%;
+    }
+}

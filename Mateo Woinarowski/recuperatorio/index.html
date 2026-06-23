@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperatorio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="main">
+    <section class="busqueda">
+        <input type="text" id="input-query" placeholder="Ingrese el nombre del artista">
+        <select id="select-limit">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+        </select>
+        <button id="fnc-buscar">Buscar</button>
+        <button id="fnc-limpiar">Limpiar</button>
+    </section>
+    <section id="results">
+
+    </section>
+    <section id="pagination">
+        <button id="btn-anterior">Anterior</button>
+        <span id="contador"></span>
+        <button id="btn-siguiente">Siguiente</button>
+    </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

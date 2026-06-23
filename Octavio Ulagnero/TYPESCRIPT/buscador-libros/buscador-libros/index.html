@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Libros</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f0f4f8;
+            color: #1a202c;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #2b6cb0;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        header h1 { font-size: 1.8rem; }
+
+        search-bar {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .search-btn {
+            padding: 0.6rem 1.2rem;
+            background: #1a365d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .search-btn:hover { background: #153e75; }
+
+        #total {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        main { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+
+        .status {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .status.loading { color: #2b6cb0; }
+        .status.error   { color: #c53030; }
+        .status.welcome { color: #4a5568; }
+
+        #books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        book-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform .15s, box-shadow .15s;
+        }
+
+        book-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,.13);
+        }
+
+        book-card .cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        book-card .info {
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            flex: 1;
+        }
+
+        book-card .book-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        book-card .authors {
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+
+        book-card .year {
+            font-size: 0.75rem;
+            color: #718096;
+        }
+
+        book-card .subjects {
+            font-size: 0.72rem;
+            color: #a0aec0;
+            margin-top: auto;
+        }
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #718096;
+            padding: 3rem;
+            font-size: 1rem;
+        }
+
+        #pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1.1rem;
+            background: #2b6cb0;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .page-btn:hover:not(:disabled) { background: #2c5282; }
+
+        .page-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Buscador de Libros</h1>
+        <search-bar placeholder="Buscar libros..." min-length="3" debounce-ms="500"></search-bar>
+        <span id="total"></span>
+    </header>
+
+    <main>
+        <p id="status" class="status welcome">Ingresá el título, autor o tema de un libro para buscar.</p>
+        <div id="books-grid"></div>
+        <div id="pagination"></div>
+    </main>
+
+    <noscript>
+        <p style="text-align:center;padding:2rem;color:#c53030;font-family:sans-serif">
+            Esta aplicación requiere JavaScript para funcionar.
+        </p>
+    </noscript>
+
+    <script type="module">
+        // ── BaseService ──────────────────────────────────────────────────────────
+        class BaseService {
+            constructor(baseUrl, timeout = 5000) {
+                this.baseUrl = baseUrl;
+                this.timeout = timeout;
+            }
+
+            buildUrl(endpoint, params = {}) {
+                const url = new URL(`${this.baseUrl}${endpoint}`);
+                Object.entries(params).forEach(([key, value]) => {
+                    url.searchParams.append(key, value);
+                });
+                return url.toString();
+            }
+
+            getStatus() {
+                return `Conectado a ${this.baseUrl} (timeout: ${this.timeout}ms)`;
+            }
+        }
+
+        // ── Helpers ──────────────────────────────────────────────────────────────
+        function truncate(text, maxLength = 100) {
+            if (text.length <= maxLength) return text;
+            return text.slice(0, maxLength).trimEnd() + '...';
+        }
+
+        function joinList(items, max = 3) {
+            if (items.length === 0) return 'Sin información';
+            const visible = items.slice(0, max);
+            const remaining = items.length - max;
+            const base = visible.join(', ');
+            return remaining > 0 ? `${base} y ${remaining} más` : base;
+        }
+
+        async function tryCatch(fn) {
+            try {
+                const data = await fn();
+                return [data, null];
+            } catch (err) {
+                const error = err instanceof Error ? err : new Error(String(err));
+                return [null, error];
+            }
+        }
+
+        // ── BookService ──────────────────────────────────────────────────────────
+        class BookService extends BaseService {
+            constructor() {
+                super('https://openlibrary.org', 8000);
+            }
+
+            static getInstance() {
+                if (!BookService._instance) {
+                    BookService._instance = new BookService();
+                }
+                return BookService._instance;
+            }
+
+            async fetchData(endpoint) {
+                const response = await fetch(endpoint);
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status} ${response.statusText}`);
+                }
+                return response.json();
+            }
+
+            async searchPage(query, page, pageSize) {
+                const offset = (page - 1) * pageSize;
+                const url = this.buildUrl('/search.json', {
+                    q: query,
+                    limit: pageSize.toString(),
+                    offset: offset.toString(),
+                    fields: 'key,title,author_name,first_publish_year,cover_i,subject',
+                });
+                const data = await this.fetchData(url);
+                return {
+                    books: data.docs.map(doc => this.mapToBook(doc)),
+                    total: data.numFound,
+                };
+            }
+
+            mapToBook(doc) {
+                return {
+                    id: doc.key,
+                    title: doc.title,
+                    authors: doc.author_name ?? ['Autor desconocido'],
+                    year: doc.first_publish_year ?? null,
+                    coverUrl: doc.cover_i
+                        ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg`
+                        : null,
+                    subjects: doc.subject?.slice(0, 5) ?? [],
+                };
+            }
+        }
+        BookService._instance = null;
+
+        // ── BookCard (Web Component) ─────────────────────────────────────────────
+        const NO_COVER = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='300'%3E%3Crect width='200' height='300' fill='%23e2e8f0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23a0aec0' font-size='13' font-family='sans-serif'%3ESin portada%3C/text%3E%3C/svg%3E`;
+
+        class BookCard extends HTMLElement {
+            constructor() {
+                super();
+                this._book = null;
+            }
+
+            set book(value) {
+                this._book = value;
+                this.render();
+            }
+
+            connectedCallback() {
+                this.render();
+            }
+
+            render() {
+                if (!this._book) return;
+                const { title, authors, year, coverUrl, subjects } = this._book;
+
+                this.innerHTML = `
+                    <img class="cover"
+                         src="${coverUrl ?? NO_COVER}"
+                         alt="Portada de ${this.esc(title)}"
+                         onerror="this.onerror=null;this.src='${NO_COVER}'">
+                    <div class="info">
+                        <h3 class="book-title" title="${this.esc(title)}">${this.esc(truncate(title, 55))}</h3>
+                        <p class="authors">${this.esc(joinList(authors))}</p>
+                        <p class="year">${year ?? 'Año desconocido'}</p>
+                        ${subjects.length > 0
+                            ? `<p class="subjects">${this.esc(joinList(subjects, 3))}</p>`
+                            : ''}
+                    </div>
+                `;
+            }
+
+            esc(s) {
+                return s
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+            }
+        }
+        customElements.define('book-card', BookCard);
+
+        // ── SearchBar (Web Component) ────────────────────────────────────────────
+        class SearchBar extends HTMLElement {
+            constructor() {
+                super();
+                this.opts = { placeholder: 'Buscar libros...', minLength: 3, debounceMs: 500 };
+                this.timer = null;
+            }
+
+            connectedCallback() {
+                this.opts = {
+                    placeholder: this.getAttribute('placeholder') ?? this.opts.placeholder,
+                    minLength:   Number(this.getAttribute('min-length')   ?? this.opts.minLength),
+                    debounceMs:  Number(this.getAttribute('debounce-ms')  ?? this.opts.debounceMs),
+                };
+                this.render();
+                this.attachListeners();
+            }
+
+            render() {
+                this.innerHTML = `
+                    <input type="text"
+                           class="search-input"
+                           placeholder="${this.opts.placeholder}"
+                           aria-label="Buscar libros">
+                    <button type="button" class="search-btn">Buscar</button>
+                `;
+            }
+
+            attachListeners() {
+                const input = this.querySelector('.search-input');
+                const btn   = this.querySelector('.search-btn');
+
+                input.addEventListener('input', () => {
+                    if (this.timer) clearTimeout(this.timer);
+                    const q = input.value.trim();
+                    if (q.length < this.opts.minLength) return;
+                    this.timer = setTimeout(() => this.emit(q), this.opts.debounceMs);
+                });
+
+                input.addEventListener('keydown', (e) => {
+                    if (e.key !== 'Enter') return;
+                    const q = input.value.trim();
+                    if (q.length >= this.opts.minLength) {
+                        if (this.timer) clearTimeout(this.timer);
+                        this.emit(q);
+                    }
+                });
+
+                btn.addEventListener('click', () => {
+                    const q = input.value.trim();
+                    if (q.length >= this.opts.minLength) {
+                        if (this.timer) clearTimeout(this.timer);
+                        this.emit(q);
+                    }
+                });
+            }
+
+            emit(query) {
+                this.dispatchEvent(new CustomEvent('search', { detail: { query }, bubbles: true }));
+            }
+        }
+        customElements.define('search-bar', SearchBar);
+
+        // ── App ──────────────────────────────────────────────────────────────────
+        const PAGE_SIZE = 10;
+
+        const state = {
+            query: '',
+            books: [],
+            isLoading: false,
+            error: null,
+            totalResults: 0,
+        };
+
+        let currentPage = 1;
+
+        const grid       = document.getElementById('books-grid');
+        const pagination = document.getElementById('pagination');
+        const status     = document.getElementById('status');
+        const totalEl    = document.getElementById('total');
+
+        function renderBooks(books) {
+            grid.innerHTML = '';
+            if (books.length === 0) {
+                grid.innerHTML = '<p class="empty">No se encontraron resultados para esta búsqueda.</p>';
+                return;
+            }
+            for (const book of books) {
+                const card = document.createElement('book-card');
+                card.book = book;
+                grid.appendChild(card);
+            }
+        }
+
+        function renderPagination(total, page) {
+            pagination.innerHTML = '';
+            const totalPages = Math.ceil(total / PAGE_SIZE);
+            if (totalPages <= 1) return;
+
+            const prev = document.createElement('button');
+            prev.textContent = '← Anterior';
+            prev.className   = 'page-btn';
+            prev.disabled    = page <= 1;
+            prev.addEventListener('click', () => doSearch(state.query, page - 1));
+
+            const info = document.createElement('span');
+            info.className   = 'page-info';
+            info.textContent = `Página ${page} de ${totalPages}`;
+
+            const next = document.createElement('button');
+            next.textContent = 'Siguiente →';
+            next.className   = 'page-btn';
+            next.disabled    = page >= totalPages;
+            next.addEventListener('click', () => doSearch(state.query, page + 1));
+
+            pagination.append(prev, info, next);
+        }
+
+        async function doSearch(query, page) {
+            currentPage      = page;
+            state.isLoading  = true;
+            state.error      = null;
+
+            status.textContent = 'Buscando...';
+            status.className   = 'status loading';
+            grid.innerHTML     = '';
+            pagination.innerHTML = '';
+
+            const [result, err] = await tryCatch(() =>
+                BookService.getInstance().searchPage(query, page, PAGE_SIZE)
+            );
+
+            state.isLoading = false;
+
+            if (err || !result) {
+                state.error        = err?.message ?? 'Error desconocido';
+                status.textContent = `Error: ${state.error}`;
+                status.className   = 'status error';
+                return;
+            }
+
+            state.books        = result.books;
+            state.totalResults = result.total;
+
+            status.textContent = '';
+            totalEl.textContent = `${result.total.toLocaleString('es-AR')} resultados`;
+
+            renderBooks(result.books);
+            renderPagination(result.total, page);
+        }
+
+        document.addEventListener('search', (e) => {
+            const { query } = e.detail;
+            if (query === state.query && currentPage === 1) return;
+            state.query = query;
+            currentPage = 1;
+            doSearch(query, 1);
+        });
+    </script>
+</body>
+</html>

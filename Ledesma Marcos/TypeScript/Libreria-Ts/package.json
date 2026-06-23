@@ -1,0 +1,14 @@
+{
+  "name": "buscador-libros",
+  "version": "1.0.0",
+  "description": "Buscador de libros con Open Library API — TP Programación III",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

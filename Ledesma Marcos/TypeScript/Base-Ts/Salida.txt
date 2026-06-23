@@ -1,0 +1,9 @@
+❯ comando "node dist/index.js"
+Hola Ana, tienes 25 anyos
+20
+Cesar - usuario
+Cesar - admin
+9
+27
+15
+50

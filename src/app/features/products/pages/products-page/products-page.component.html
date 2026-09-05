@@ -1,0 +1,15 @@
+@if (loading()) {
+    <app-loader />
+} @else if (error()) {
+    <p class="error">{{ error() }}</p>
+    <button (click)="loadPage(page())">Reintentar</button>
+} @else {
+    <div class="searchSection">
+        <input #q type="search" placeholder="Buscar productos…" (keyup.enter)="buscar(q.value)" />
+        <button (click)="buscar(q.value)">Buscar</button>
+    </div>
+
+    <app-product-list [products]="products()" />
+
+    <app-pagination [currentPage]="page()" [totalPages]="totalPages()" (pageChange)="loadPage($event)" />
+}

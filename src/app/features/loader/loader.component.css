@@ -1,0 +1,58 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 90vh;
+    gap: 10px;
+}
+
+.box1, .box2, .box3 {
+    width: 25px;
+    height: 25px;
+    background: black;
+    border-radius: 10px;
+}
+
+.box1 {
+    animation: grow1 0.25s ease-in-out infinite;
+}
+
+.box2 {
+    animation: grow2 0.25s ease-in-out infinite;
+}
+
+.box3 {
+    animation: grow3 0.25s ease-in-out infinite;
+}
+
+@keyframes grow1 {
+    from {
+        transform: scale(0.25);
+    }
+
+    to {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes grow2 {
+    from {
+        transform: scale(0.5);
+    }
+
+    to {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes grow3 {
+    from {
+        transform: scale(0.75);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

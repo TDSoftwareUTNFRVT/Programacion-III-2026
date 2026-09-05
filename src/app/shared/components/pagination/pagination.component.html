@@ -1,0 +1,7 @@
+<nav class="pagination">
+    <button (click)="goTo(currentPage - 1)" [disabled]="currentPage === 1">← Anterior</button>
+
+    <span>{{ currentPage }} / {{ totalPages }}</span>
+
+    <button (click)="goTo(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente →</button>
+</nav>

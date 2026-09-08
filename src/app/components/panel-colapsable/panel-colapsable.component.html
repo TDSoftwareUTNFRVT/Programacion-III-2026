@@ -1,0 +1,11 @@
+<div class="pannel">
+    <div class="pannel-displayer">
+        <button class="display-button" (click)="expand()">
+            <img src="arrow.png">
+        </button>
+        <p class="title"> {{ title }} </p>
+    </div>
+    <div class="pannel-info" #pannelInfo>
+        <ng-content></ng-content>
+    </div>
+</div>

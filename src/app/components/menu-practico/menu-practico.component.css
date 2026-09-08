@@ -1,0 +1,68 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    width: 100%;
+    height: 15vh;
+    padding: 15px 0;
+    background-color: rgb(197, 197, 197);
+    outline: 2px solid gray;
+}
+
+.menu > h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.nav-list-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    list-style: none;
+    text-decoration: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.link {
+    color: rgb(49, 49, 49);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 10px;
+    background-color: rgb(144, 143, 143);
+    border-radius: 10px;
+    transition: all 0.25s;
+}
+
+.link:hover {
+    background-color: rgb(87, 87, 87);
+    color: white;
+}
+
+#hidden {
+    width: 5%;
+    padding: 2px;
+    background: transparent;
+}
+
+#hidden:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    background: rgba(195, 195, 195, 0.528);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 25%;
+    height: 50vh;
+    background-color: rgb(195, 195, 195);
+    border-radius: 10px;
+    outline: 2px solid gray;
+    animation: fade-in 0.5s linear;
+}
+
+h1 {
+    animation: fade-in 0.5s linear;
+}

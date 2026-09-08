@@ -1,0 +1,72 @@
+Ejercicio 1
+
+Objetivo: Crear un componente ModalComponent que sirva para los casos de cancelar un turno, eliminar un paciente o cerrar sesión, pidiendo confirmación
+
+Pasos:
+
+1) Crear el componente ModalComponent (hijo) con un título y una flag visible/oculto configurable desde el componente padre que lo use
+
+2) Definir contenido según la pantalla que use el componente (CON NG-CONTENT)
+
+3) Configurar dos eventos:
+    a- confirmación
+    b- Cancelación
+
+4) Determinar que el foco del teclado se aplique al botón de confirmar del Modal
+
+Procesos considerados por mí
+
+1) Aparte de crear el componente modal y todos los puntos anteriores, debo crear 3 botones más con las diversas acciones que pide el ejercicio, las cuales son:
+    a- Cancelar turno 
+    b- Eliminar un paciente
+    c- Cerrar sesión
+
+
+Ejercicio 2
+
+Objetivo: Crear dos componentes llamados AgendaDiaComponent, encargado de mostrar una agenda como una lista de tareas con tarjetas, dichas tarjetas corresponden a un componente TurnoCardComponent que SOLO se encarga de renderizar datos de un turno y reportar la intención del usuario
+
+Pasos:
+
+1) Crear un componente AgendaDiaComponent que debe:
+    a- Hacer la llamada al backend y recargar la lista si algo cambia
+    b- Reaccionar a eventos de confirmación y cancelación actualizando el estado del turno
+    c- Si un turno es cancelado, los botones de CONFIRMAR y CANCELAR deben quedar inhabilitados
+
+2) Crear un componente TurnoCardComponent que debe:
+    a- Recibir los datos de un turno (hora, paciente y estado) del componente padre
+    b- Al presionar confirmar la tarjeta debe avisarle al padre el turno que se quiere confirmar
+    c- Al presionar cancelar debe pasar lo mismo que el punto anterior
+
+
+Ejercicio 3
+
+Objetivo: Crear un componente tipo "Wizard Assistant" para dar de alta un turno de una forma menos agobiante
+
+Pasos:
+
+1) Crear el componente WizardComponent que debe:
+    a- Renderizar contenido según el paso en el que se encuentra el usuario definido por el padre que lo usa
+    b- Validar el paso actual antes de avanzar al siguiente
+    c- El contenido envuelto debe ser llamado "paso actual" sin saber de qué se trata, solo renderiza
+    d- Debe constar de un botón siguiente que valide el paso consultando al contenido, y un botón anterior para volver por si se quiere cambiar algo
+    e- Debe emitir un evento en el último paso y cuando confirma entregandole al padre los datos recolectados
+    f- El número del paso actual y el título lo configura el padre
+    
+2) Pasos del wizard:
+    a- Selección de paciente (con un for a un array de pacientes).
+    b- Selección de fecha y hora (input tipo date y uno de hora respectivamente)
+    c- Confirmación para enviar los datos al padre
+
+
+Ejercicio 4
+
+Objetivo: Crear un panel colapsable para mostrar el historial de un paciente X con información como sus datos personales, historial de turnos y notas del profesional.
+
+Pasos:
+    1) Crear un componente PanelColapsable que debe:
+        a- Debe recibir un título y el contenido que se va a mostrar cuando está expandido
+        b- Expandirse o contraerse haciendo click en su encabezado
+        c- Mostrar contenido distinto según lo determine el padre que lo contiene
+        d- Debe poder arrancar contraido o expandido según lo determine el padre
+        e- El panel debe retener su estado si se cambia de uno a otro

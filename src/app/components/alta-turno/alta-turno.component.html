@@ -1,0 +1,45 @@
+<app-menu-practico></app-menu-practico>
+<div class="wrapper">
+    <h1>Ejercicio 3 - Wizard de alta de turno en pasos</h1>
+    <app-wizard
+        [patientSelected]="patientSelected"
+        [date]="dateSelected"
+        [time]="timeSelected"
+
+        [currentStep]="pasoActual"
+
+        (MoveToNextStep)="updateStep($event)"
+        (MoveToPreviousStep)="updateStep($event)"
+        (ConfirmarAlta)="recibirAlta($event)"
+        >
+
+        <div class="current-content" *ngIf="pasoActual === 0">
+            <div class="patient-card" *ngFor="let patient of patients">
+                <p> {{ patient.name }}  {{ patient.surname }}</p>
+                <p>DNI {{ patient.dni }}</p>
+                <button class="select-button" (click)="selectPatient(patient.id)">+</button>
+            </div>
+        </div>
+
+        <div class="current-content" *ngIf="pasoActual === 1">
+            <div class="date-form">
+                <p>Fecha</p>
+                <input type="date" class="input-date" #inputDate (input)="setSelectedDate()">
+                <p>Hora</p>
+                <input type="time" class="input-time" #inputTime (input)="setSelectedTime()">
+            </div>
+        </div>
+
+        <div class="current-content" *ngIf="pasoActual === 2">
+            <div *ngIf="alta" class="alta-confirmada">
+                <p>¡Turno confirmado con éxito!</p>
+                <p>Paciente: {{ alta.patient.name }} {{ alta.patient.surname }} </p>
+                <p>Fecha de turno: {{ alta.date }} </p>
+                <p>Hora de turno: {{ alta.time }} </p>
+            </div>
+        </div>
+
+        <p *ngIf="!alta">Paciente seleccionado:  {{ patientSelected.name }} {{ patientSelected.surname }} </p>
+        <p *ngIf="pasoActual >= 1 && !alta">Fecha {{ dateSelected }} - Hora {{ timeSelected }} </p>
+    </app-wizard>
+</div>

@@ -1,0 +1,23 @@
+.wizard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    background-color: rgb(199, 199, 199);
+    outline: 2px solid gray;
+    border-radius: 10px;
+    width: 25vw;
+    height: 50vh;
+    animation: fade-in 0.5s linear;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}

@@ -1,0 +1,18 @@
+<app-menu-practico></app-menu-practico>
+<div class="cards-container">
+    <h1>Ejercicio 2 - Tarjetas de turno en la agenda diaria</h1>
+    <div class="cards">
+        <app-turno-card
+        
+        *ngFor="let shift of shifts"
+
+        (confirm)="handleState(shift.id, $event)"
+        (cancel)="handleState(shift.id, $event)"
+
+        [time]="shift.time"
+        [patient]="shift.patient"
+        [state]="shift.state"
+
+        ></app-turno-card>
+    </div>
+</div>

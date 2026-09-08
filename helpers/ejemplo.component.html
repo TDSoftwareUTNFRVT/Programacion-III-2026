@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 *ngIf="mostrar_nombre; else elseBlock"> {{ nombre }} </h2>
+    <ng-template #elseBlock>
+        <h2>Nombre Oculto 🕵️</h2>
+    </ng-template>
+
+    <button
+        class="button" 
+        (click)="mostrarNombre()">
+        Click Me!</button>
+
+    <div *ngIf="mostrar_nombre" class="caja">
+        <p>Contenido dentro de la caja</p>
+    </div>
+
+    <div class="fruits-list">
+        <h2>Frutas 🍎</h2>
+        <li *ngFor="let fruta of frutas">
+            <p *ngIf="fruta != 'Uva'"> {{ fruta }} </p>
+        </li>
+    </div>
+</div>

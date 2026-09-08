@@ -1,0 +1,7 @@
+<div class="header-container">
+    <app-logo></app-logo>
+    <app-data-usuario [item]="currentItem" [nombre_usuario]="nombre_usuario"></app-data-usuario>
+    <app-leyenda
+        (alHacerClick)="recibirMensajeDesdeElHijo($event)"
+    ></app-leyenda>
+</div>

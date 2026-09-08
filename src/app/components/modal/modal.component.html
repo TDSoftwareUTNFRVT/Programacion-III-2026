@@ -1,0 +1,12 @@
+<dialog [open]="visible" *ngIf="visible">
+    <div class="dialog-container">
+        <div class="close-button-container">
+            <button class="close-button" (click)="cancelEvent_()">X</button>
+        </div>
+        <p> {{ title }} </p>
+        <ng-content></ng-content>
+        <form method="dialog">
+            <button class="button-2" (click)="confirmEvent_()">Confirmar</button>
+        </form>
+    </div>
+</dialog>

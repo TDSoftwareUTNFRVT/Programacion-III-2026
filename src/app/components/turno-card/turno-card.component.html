@@ -1,0 +1,11 @@
+<div class="card" #card>
+    <div class="card-info">
+        <p>Hora: {{ time }} </p>
+        <p>Paciente: {{ patient }} </p>
+        <p>Estado: {{ state }} </p>
+    </div>
+    <div class="buttons-container">
+        <button class="button" (click)="confirmShift()" #confirmButton>Confirmar</button>
+        <button class="button" (click)="cancelShift()" #cancelButton>Cancelar</button>
+    </div>
+</div>

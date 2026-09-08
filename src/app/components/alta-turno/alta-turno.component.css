@@ -1,0 +1,95 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    background: rgba(195, 195, 195, 0.528);
+}
+.current-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    gap: 10px;
+    padding: 15px;
+}
+
+.patient-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    gap: 10px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    outline: 2px solid gray;
+    transition: all 0.25s;
+}
+
+.select-button {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    color: gray;
+}
+
+.select-button:hover {
+    color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+
+.date-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    width: 30vw;
+    height: 10vh;
+    gap: 10px;
+}
+
+.input-date {
+    border: none;
+    border-radius: 5px;
+}
+
+.input-time {
+    width: 20%;
+}
+
+.alta-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50vw;
+    height: 20vh;
+}
+
+.alta-confirmada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    outline: 2px solid gray;
+    background-color: rgb(214, 214, 214);
+}
+
+h1 {
+    animation: fade-in 0.5s linear;
+}

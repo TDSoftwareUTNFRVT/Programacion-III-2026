@@ -1,0 +1,27 @@
+<app-modal
+    [title]="modalTitle"
+    [visible]="modalIsVisible"
+    (confirmEvent)="confirm($event)"
+    (cancelEvent)="cancel($event)"
+    >
+    <div *ngIf="modalRequired === 'cancelShift'">
+        <p>¿Desea cancelar el turno?</p>
+    </div>
+    <div *ngIf="modalRequired === 'deletePatient'">
+        <p>¿Desea eliminar al paciente {{ patient.name }} {{ patient.surname }} ?</p>
+        <p>DNI del paciente a eliminar: {{ patient.dni }} </p>
+    </div>
+    <div *ngIf="modalRequired === 'logOut'">
+        <p>¿Desea cerrar sesión?</p>
+    </div>
+</app-modal>
+<app-menu-practico></app-menu-practico>
+<div class="wrapper">
+    <h1>Ejercicio 1 - Modal de confirmación reutilizable</h1>
+    <div class="buttons">
+        <p>Acción realizada: {{ currentAction }} </p>
+        <button class="button" (click)="toggleModal('cancelShift', 'Eliminación de turno')">Cancelar Turno</button>
+        <button class="button" (click)="toggleModal('deletePatient', 'Eliminación de paciente')">Eliminar Paciente</button>
+        <button class="button" (click)="toggleModal('logOut', 'Cierre de Sesión')">Cerrar Sesión</button>
+    </div>
+</div>

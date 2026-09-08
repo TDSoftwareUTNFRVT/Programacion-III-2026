@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    background-color: rgb(220, 220, 220);
+    outline: 2px solid gray;
+    border-radius: 10px;
+    border-right: 3px solid gray;
+    transition: all 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    background-color: rgb(205, 205, 205);
+}
+
+.card-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px;
+}
+
+.button:hover {
+    background-color: rgb(66, 66, 66);
+    color: white;
+    box-shadow: none;
+}

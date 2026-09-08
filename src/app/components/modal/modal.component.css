@@ -1,0 +1,63 @@
+dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.427);
+}
+
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 35%;
+    height: 100%;
+    padding: 25px;
+    gap: 20px;
+    background-color: rgb(205, 205, 205);
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+.close-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    width: 95%;
+}
+
+.button-2 {
+    width: 10vw;
+    padding: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.25s;
+}
+
+.button-2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 0 0 gray;
+    cursor: pointer;
+}
+
+.close-button {
+    padding: 10px;
+    background-color: rgb(255, 119, 119);
+    border: 2px solid rgb(245, 78, 78);
+    color: rgb(121, 0, 0);
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.25s;
+}
+
+.close-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 0 0 rgb(245, 78, 78);
+    cursor: pointer;
+}

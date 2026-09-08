@@ -1,0 +1,23 @@
+<div class="wizard-container">
+    <ng-content></ng-content>
+    <div class="buttons-container">
+        <button 
+        class="button"
+        (click)="MoveToPreviousStep_()"
+        #beforeButton
+        >Anterior</button>
+
+        <button 
+        class="button"
+        (click)="esValido()"
+        #nextButton
+        >Siguiente</button>
+
+        <button 
+        class="button" 
+        (click)="confirmarAlta_()" 
+        *ngIf="currentStep === 2"
+        #confirmButton
+        >Confirmar</button>
+    </div>
+</div>

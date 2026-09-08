@@ -1,0 +1,48 @@
+<app-menu-practico></app-menu-practico>
+<div class="sheet">
+    <div class="patients-displayer">
+        <p class="title">Pacientes</p>
+        <div class="patients-container">
+            <div class="patient-card" *ngFor="let patient of patients">
+                <p>{{ patient.name }} {{ patient.surname }} </p>
+                <button class="select-button"
+                (click)="selectPatient(patient.id)"
+                >
+                    <img src="select.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="pannels-container">
+        <p class="title">Ejercicio 4 — Panel colapsable de historial de paciente — Información del paciente seleccionado</p>
+        <div class="pannels">
+            <app-panel-colapsable 
+            [title]="'Datos Personales'"
+            [itIsExpanded]="patientDataExpanded"
+            (expanded)="expandPannel('patient-data', $event)"
+            >
+            <p *ngIf="selectedPatient">Nombre del paciente: {{ selectedPatient.name }} </p>
+            <p *ngIf="selectedPatient">Apellido del paciente: {{ selectedPatient.surname }} </p>
+            <p *ngIf="selectedPatient">DNI del paciente: {{ selectedPatient.dni }} </p>
+            </app-panel-colapsable>
+            <app-panel-colapsable
+            [title]="'Historial de turnos'"
+            [itIsExpanded]="historialTurnosExpanded"
+            (expanded)="expandPannel('historial-turnos', $event)"
+            >
+            <div *ngIf="selectedPatient">
+                <p *ngFor="let turno of selectedHistory.visitas">Turno: {{ turno }} </p>
+            </div>
+            </app-panel-colapsable>
+            <app-panel-colapsable
+            [title]="'Notas del profesional'"
+            [itIsExpanded]="notasDelProfesionalExpanded"
+            (expanded)="expandPannel('notas-del-profesional', $event)"
+            >
+            <div *ngIf="selectedPatient">
+                <p> {{ notaProfesionalSeleccionada }} </p>
+            </div>
+            </app-panel-colapsable>
+        </div>
+    </div>
+</div>

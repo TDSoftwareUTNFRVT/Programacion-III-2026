@@ -1,0 +1,33 @@
+.tarjeta {
+  display: flex;
+  flex-direction: row;
+  max-width: 600px;
+  margin: 2rem auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.tarjeta-img {
+  width: 40%;
+  object-fit: cover;
+}
+
+.tarjeta-contenido {
+  padding: 1rem;
+  width: 60%;
+}
+
+/* Responsivo: en pantallas chicas apilamos verticalmente */
+@media (max-width: 600px) {
+  .tarjeta {
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  .tarjeta-img,
+  .tarjeta-contenido {
+    width: 100%;
+  }
+}

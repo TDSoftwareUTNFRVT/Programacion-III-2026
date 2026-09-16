@@ -74,57 +74,6 @@ BEGIN
 END$$
 DELIMITER ;
 
--- ejercicio C.1
-
-DELIMITER $$
-CREATE PROCEDURE sp_registrar_pago(
-  IN p_id_cuota INT,
-  IN p_medio VARCHAR(20),
-  IN p_fecha_pago DATE,
-  OUT p_monto_cobrado DECIMAL(10,2)
-)
-BEGIN
-  DECLARE v_estado ENUM('PENDIENTE','PAGADA');
-  DECLARE v_id_socio INT;
-  DECLARE EXIT HANDLER FOR SQLEXCEPTION
-  BEGIN
-    ROLLBACK;
-    RESIGNAL;
-  END;
-
-  SELECT estado, id_socio INTO v_estado, v_id_socio
-  FROM cuotas
-  WHERE id_cuota = p_id_cuota;
-
-  IF v_estado IS NULL THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La cuota no existe';
-  END IF;
-
-  IF v_estado = 'PAGADA' THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La cuota ya se encuentra pagada';
-  END IF;
-
-  START TRANSACTION;
-  SET p_monto_cobrado = fn_recargo(p_id_cuota, p_fecha_pago);
-
-  -- ORDEN 1
-  UPDATE cuotas SET estado = 'PAGADA'
-  WHERE id_cuota = p_id_cuota;
-
-  -- ORDEN 2
-  INSERT INTO pagos(id_cuota, fecha_pago, monto, medio)
-  VALUES (p_id_cuota, p_fecha_pago, p_monto_cobrado, p_medio);
-
-  -- ORDEN 3
-  IF (SELECT estado FROM socios WHERE id_socio = v_id_socio) = 'SUSPENDIDO'
-     AND fn_deuda_socio(v_id_socio) = 0 THEN
-    UPDATE socios SET estado = 'ACTIVO'
-    WHERE id_socio = v_id_socio;
-  END IF;
-  COMMIT;
-END$$
-DELIMITER ;
-
 -- ejercicio parte D
 
 DELIMITER $$
